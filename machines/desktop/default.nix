@@ -53,6 +53,19 @@
   programs.hyprland.enable = true;
   programs.fish.enable = true;
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd ${pkgs.bash}/bin/bash";
+      };
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "${userName}";
+      };
+    };
+  };
+
   users.users.${userName} = {
     isNormalUser = true;
     extraGroups = [
