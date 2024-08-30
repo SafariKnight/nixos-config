@@ -1,3 +1,18 @@
-FLAKE_NAME=${1:-"desktop"}
+FLAKE_NAME="desktop"
+OPERATION="switch"
+ENABLE_TRACE=false
 
-sudo nixos-rebuild switch --flake $(pwd)#$FLAKE_NAME --option eval-cache false $2
+while getopts 'o:f:t' flag; do
+  case "${flag}" in
+    o) OPERATION=${OPTARG} ;;
+    f) FLAKE_NAME=${OPTARG} ;;
+    t) ENABLE_TRACE=true ;;
+  esac
+done
+
+COMMAND="sudo nixos-rebuild $OPERATION --flake $(pwd)#$FLAKE_NAME --option eval-cache false"
+
+if [ $ENABLE_TRACE == true ]; then
+  COMMAND="$COMMAND --show-trace"
+fi
+eval $COMMAND

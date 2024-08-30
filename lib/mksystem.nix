@@ -19,6 +19,7 @@ nixpkgs.lib.nixosSystem {
       nixpkgs = {
         overlays = [
           outputs.overlays.stable-packages
+          outputs.overlays.additions
           inputs.nur.overlay
         ];
         config = {

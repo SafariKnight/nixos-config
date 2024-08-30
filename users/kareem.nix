@@ -13,15 +13,15 @@
     packages = [ ];
     file = { };
     sessionVariables = {
-      HYPRCURSOR_SIZE = 32;
-      XCURSOR_SIZE = 32;
+      HYPRCURSOR_SIZE = 24;
+      XCURSOR_SIZE = 24;
       QT_QPA_PLATFORMTHEME = "qt6ct";
     };
 
     pointerCursor = {
-      name = "Posy_Cursor_Black";
-      size = 32;
-      package = pkgs.posy-cursors;
+      name = "Bibata-Nord";
+      package = pkgs.bibata-nord;
+      size = 24;
       x11.enable = true;
       gtk.enable = true;
     };
