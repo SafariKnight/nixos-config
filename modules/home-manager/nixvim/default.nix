@@ -3,15 +3,22 @@ let
   helper = config.lib.nixvim;
 in
 {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
-  programs.nixvim = {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./options.nix
+  ];
+  programs.nixvim =
+  {
     enable = true;
     defaultEditor = true;
+    luaLoader.enable = true;
+    # performance = {
+    #   byteCompileLua.enable = true;
+    # };
 
-    clipboard = {
-      register = "unnamedplus";
-      providers.wl-copy.enable = true;
-    };
+    viAlias = true;
+    vimAlias = true;
+
     colorschemes.nord.enable = true;
   };
 }
