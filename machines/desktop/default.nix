@@ -13,8 +13,6 @@
   ];
 
   console = {
-    font = "ter-20n";
-    packages = [pkgs.terminus_font];
     useXkbConfig = true;
     earlySetup = false;
   };
