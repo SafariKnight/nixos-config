@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   outputs,
   userName,
@@ -10,13 +11,43 @@
   imports = [
     ./../../modules/nixos
   ];
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelParams = [ "amdgpu" ];
+  console = {
+    font = "ter-132n";
+    packages = [pkgs.terminus_font];
+    useXkbConfig = true;
+    earlySetup = false;
+  };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    consoleLogLevel = 0;
+    supportedFilesystems = [ "ntfs" ];
+    initrd.verbose = false;
+    plymouth.enable = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = [ "amdgpu" ];
+    kernelParams = [
+      "amdgpu"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "i915.fastboot=1"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+
+    loader = {
+      timeout = lib.mkDefault 0;
+      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        configurationLimit = 100;
+      };
+    };
+  };
 
   networking.hostName = "kareem-nixos";
   networking.networkmanager.enable = true;
@@ -58,9 +89,10 @@
     settings = {
       default_session = {
         command = "${pkgs.greetd.greetd}/bin/agreety --cmd ${pkgs.bash}/bin/bash";
+	user = "${userName}";
       };
       initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.hyprland}/bin/Hyprland > /dev/null";
         user = "${userName}";
       };
     };
@@ -79,7 +111,5 @@
   };
 
   ### Mount Partions ###
-  boot.supportedFilesystems = [ "ntfs" ];
-
   swapDevices = [ { device = "/dev/disk/by-label/Swap"; } ];
 }
