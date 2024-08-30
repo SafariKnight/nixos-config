@@ -14,6 +14,9 @@
       debug = {
         disable_logs = false; # why is this disabled by default
       };
+      exec-once = [
+        "{pkgs.dunst}/bin/dunst"
+      ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 

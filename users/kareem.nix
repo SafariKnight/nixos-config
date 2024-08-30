@@ -20,6 +20,7 @@
 
     pointerCursor = {
       name = "Bibata-Nord";
+      # name = "default";
       package = pkgs.bibata-nord;
       size = 24;
       x11.enable = true;
