@@ -10,5 +10,6 @@
     ./starship.nix
     ./dunst.nix
     ./nixvim
+    # ./ags
   ];
 }

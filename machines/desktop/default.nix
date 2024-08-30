@@ -69,6 +69,7 @@
     nixfmt-rfc-style
     yazi
     tree
+    pavucontrol
   ];
 
   fonts.packages = with pkgs; [
