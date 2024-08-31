@@ -11,7 +11,6 @@
         idle_threshold = "5000ms";
       };
 
-
       # urgency_low = {
       #   background = "#1e1e2e";
       #   foreground = "#cdd6f4";

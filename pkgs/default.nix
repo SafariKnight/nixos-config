@@ -1,3 +1,3 @@
 pkgs: {
-  bibata-nord = pkgs.callPackage ./bibata-nord.nix {};
+  bibata-nord = pkgs.callPackage ./bibata-nord.nix { };
 }

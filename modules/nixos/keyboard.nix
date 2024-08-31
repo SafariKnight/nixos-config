@@ -1,8 +1,7 @@
 { config, lib, ... }:
 {
   options = {
-    modules.cmk-keyboard.enable =
-      lib.mkEnableOption "Set Keyboard Layout to Colemak CAWS";
+    modules.cmk-keyboard.enable = lib.mkEnableOption "Set Keyboard Layout to Colemak CAWS";
   };
   config = lib.mkIf config.modules.cmk-keyboard.enable {
     services.xserver.xkb.extraLayouts.cmk = {

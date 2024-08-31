@@ -1,8 +1,7 @@
 { config, lib, ... }:
 {
   options = {
-    modules.pipewire.enable = 
-      lib.mkEnableOption "Enable Pipewire for Audio";
+    modules.pipewire.enable = lib.mkEnableOption "Enable Pipewire for Audio";
   };
   config = lib.mkIf config.modules.pipewire.enable {
     services.pipewire = {

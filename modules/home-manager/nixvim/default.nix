@@ -7,8 +7,7 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
   ];
-  programs.nixvim =
-  {
+  programs.nixvim = {
     enable = true;
     defaultEditor = true;
     luaLoader.enable = true;

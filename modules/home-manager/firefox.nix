@@ -212,7 +212,7 @@
               definedAliases = [ "@brave" ];
             };
             "Bing".metaData.hidden = true;
-            "Google".metaData.hidden= true;
+            "Google".metaData.hidden = true;
           };
         };
       };

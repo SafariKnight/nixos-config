@@ -10,7 +10,7 @@
     homeDirectory = "/home/kareem";
     stateVersion = "24.05";
 
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     file = { };
     sessionVariables = {
       HYPRCURSOR_SIZE = 24;
