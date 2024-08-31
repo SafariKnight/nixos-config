@@ -11,5 +11,6 @@
     ./dunst.nix
     ./nixvim
     # ./ags
+    ./mpv.nix
   ];
 }

@@ -6,6 +6,7 @@
     userEmail = "safariknight2@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
+      advice.addIgnoredFile = false;
     };
     aliases = {
       l = "log --oneline";
