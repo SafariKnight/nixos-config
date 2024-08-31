@@ -71,6 +71,8 @@
     tree
     pavucontrol
     libnotify
+    kdePackages.ark
+    peazip
   ];
 
   fonts.packages = with pkgs; [
