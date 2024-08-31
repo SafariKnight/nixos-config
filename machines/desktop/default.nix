@@ -73,6 +73,8 @@
     libnotify
     kdePackages.ark
     p7zip
+    qalculate-gtk
+    libqalculate
   ];
 
   fonts.packages = with pkgs; [
