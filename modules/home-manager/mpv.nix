@@ -3,6 +3,10 @@
   home.packages = [ pkgs.gandhi-sans ];
   programs.mpv = {
     enable = true;
+    scripts = with pkgs.mpvScripts; [
+      uosc
+      thumbfast
+    ];
     config = {
       profile = "gpu-hq";
       gpu-api = "vulkan";
