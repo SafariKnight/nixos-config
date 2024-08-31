@@ -152,6 +152,9 @@
         "$mod, P, pseudo,"
         "$mod, S, togglesplit,"
 
+        # Show the time
+        "$mod SHIFT, U, exec, ${pkgs.dunst}/bin/dunstify \"$(date)\""
+
         # Move focus with mod + hjkl
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
