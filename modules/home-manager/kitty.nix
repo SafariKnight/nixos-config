@@ -2,11 +2,11 @@
 {
   programs.kitty = {
     enable = true;
-    font = {
-      name = "JetBrains Mono Medium";
-      size = 11;
-    };
-    theme = "Nord";
+    # font = {
+    #   name = "JetBrains Mono Medium";
+    #   size = 11;
+    # };
+    # theme = "Nord";
     shellIntegration.enableFishIntegration = true;
     settings = {
       cursor_shape = "beam";
@@ -14,8 +14,7 @@
       scrollback_lines = 5000;
       enable_audio_bell = "no";
       confirm_os_window_close = 0;
-      background_opacity = 9;
-      background_blur = 64;
+      # background_opacity = 9;
       shell = "fish";
     };
     extraConfig = ''

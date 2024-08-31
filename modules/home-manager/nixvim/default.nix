@@ -12,13 +12,14 @@ in
     enable = true;
     defaultEditor = true;
     luaLoader.enable = true;
-    # performance = {
-    #   byteCompileLua.enable = true;
-    # };
+    performance = {
+      byteCompileLua.enable = true;
+    };
 
     viAlias = true;
     vimAlias = true;
 
+    # colorscheme is handled by stylix now
     colorschemes.nord.enable = true;
   };
 }

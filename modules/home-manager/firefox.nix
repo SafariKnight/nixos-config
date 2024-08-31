@@ -14,6 +14,7 @@
         settings = {
           "browser.tabs.closeWindowWithLastTab" = false;
           "general.autoScroll" = true;
+          "ui.prefersReducedMotion" = 1;
 
           # Betterfox
           "content.notify.interval" = 100000;

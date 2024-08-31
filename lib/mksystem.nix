@@ -27,6 +27,8 @@ nixpkgs.lib.nixosSystem {
         };
       };
     }
+    inputs.stylix.nixosModules.stylix
+    ../theme/nord.nix
     {
       nix.settings.experimental-features = [
         "nix-command"

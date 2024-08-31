@@ -21,13 +21,13 @@
     consoleLogLevel = 0;
     supportedFilesystems = [ "ntfs" ];
     initrd.verbose = false;
+    initrd.systemd.enable = true;
     plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "amdgpu" ];
     kernelParams = [
       "amdgpu"
       "quiet"
-      "splash"
       "boot.shell_on_fail"
       "i915.fastboot=1"
       "loglevel=3"
@@ -70,6 +70,7 @@
     yazi
     tree
     pavucontrol
+    libnotify
   ];
 
   fonts.packages = with pkgs; [
@@ -88,7 +89,7 @@
     settings = {
       default_session = {
         command = "${pkgs.greetd.greetd}/bin/agreety --cmd ${pkgs.bash}/bin/bash";
-	user = "${userName}";
+        user = "${userName}";
       };
       initial_session = {
         command = "${pkgs.hyprland}/bin/Hyprland > /dev/null";

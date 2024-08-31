@@ -1,10 +1,15 @@
 {
-  pkgs,
   lib,
   config,
+  pkgs,
   ...
 }:
 {
+  home.packages = with pkgs; [
+    grimblast
+    hyprpicker
+    xdg-user-dirs
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -15,7 +20,7 @@
         disable_logs = false; # why is this disabled by default
       };
       exec-once = [
-        "{pkgs.dunst}/bin/dunst"
+        "${pkgs.dunst}/bin/dunst"
       ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -23,8 +28,8 @@
         gaps_in = 2;
         gaps_out = 3;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        # "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        # "col.inactive_border" = "rgba(595959aa)";
 
         layout = "dwindle";
 
@@ -45,10 +50,10 @@
         drop_shadow = "yes";
         shadow_range = 2;
         shadow_render_power = 10;
-        "col.shadow" = "rgba(1a1a1aee)";
+        # "col.shadow" = "rgba(1a1a1aee)";
       };
       animations = {
-        enabled = true;
+        enabled = false;
         bezier = [
           "linear, 0, 0, 1, 1"
           "md3_standard, 0.2, 0, 0, 1"
@@ -200,8 +205,8 @@
         "$mod, mouse_up, workspace, e-1"
 
         # Screenshot
-        "$mod, Print, exec, grimblast copysave screen $(xdg-user-dir PICTURES)/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
-        "        , Print, exec, grimblast --freeze copysave area $(xdg-user-dir PICTURES)/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
+        "$mod, Print, exec, grimblast copysave screen $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
+        "        , Print, exec, grimblast --freeze copysave area $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
         # Fullscreen
         "$mod, F, fullscreen"
 
