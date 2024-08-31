@@ -72,7 +72,7 @@
     pavucontrol
     libnotify
     kdePackages.ark
-    peazip
+    p7zip
   ];
 
   fonts.packages = with pkgs; [
