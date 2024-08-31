@@ -10,7 +10,8 @@
     ./starship.nix
     ./dunst.nix
     ./nixvim
-    # ./ags
+    ./ags
+    ./tmux.nix
     ./mpv.nix
   ];
 }
