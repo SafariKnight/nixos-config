@@ -14,6 +14,9 @@
 
     # rofi.enable = false;
     targets.nixvim.enable = false;
+    opacity = {
+      terminal = 0.9;
+    };
 
     fonts = {
       monospace = {
