@@ -36,6 +36,7 @@
       nixConfig = {
         warn-dirty = false;
       };
+
       overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
         desktop = mkSystem "desktop" {
