@@ -6,7 +6,7 @@
   config = lib.mkIf config.modules.cmk-keyboard.enable {
     services.xserver.xkb.extraLayouts.cmk = {
       description = "Colemak DH with Wide and Symbol mods (Colemak CAWS)";
-      symbolsFile = ./cmk;
+      symbolsFile = ./../../assets/cmk;
       languages = [ "eng" ];
     };
     services.xserver.xkb = {
