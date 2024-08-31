@@ -25,14 +25,16 @@ FLAKE_NAME="desktop"
 OPERATION="switch"
 ENABLE_TRACE=false
 FAST=false
+COMMIT_MESG=$(nixos-rebuild list-generations | rg current)
 
 
-while getopts 'o:f:ta' flag; do
+while getopts 'o:f:tac:' flag; do
   case "${flag}" in
     o) OPERATION=${OPTARG} ;;
     f) FLAKE_NAME=${OPTARG} ;;
     t) ENABLE_TRACE=true ;;
     a) FAST=true ;;
+    c) COMMIT_MSEG=${OPTARG} ;;
   esac
 done
 
@@ -47,7 +49,6 @@ fi
 
 eval $COMMAND
 
-current=$(nixos-rebuild list-generations | rg current)
-git commit -am "$current"
+git commit -am "$COMMIT_MESG"
 
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
