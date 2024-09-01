@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
 
   home.shellAliases =
     let
-      nvim = "${pkgs.neovim}/bin/nvim";
+      # nvim = "${pkgs.neovim}/bin/nvim";
+      nvim = "${config.programs.nixvim.finalPackage}/bin/nvim";
     in
     {
       v = "fd -H --type f --print0 --exclude .git | fzf-tmux -p -w 85  --read0 --print0 --preview \"bat --color=always --style=numbers {}\" | xargs -r -0 nvim";
