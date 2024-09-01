@@ -6,7 +6,7 @@
   ];
   qt = {
     enable = true;
-    # platformTheme = "kde";
+    platformTheme = "kde";
   };
   programs.home-manager.enable = true;
   home = {
@@ -24,7 +24,6 @@
     sessionVariables = {
       HYPRCURSOR_SIZE = 24;
       XCURSOR_SIZE = 24;
-      QT_QPA_PLATFORMTHEME = "qt6ct";
     };
     pointerCursor = {
       x11.enable = true;
