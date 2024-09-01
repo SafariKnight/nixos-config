@@ -12,6 +12,7 @@
 
     packages = with pkgs; [
       miru
+      fastfetch # NEED TO FLEX
     ];
     file = { };
     sessionVariables = {
