@@ -4,7 +4,7 @@
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
-      uosc
+      modernx
       thumbfast
     ];
     config = {
