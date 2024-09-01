@@ -214,7 +214,7 @@
         "$mod, F, fullscreen"
 
         # Zoom
-        "$mod, Z, fullscreenstate, 3"
+        "$mod, Z, fullscreenstate, 1"
 
         # Reload waybar
         "$mod SHIFT, P, exec, killall waybar;waybar -l off &"
@@ -224,7 +224,7 @@
         "$mod SHIFT, V, exec,  $terminal --class clipse -e 'clipse' "
 
         # Switch Wifi Connections (Script not in repo)
-        "$mod SHIFT, Y, exec, /home/kareem/.local/bin/chwifi"
+        # "$mod SHIFT, Y, exec, /home/kareem/.local/bin/chwifi"
 
         # Color Picker
         "$mod SHIFT, M, exec, wl-color-picker"

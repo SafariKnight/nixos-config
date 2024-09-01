@@ -7,11 +7,12 @@
     ./rofi.nix
     ./git.nix
     ./fish.nix
-    ./starship.nix
+    # ./starship.nix
     ./dunst.nix
     ./nixvim
     ./ags
     ./tmux.nix
     ./mpv.nix
+    ./oh-my-posh.nix
   ];
 }
