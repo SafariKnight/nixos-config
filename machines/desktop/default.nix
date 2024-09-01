@@ -70,6 +70,7 @@
     fd
     fzf
     eza
+    btop
     trash-cli
     bat
     nixfmt-rfc-style
