@@ -22,8 +22,10 @@
     supportedFilesystems = [ "ntfs" ];
     initrd.verbose = false;
     initrd.systemd.enable = true;
+    initrd.kernelModules = [ "amdgpu" ];
     plymouth.enable = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = [ "amdgpu" ];
     kernelParams = [
       "amdgpu"
