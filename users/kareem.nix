@@ -19,6 +19,9 @@
       stremio
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
+      kdePackages.breeze-icons
+      kdePackages.qtsvg
+
     ];
     file = { };
     sessionVariables = {

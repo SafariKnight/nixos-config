@@ -89,6 +89,7 @@
     inter
     noto-fonts
     jetbrains-mono
+    roboto
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
