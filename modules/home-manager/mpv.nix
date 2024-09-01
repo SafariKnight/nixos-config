@@ -4,12 +4,12 @@
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
-      modernx
+      uosc
       thumbfast
     ];
     config = {
       profile = "gpu-hq";
-      gpu-api = "vulkan";
+      # gpu-api = "vulkan";
 
       deband = "yes";
       deband-iterations = 2;
@@ -21,9 +21,9 @@
       dither-depth = "auto";
 
       # Scaling
-      scale = "ewa_lanczossharp";
-      dscale = "mitchell";
-      cscale = "spline64";
+      # scale = "ewa_lanczossharp";
+      # dscale = "mitchell";
+      # cscale = "spline64";
 
       ## Behavior (personal preference)
       keep-open = "yes";
