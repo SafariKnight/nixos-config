@@ -26,9 +26,7 @@
     plymouth.enable = true;
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = [ "amdgpu" ];
     kernelParams = [
-      "amdgpu"
       "quiet"
       "boot.shell_on_fail"
       "i915.fastboot=1"
