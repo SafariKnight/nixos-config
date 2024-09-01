@@ -12,6 +12,8 @@
 
     packages = with pkgs; [
       miru
+      stremio
+      qbittorrent-enhanced
       fastfetch # NEED TO FLEX
     ];
     file = { };
