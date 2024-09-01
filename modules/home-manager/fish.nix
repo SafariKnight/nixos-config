@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+
   home.shellAliases =
     let
       nvim = "${pkgs.neovim}/bin/nvim";
@@ -20,9 +21,6 @@
       set fish_greeting
       bind \cz 'fg'
     '';
-    # function starship_transient_prompt_func
-    #   starship module character
-    # end
     functions = {
       mk = ''
         mkdir $argv
