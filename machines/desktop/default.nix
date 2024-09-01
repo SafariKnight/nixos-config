@@ -23,7 +23,12 @@
     initrd.verbose = false;
     initrd.systemd.enable = true;
     initrd.kernelModules = [ "amdgpu" ];
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      extraConfig = ''
+        PlymouthTimeout=0
+      '';
+    };
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
