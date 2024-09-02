@@ -8,6 +8,7 @@
     ./options.nix
     ./plugins/cmp.nix
     ./plugins/lsp.nix
+    ./plugins/fzf.nix
   ];
   programs.nixvim = {
     enable = true;
