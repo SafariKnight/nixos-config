@@ -6,7 +6,7 @@
   ];
   qt = {
     enable = true;
-    platformTheme = "kde";
+    platformTheme.name = "gtk";
   };
   programs.home-manager.enable = true;
   home = {
