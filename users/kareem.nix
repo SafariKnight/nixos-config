@@ -6,7 +6,7 @@
   ];
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
+    platformTheme.name = "gtk3";
   };
   programs.home-manager.enable = true;
   home = {
