@@ -2,7 +2,7 @@
 {
   programs.nixvim.plugins = {
     cmp = {
-      autoEnableSources = true;
+      # autoEnableSources = true;
       settings = {
         experimental = {
           ghost_text = true;
@@ -53,7 +53,7 @@
     cmp-nvim-lsp.enable = true; # LSP
     cmp-buffer.enable = true;
     cmp-path.enable = true; # file system paths
-    cmp_luasnip.enable = true; # snippets
-    cmp-cmdline.enable = true; # autocomplete for cmdline
+    # cmp_luasnip.enable = true; # snippets
+    # cmp-cmdline.enable = true; # autocomplete for cmdline
   };
 }
