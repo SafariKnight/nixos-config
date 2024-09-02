@@ -12,10 +12,10 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
-    luaLoader.enable = true;
-    performance = {
-      byteCompileLua.enable = true;
-    };
+    # luaLoader.enable = true;
+    # performance = {
+    #   byteCompileLua.enable = true;
+    # };
 
     viAlias = true;
     vimAlias = true;
