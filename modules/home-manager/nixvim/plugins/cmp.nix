@@ -9,6 +9,11 @@
           { name = "path"; }
           { name = "buffer"; }
         ];
+        snippet.expand.__raw = ''
+          function(args)
+            vim.snippet.expand(args.body)
+          end
+        '';
         mapping = {
           "<C-n>" = "cmp.mapping.select_next_item()";
           "<C-p>" = "cmp.mapping.select_prev_item()";
