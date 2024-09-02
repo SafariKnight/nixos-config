@@ -6,6 +6,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
+    ./plugins/cmp.nix
   ];
   programs.nixvim = {
     enable = true;
