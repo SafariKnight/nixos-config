@@ -1,7 +1,7 @@
 { inputs, config, ... }:
-let
-  helper = config.lib.nixvim;
-in
+# let
+#   helper = config.lib.nixvim;
+# in
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -18,7 +18,6 @@ in
     viAlias = true;
     vimAlias = true;
 
-    # colorscheme is handled by stylix now
     colorschemes.nord.enable = true;
   };
 }

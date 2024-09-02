@@ -32,13 +32,13 @@
       set -g mouse on
 
       # Top Status Bar
-      set-option -g status-position top
+      set-option -g status-position bottom
     '';
     plugins = [
       {
         plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
         extraConfig = ''
-          set -g @minimal-tmux-status "top"
+          set -g @minimal-tmux-status "bottom"
         '';
       }
     ];
