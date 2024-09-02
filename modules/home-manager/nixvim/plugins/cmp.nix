@@ -42,22 +42,22 @@
           "<C-Space>" = "cmp.mapping.complete({ behavior = cmp.ConfirmBehavior.Replace })";
           # behavior = cmp.ConfirmBehavior.Replace,
           "<C-y>" = "cmp.mapping.confirm({ select = true })";
-          "<Tab>" = ''
-            cmp.mapping(function(fallback)
-                        if luasnip.expand_or_locally_jumpable() then
-                          luasnip.expand_or_jump()
-                        else
-                          fallback()
-                        end
-                      end, { "i", "s" })'';
-          "<S-Tab>" = ''
-            cmp.mapping(function(fallback)
-                        if luasnip.locally_jumpable(-1) then
-                          luasnip.jump(-1)
-                        else
-                          fallback()
-                        end
-                      end, { "i", "s" })'';
+          # "<Tab>" = ''
+          #   cmp.mapping(function(fallback)
+          #               if luasnip.expand_or_locally_jumpable() then
+          #                 luasnip.expand_or_jump()
+          #               else
+          #                 fallback()
+          #               end
+          #             end, { "i", "s" })'';
+          # "<S-Tab>" = ''
+          #   cmp.mapping(function(fallback)
+          #               if luasnip.locally_jumpable(-1) then
+          #                 luasnip.jump(-1)
+          #               else
+          #                 fallback()
+          #               end
+          #             end, { "i", "s" })'';
         };
       };
     };
