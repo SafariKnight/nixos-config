@@ -22,17 +22,17 @@
         sources = [
           { name = "nvim_lsp"; }
           { name = "path"; }
-          {
-            name = "buffer"; # text within current buffer
-            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-            keywordLength = 3;
-          }
+          # {
+          #   name = "buffer"; # text within current buffer
+          #   option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          #   keywordLength = 3;
+          # }
         ];
-        snippet.expand.__raw = ''
-          function(args)
-            vim.snippet.expand(args.body)
-          end
-        '';
+        # snippet.expand.__raw = ''
+        #   function(args)
+        #     vim.snippet.expand(args.body)
+        #   end
+        # '';
         mapping = {
           "<C-n>" = "cmp.mapping.select_next_item()";
           "<C-p>" = "cmp.mapping.select_prev_item()";
