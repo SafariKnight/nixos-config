@@ -15,11 +15,11 @@
         sources = [
           { name = "nvim_lsp"; }
           { name = "path"; }
-          {
-            name = "buffer"; # text within current buffer
-            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-            keywordLength = 3;
-          }
+          # {
+          #   name = "buffer"; # text within current buffer
+          #   option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          #   keywordLength = 3;
+          # }
         ];
         snippet.expand.__raw = ''
           function(args)
@@ -55,7 +55,7 @@
     };
 
     cmp-nvim-lsp.enable = true; # LSP
-    cmp-buffer.enable = true;
+    # cmp-buffer.enable = true;
     cmp-path.enable = true; # file system paths
     # cmp_luasnip.enable = true; # snippets
     # cmp-cmdline.enable = true; # autocomplete for cmdline
