@@ -7,6 +7,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
     ./plugins/cmp.nix
+    ./plugins/lsp.nix
   ];
   programs.nixvim = {
     enable = true;
