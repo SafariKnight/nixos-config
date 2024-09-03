@@ -1,14 +1,18 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./../modules/home-manager
-  ];
+  imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
     platformTheme.name = "gtk3";
   };
   programs.home-manager.enable = true;
+
+  gtk = {
+    iconTheme.name = "Papirus";
+    enable = true;
+  };
   home = {
+
     username = "kareem";
     homeDirectory = "/home/kareem";
     stateVersion = "24.05";
