@@ -41,6 +41,9 @@
           set -g @minimal-tmux-status "bottom"
         '';
       }
+      {
+        plugin = pkgs.tmuxPlugins.vim-tmux-navigator;
+      }
     ];
   };
 }
