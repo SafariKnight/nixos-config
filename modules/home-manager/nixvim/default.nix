@@ -12,6 +12,7 @@
     ./plugins/tmux-navigator.nix
     ./plugins/markview.nix
     ./plugins/mini.nix
+    ./plugins/none-ls.nix
   ];
   programs.nixvim = {
     enable = true;
