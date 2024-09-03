@@ -10,6 +10,8 @@
     ./plugins/lsp.nix
     ./plugins/fzf.nix
     ./plugins/tmux-navigator.nix
+    ./plugins/markview.nix
+    ./plugins/mini.nix
   ];
   programs.nixvim = {
     enable = true;
