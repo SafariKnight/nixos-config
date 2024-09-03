@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-
+{ pkgs, ... }:
 {
   imports = [
     ./../modules/home-manager
@@ -21,7 +20,7 @@
       fastfetch # NEED TO FLEX
       kdePackages.breeze-icons
       kdePackages.qtsvg
-
+      tlrc
     ];
     file = { };
     sessionVariables = {
