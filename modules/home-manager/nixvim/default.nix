@@ -1,7 +1,4 @@
 { inputs, pkgs, ... }:
-# let
-#   helper = config.lib.nixvim;
-# in
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -15,6 +12,7 @@
     ./plugins/none-ls.nix
     ./plugins/grapple.nix
     ./plugins/oil.nix
+    ./plugins/which-key.nix
   ];
   programs.nixvim = {
     enable = true;
