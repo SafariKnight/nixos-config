@@ -1,10 +1,17 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = [ pkgs.emmet-language-server ];
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
       servers = {
-        nixd.enable = true;
+        nil-ls.enable = true;
+        lua-ls.enable = true;
+        html.enable = true;
+        cssls.enable = true;
+        tailwindcss.enable = true;
+        jsonls.enable = true;
+        taplo.enable = true;
       };
       keymaps = {
         lspBuf = {
@@ -19,6 +26,11 @@
           crf = "format";
         };
       };
+      postConfig = ''
+        require("lspconfig").emmet_language_server.setup({
+            capabilities = capabilities
+          })
+      '';
     };
   };
 }

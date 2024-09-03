@@ -13,6 +13,7 @@
     ./plugins/grapple.nix
     ./plugins/oil.nix
     ./plugins/which-key.nix
+    ./plugins/treesitter.nix
   ];
   programs.nixvim = {
     enable = true;
