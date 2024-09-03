@@ -12,7 +12,7 @@
     extraConfig = ''
 
       unbind r
-      bind r source-file ~/.tmux.conf
+      bind r source-file ~/.config/tmux/tmux.conf
       bind a displayp
       bind | split-window -h
       bind - split-window -v
