@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 # let
 #   helper = config.lib.nixvim;
 # in
@@ -27,6 +27,7 @@
     viAlias = true;
     vimAlias = true;
 
+    extraPlugins = [ pkgs.vimPlugins.quick-scope ];
     colorschemes.nord.enable = true;
   };
 }
