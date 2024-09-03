@@ -33,6 +33,12 @@
 
       # Top Status Bar
       set-option -g status-position bottom
+
+      bind -r C-h run "select-pane -L"
+      bind -r C-j run "select-pane -D"
+      bind -r C-k run "select-pane -U"
+      bind -r C-l run "select-pane -R"
+      bind -r C-\ run "select-pane -l"
     '';
     plugins = [
       {
