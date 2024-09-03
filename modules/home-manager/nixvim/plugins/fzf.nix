@@ -25,5 +25,20 @@
         };
       };
     };
+    dressing = {
+      enable = true;
+      settings = {
+        input.enabled = true;
+        select = {
+          backend = [
+            "fzf_lua"
+            "fzf"
+            "nui"
+            "builtin"
+          ];
+          enabled = true;
+        };
+      };
+    };
   };
 }
