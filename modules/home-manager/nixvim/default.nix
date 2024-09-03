@@ -9,6 +9,7 @@
     ./plugins/cmp.nix
     ./plugins/lsp.nix
     ./plugins/fzf.nix
+    ./plugins/tmux-navigator.nix
   ];
   programs.nixvim = {
     enable = true;
