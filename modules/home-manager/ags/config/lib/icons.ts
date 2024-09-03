@@ -140,7 +140,7 @@ export const icons = {
     cpu: "org.gnome.SystemMonitor-symbolic",
     ram: "drive-harddisk-solidstate-symbolic",
     temp: "temperature-symbolic",
-    language: "translate-symbolic",
+    language: "language-symbolic",
   },
   color: {
     dark: "dark-mode-symbolic",
