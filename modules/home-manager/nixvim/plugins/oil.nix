@@ -7,7 +7,7 @@
   };
   programs.nixvim.keymaps = [
     {
-      action = "Oil";
+      action = "<CMD>Oil<CR>";
       options.desc = "Open Oil File Manager";
       key = "<leader>fm";
     }
