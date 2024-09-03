@@ -13,6 +13,7 @@
     ./plugins/markview.nix
     ./plugins/mini.nix
     ./plugins/none-ls.nix
+    ./plugins/grapple.nix
   ];
   programs.nixvim = {
     enable = true;
