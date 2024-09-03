@@ -18,8 +18,9 @@
       stremio
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
-      kdePackages.breeze-icons
-      kdePackages.qtsvg
+      papirus-nord
+      # kdePackages.breeze-icons
+      # kdePackages.qtsvg
       tlrc
     ];
     file = { };
