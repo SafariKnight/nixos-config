@@ -9,6 +9,7 @@
           shfmt.enable = true;
           prettier.enable = true;
           csharpier.enable = true;
+          nixfmt.enable = true;
         };
         code_actions = {
           refactoring.enable = true;
