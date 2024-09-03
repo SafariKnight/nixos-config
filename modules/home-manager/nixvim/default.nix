@@ -14,6 +14,7 @@
     ./plugins/mini.nix
     ./plugins/none-ls.nix
     ./plugins/grapple.nix
+    ./plugins/oil.nix
   ];
   programs.nixvim = {
     enable = true;
