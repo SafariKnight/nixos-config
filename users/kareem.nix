@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
-    platformTheme.name = "gtk3";
+    platformTheme.name = lib.mkForce "gtk2";
+    style.name = lib.mkForce "gtk2";
   };
   programs.home-manager.enable = true;
 
@@ -23,6 +24,7 @@
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
       papirus-nord
+      libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
       tlrc
