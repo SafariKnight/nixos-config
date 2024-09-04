@@ -219,7 +219,8 @@
         "$mod, Z, fullscreenstate, 1"
 
         # Reload waybar
-        "$mod SHIFT, P, exec, killall waybar;waybar -l off &"
+        "$mod SHIFT, P, exec, killall ags;ags &"
+        # "$mod SHIFT, P, exec, killall waybar;waybar -l off &"
         # "$mod SHIFT, P, exec, killall gBar;gBar bar HDMI-A-1 &"
 
         # Clipboard

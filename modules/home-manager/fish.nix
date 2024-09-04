@@ -24,6 +24,7 @@
       set fish_greeting
       bind \cz 'fg'
     '';
+    shellInitLast = ''fastfetch''; # hell yeah
     functions = {
       mk = ''
         mkdir $argv
