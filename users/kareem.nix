@@ -1,11 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
     # platformTheme.name = "gtk3";
     # platformTheme.name = "gnome";
-    style.name = "adw-gtk3";
+    style.name = lib.mkForce "adwaita-dark";
+    style.package = pkgs.adwaita-qt;
   };
   programs.home-manager.enable = true;
 
@@ -26,7 +27,6 @@
       fastfetch # NEED TO FLEX
       papirus-nord
       # libsForQt5.qtstyleplugins
-      # adwaita-qt
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
       tlrc
