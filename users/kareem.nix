@@ -3,10 +3,10 @@
   imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
-    platformTheme.name = "gtk2";
-    style.name = "gtk2";
+    platformTheme.name = "kde";
+    style.name = "Nord";
     # platformTheme.name = "gnome";
-    style.package = pkgs.libsForQt5.qtstyleplugins;
+    # style.package = pkgs.libsForQt5.qtstyleplugins;
   };
   programs.home-manager.enable = true;
 
