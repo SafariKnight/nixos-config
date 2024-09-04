@@ -1,7 +1,7 @@
 local ensure = {
-  "shfmt",
+  -- "shfmt",
   "lua_ls",
-  "stylua",
+  -- "stylua",
   "volar",
   "tsserver",
   "html",
@@ -9,9 +9,9 @@ local ensure = {
   "emmet_language_server",
   "prettier",
   "gopls",
-  "gofumpt",
-  "goimports-reviser",
-  "golines",
+  -- "gofumpt",
+  -- "goimports-reviser",
+  -- "golines",
   "rust_analyzer",
   "tailwindcss"
 }
@@ -21,9 +21,9 @@ return {
   -- event = { "BufReadPre", "BufNew" },
   event = "VeryLazy",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- "williamboman/mason.nvim",
+    -- "williamboman/mason-lspconfig.nvim",
+    -- "WhoIsSethDaniel/mason-tool-installer.nvim",
 
     { "folke/neodev.nvim", opts = {} },
 
@@ -77,8 +77,8 @@ return {
     --   do stuff
     -- end
 
-    require("mason").setup()
-    local mason_lsp = require("mason-lspconfig")
+    -- require("mason").setup()
+    -- local mason_lsp = require("mason-lspconfig")
     local handlers = {
       function(server)
         lspconfig[server].setup({
@@ -87,6 +87,7 @@ return {
         })
       end,
     }
+
 
     local function get_server_config(server)
       return {
@@ -101,15 +102,26 @@ return {
         vim.tbl_deep_extend("force", handlers, get_server_config(server))
     end
 
+
     add_server_config("tsserver")
     add_server_config("volar")
     require("plugins.lsp.servers.gdscript")
 
-    mason_lsp.setup_handlers(handlers)
+    for _, server in ipairs(ensure) do
+      if handlers[server] ~= nil then
+        handlers[server]()
+        goto continue
+      end
+      handlers[1](server)
+      
+      ::continue::
+    end
 
-    require("mason-tool-installer").setup({
-      ensure_installed = ensure,
-      auto_update = true,
-    })
+    -- mason_lsp.setup_handlers(handlers)
+
+    -- require("mason-tool-installer").setup({
+    --   ensure_installed = ensure,
+    --   auto_update = true,
+    -- })
   end,
 }
