@@ -25,7 +25,7 @@
     vimAlias = true;
     extraPackages = with pkgs; [
       shfmt
-      luajitPackages.lua-lsp
+      lua-language-server
       stylua
       vue-language-server
       typescript
