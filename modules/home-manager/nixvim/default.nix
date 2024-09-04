@@ -18,10 +18,29 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
-    # luaLoader.enable = true;
-    # performance = {
-    #   byteCompileLua.enable = true;
-    # };
+    luaLoader.enable = true;
+    performance = {
+      byteCompileLua.enable = true;
+    };
+    keymaps = [
+      {
+        action = "maJ'a";
+        key = "J";
+        options.desc = "Append next line on current line";
+      }
+      {
+        action = "v:count == 0 ? 'gk' : 'k'";
+        key = "k";
+        options.desc = "up";
+        options.expr = true;
+      }
+      {
+        action = "v:count == 0 ? 'gj' : 'j'";
+        key = "j";
+        options.desc = "down";
+        options.expr = true;
+      }
+    ];
 
     viAlias = true;
     vimAlias = true;

@@ -5,7 +5,7 @@
     lsp = {
       enable = true;
       servers = {
-        nil-ls.enable = true;
+        nixd.enable = true;
         lua-ls.enable = true;
         html.enable = true;
         cssls.enable = true;
