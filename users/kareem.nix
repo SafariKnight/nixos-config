@@ -4,7 +4,7 @@
   qt = {
     enable = true;
     platformTheme.name = "gtk2";
-    style.name = "adwaita";
+    style.name = "gtk2";
   };
   programs.home-manager.enable = true;
 
@@ -24,7 +24,7 @@
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
       papirus-nord
-      adwaita-qt
+      libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
       tlrc
