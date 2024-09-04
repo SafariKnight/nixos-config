@@ -24,7 +24,7 @@
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
       papirus-nord
-      # adwaita-qt
+      adwaita-qt
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
       tlrc
