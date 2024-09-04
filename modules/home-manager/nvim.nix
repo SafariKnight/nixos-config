@@ -1,8 +1,8 @@
 { config, ... }:
 {
-  home.file."./config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./../../dotfiles/nvim;
-    # source = ../../dotfiles/nvim;
+  xdg.configFile.nvim = {
+    # source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/dotfiles/nvim/";
+    source = ../../dotfiles/nvim;
     recursive = true;
   };
   programs.neovim = {

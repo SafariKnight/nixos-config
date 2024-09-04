@@ -36,7 +36,7 @@ while getopts 'o:f:ta' flag; do
   esac
 done
 
-COMMAND="sudo nixos-rebuild $OPERATION --flake $(pwd)#$FLAKE_NAME --option eval-cache false &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)"
+COMMAND="sudo nixos-rebuild $OPERATION --flake $(pwd)#$FLAKE_NAME --impure --option eval-cache false &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)"
 
 if [ $ENABLE_TRACE == true ]; then
   COMMAND="$COMMAND --show-trace"
