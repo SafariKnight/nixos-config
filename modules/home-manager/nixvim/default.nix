@@ -14,6 +14,7 @@
     ./plugins/oil.nix
     ./plugins/which-key.nix
     ./plugins/treesitter.nix
+    ./plugins/typescript.nix
   ];
   programs.nixvim = {
     enable = true;
@@ -45,7 +46,7 @@
     viAlias = true;
     vimAlias = true;
 
-    extraPlugins = [ pkgs.vimPlugins.quick-scope ];
+    extraPlugins = [ pkgs.vimPlugins.quick-scope ]; # I can't live without this anymore
     colorschemes.nord.enable = true;
   };
 }
