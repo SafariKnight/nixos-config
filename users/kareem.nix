@@ -3,9 +3,9 @@
   imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
-    # platformTheme.name = "gtk3";
+    platformTheme.name = "gtk2";
+    style.name = "gtk2";
     # platformTheme.name = "gnome";
-    # style.name = lib.mkForce "adwaita-dark";
     style.package = pkgs.libsForQt5.qtstyleplugins;
   };
   programs.home-manager.enable = true;
