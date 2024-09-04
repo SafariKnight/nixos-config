@@ -3,8 +3,8 @@
   imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
-    platformTheme.name = "gtk2";
-    style.name = "gtk2";
+    platformTheme.name = "gtk3";
+    style.name = "adwaita";
   };
   programs.home-manager.enable = true;
 
@@ -25,6 +25,7 @@
       fastfetch # NEED TO FLEX
       papirus-nord
       libsForQt5.qtstyleplugins
+      adwaita-qt
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
       tlrc
