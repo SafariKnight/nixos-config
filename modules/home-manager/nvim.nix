@@ -6,10 +6,23 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/dotfiles/nvim/";
     recursive = true;
   };
-  home.packages =
-    with pkgs;
-    [
-    ];
+  home.packages = with pkgs; [
+    shfmt
+    lua-language-server
+    stylua
+    vue-language-server
+    typescript
+    vscode-langservers-extracted
+    emmet-language-server
+    nodePackages.prettier
+    gopls
+    gofumpt
+    goimports-reviser
+    golines
+    rust-analyzer
+    nixd
+    tailwindcss-language-server
+  ];
   # home.file = {
   #   ".config/nvim" = {
   #     # source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/dotfiles/nvim/";
