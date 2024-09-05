@@ -37,22 +37,22 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    extraPackages = with pkgs; [
-      shfmt
-      lua-language-server
-      stylua
-      vue-language-server
-      typescript
-      vscode-langservers-extracted
-      emmet-language-server
-      nodePackages.prettier
-      gopls
-      gofumpt
-      goimports-reviser
-      golines
-      rust-analyzer
-      nixd
-      tailwindcss-language-server
-    ];
+    # extraPackages = with pkgs; [
+    #   shfmt
+    #   lua-language-server
+    #   stylua
+    #   vue-language-server
+    #   typescript
+    #   vscode-langservers-extracted
+    #   emmet-language-server
+    #   nodePackages.prettier
+    #   gopls
+    #   gofumpt
+    #   goimports-reviser
+    #   golines
+    #   rust-analyzer
+    #   nixd
+    #   tailwindcss-language-server
+    # ];
   };
 }
