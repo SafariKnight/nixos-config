@@ -47,9 +47,9 @@ fi
 
 eval $COMMAND
 
-current=$(nixos-rebuild list-generations | rg current)
-notify-send -e "NixOS Git Commit Editing" --icon=software-update-available
-git commit -am "$current"
-git commit --amend # Allow editing of the commit message
+# current=$(nixos-rebuild list-generations | rg current)
+# notify-send -e "NixOS Git Commit Editing" --icon=software-update-available
+# git commit -am "$current"
+# git commit --amend # Allow editing of the commit message
 
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
