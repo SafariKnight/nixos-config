@@ -37,6 +37,7 @@
       goimports-reviser
       golines
       rust-analyzer
+      nixd
       tailwindcss-language-server
     ];
   };

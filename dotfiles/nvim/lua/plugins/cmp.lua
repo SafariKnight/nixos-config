@@ -26,6 +26,11 @@ return {
       --        completion = cmp.config.window.bordered(),
       --        documentation = cmp.config.window.bordered(),
       --      },
+      performance = {
+        debounce = 60,
+        fetching_timeout = 200,
+        max_view_entries = 30,
+      },
 
       formatting = {
         fields = { "kind", "abbr", "menu" },
