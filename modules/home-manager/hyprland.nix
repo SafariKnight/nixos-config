@@ -9,6 +9,7 @@
     grimblast
     hyprpicker
     xdg-user-dirs
+    xfce.thunar
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -133,6 +134,7 @@
       "$mod" = "SUPER";
       "$terminal" = "kitty";
       "$terminalFileManager" = "$terminal --class yazi -e \"yazi\"";
+      "$fileManager" = "thunar";
       "$browser" = "firefox";
       "$menu" = "rofi -show drun | xargs hyprctl dispatch exec";
       bind = [
@@ -217,7 +219,8 @@
         "$mod, Z, fullscreenstate, 1"
 
         # Reload waybar
-        "$mod SHIFT, P, exec, killall waybar;waybar -l off &"
+        "$mod SHIFT, P, exec, killall ags;ags &"
+        # "$mod SHIFT, P, exec, killall waybar;waybar -l off &"
         # "$mod SHIFT, P, exec, killall gBar;gBar bar HDMI-A-1 &"
 
         # Clipboard

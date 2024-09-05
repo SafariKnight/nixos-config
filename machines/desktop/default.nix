@@ -68,6 +68,7 @@
     wl-color-picker
     ripgrep
     fd
+    gcc
     fzf
     eza
     btop

@@ -12,7 +12,7 @@
     extraConfig = ''
 
       unbind r
-      bind r source-file ~/.tmux.conf
+      bind r source-file ~/.config/tmux/tmux.conf
       bind a displayp
       bind | split-window -h
       bind - split-window -v
@@ -33,6 +33,12 @@
 
       # Top Status Bar
       set-option -g status-position bottom
+
+      bind -r C-h run "select-pane -L"
+      bind -r C-j run "select-pane -D"
+      bind -r C-k run "select-pane -U"
+      bind -r C-l run "select-pane -R"
+      bind -r C-\ run "select-pane -l"
     '';
     plugins = [
       {
@@ -40,6 +46,9 @@
         extraConfig = ''
           set -g @minimal-tmux-status "bottom"
         '';
+      }
+      {
+        plugin = pkgs.tmuxPlugins.vim-tmux-navigator;
       }
     ];
   };

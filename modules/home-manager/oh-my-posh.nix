@@ -35,6 +35,14 @@
               template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
               type = "git";
             }
+            {
+              type = "nix-shell";
+              style = "plain";
+              foreground = "yellow";
+              background = "transparent";
+              # template = "(nix-{{ .Type }})";
+              template = ''{{if ne .Type "unknown"}}({{.Type}}){{ end }}'';
+            }
           ];
           type = "prompt";
         }

@@ -9,7 +9,8 @@
     ./fish.nix
     # ./starship.nix
     ./dunst.nix
-    ./nixvim
+    # ./nixvim
+    ./nvim.nix
     ./ags
     ./tmux.nix
     ./mpv.nix

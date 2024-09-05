@@ -36,7 +36,7 @@ while getopts 'o:f:ta' flag; do
   esac
 done
 
-COMMAND="sudo nixos-rebuild $OPERATION --flake $(pwd)#$FLAKE_NAME --option eval-cache false &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)"
+COMMAND="sudo nixos-rebuild $OPERATION --flake $(pwd)#$FLAKE_NAME --impure --option eval-cache false &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)"
 
 if [ $ENABLE_TRACE == true ]; then
   COMMAND="$COMMAND --show-trace"
@@ -47,9 +47,9 @@ fi
 
 eval $COMMAND
 
-current=$(nixos-rebuild list-generations | rg current)
-notify-send -e "NixOS Git Commit Editing" --icon=software-update-available
-git commit -am "$current"
-git commit --amend # Allow editing of the commit message
+# current=$(nixos-rebuild list-generations | rg current)
+# notify-send -e "NixOS Git Commit Editing" --icon=software-update-available
+# git commit -am "$current"
+# git commit --amend # Allow editing of the commit message
 
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available

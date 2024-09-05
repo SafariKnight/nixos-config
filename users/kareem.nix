@@ -1,15 +1,21 @@
-{ pkgs, inputs, ... }:
-
+{ pkgs, ... }:
 {
-  imports = [
-    ./../modules/home-manager
-  ];
+  imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
-    platformTheme.name = "gtk3";
+    platformTheme.name = "kde";
+    style.name = "Nord";
+    # platformTheme.name = "gnome";
+    # style.package = pkgs.libsForQt5.qtstyleplugins;
   };
   programs.home-manager.enable = true;
+
+  gtk = {
+    iconTheme.name = "Papirus";
+    enable = true;
+  };
   home = {
+
     username = "kareem";
     homeDirectory = "/home/kareem";
     stateVersion = "24.05";
@@ -19,9 +25,11 @@
       stremio
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
-      kdePackages.breeze-icons
-      kdePackages.qtsvg
-
+      papirus-nord
+      # libsForQt5.qtstyleplugins
+      # kdePackages.breeze-icons
+      # kdePackages.qtsvg
+      tlrc
     ];
     file = { };
     sessionVariables = {
