@@ -20,6 +20,7 @@
     goimports-reviser
     golines
     rust-analyzer
+    cargo
     nixd
     tailwindcss-language-server
   ];
