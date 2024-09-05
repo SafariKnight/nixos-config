@@ -1,26 +1,21 @@
 local ensure = {
-  -- "shfmt",
   "lua_ls",
   "nixd",
-  -- "stylua",
   "volar",
   "tsserver",
   "html",
   "cssls",
   "emmet_language_server",
-  -- "prettier",
   "gopls",
-  -- "gofumpt",
-  -- "goimports-reviser",
-  -- "golines",
   "rust_analyzer",
   "tailwindcss"
 }
 
 return {
   "neovim/nvim-lspconfig",
-  -- event = { "BufReadPre", "BufNew" },
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNew" },
+  -- event = "VeryLazy",
+  -- lazy = false,
   dependencies = {
     -- "williamboman/mason.nvim",
     -- "williamboman/mason-lspconfig.nvim",
@@ -56,7 +51,7 @@ return {
     _G.capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.textDocument.foldingRange = {
-      dynamicRegistration = false,
+      dynamicRegistration = true,
       lineFoldingOnly = true,
     }
 
@@ -74,16 +69,9 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
-
-    -- [server] = function()
-    --   do stuff
-    -- end
-
-    -- require("mason").setup()
-    -- local mason_lsp = require("mason-lspconfig")
     local handlers = {
       function(server)
-        print(server)
+        -- print(server)
         lspconfig[server].setup({
           capabilities = _G.capabilities,
           on_attach = require("plugins.lsp.on_attach"),
@@ -108,6 +96,7 @@ return {
 
     add_server_config("tsserver")
     add_server_config("volar")
+    add_server_config("lua_ls")
     require("plugins.lsp.servers.gdscript")
 
     for _, server in ipairs(ensure) do
@@ -118,12 +107,5 @@ return {
       handlers[1](server)
       ::continue::
     end
-
-    -- mason_lsp.setup_handlers(handlers)
-
-    -- require("mason-tool-installer").setup({
-    --   ensure_installed = ensure,
-    --   auto_update = true,
-    -- })
   end,
 }
