@@ -74,6 +74,7 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
+
     -- [server] = function()
     --   do stuff
     -- end
@@ -82,6 +83,7 @@ return {
     -- local mason_lsp = require("mason-lspconfig")
     local handlers = {
       function(server)
+        print(server)
         lspconfig[server].setup({
           capabilities = _G.capabilities,
           on_attach = require("plugins.lsp.on_attach"),
@@ -114,7 +116,6 @@ return {
         goto continue
       end
       handlers[1](server)
-      
       ::continue::
     end
 
