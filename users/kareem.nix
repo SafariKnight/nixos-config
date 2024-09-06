@@ -3,10 +3,7 @@
   imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
-    # platformTheme.name = "kde";
-    style.name = "Adwaita";
-    # platformTheme.name = "gnome";
-    # style.package = pkgs.libsForQt5.qtstyleplugins;
+    style.name = "adwaita-dark";
   };
   programs.home-manager.enable = true;
 
