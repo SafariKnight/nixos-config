@@ -16,6 +16,7 @@
       confirm_os_window_close = 0;
       # background_opacity = 9;
       shell = "fish";
+      cursor_text_color = "#81a1c1";
     };
     extraConfig = ''
       # "Nerd Fonts - Pomicons"
