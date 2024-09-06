@@ -4,10 +4,10 @@ set -e
 
 # $EDITOR flake.nix
 
-if git diff --quiet; then
-    echo "No changes detected, exiting."
-    exit 0
-fi
+# if git diff --quiet; then
+#     echo "No changes detected, exiting."
+#     exit 0
+# fi
 
 nixfmt .
 git diff -U0
