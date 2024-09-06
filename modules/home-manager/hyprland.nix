@@ -20,9 +20,7 @@
       debug = {
         disable_logs = false; # why is this disabled by default
       };
-      exec-once = [
-        "${pkgs.dunst}/bin/dunst"
-      ];
+      exec-once = [ "${pkgs.dunst}/bin/dunst" ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
@@ -133,7 +131,7 @@
       ];
       "$mod" = "SUPER";
       "$terminal" = "kitty";
-      "$terminalFileManager" = "$terminal --class yazi -e \"yazi\"";
+      "$terminalFileManager" = ''$terminal --class yazi -e "yazi"'';
       "$fileManager" = "thunar";
       "$browser" = "firefox";
       "$menu" = "rofi -show drun | xargs hyprctl dispatch exec";
@@ -155,7 +153,7 @@
         "$mod, S, togglesplit,"
 
         # Show the time
-        "$mod SHIFT, U, exec, ${pkgs.dunst}/bin/dunstify \"$(date)\""
+        ''$mod SHIFT, U, exec, ${pkgs.dunst}/bin/dunstify "$(date)"''
 
         # Move focus with mod + hjkl
         "$mod, h, movefocus, l"

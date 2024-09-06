@@ -8,9 +8,7 @@
 }:
 
 {
-  imports = [
-    ./../../modules/nixos
-  ];
+  imports = [ ./../../modules/nixos ];
 
   console = {
     useXkbConfig = true;
@@ -118,9 +116,7 @@
       "wheel"
     ];
     shell = pkgs.fish;
-    packages = with pkgs; [
-      vesktop
-    ];
+    packages = with pkgs; [ vesktop ];
   };
 
   ### Mount Partions ###

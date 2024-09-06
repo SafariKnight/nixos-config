@@ -8,6 +8,7 @@
     ./git.nix
     ./fish.nix
     # ./starship.nix
+    ./direnv.nix
     ./dunst.nix
     # ./nixvim
     ./nvim.nix

@@ -2,7 +2,7 @@
 {
 
   home.shellAliases = {
-    v = "fd -H --type f --print0 --exclude .git | fzf-tmux -p -w 85  --read0 --print0 --preview \"bat --color=always --style=numbers {}\" | xargs -r -0 nvim";
+    v = ''fd -H --type f --print0 --exclude .git | fzf-tmux -p -w 85  --read0 --print0 --preview "bat --color=always --style=numbers {}" | xargs -r -0 nvim'';
     # v = "${pkgs.fd}/bin/fd -H --type f --print0 --exclude .git | ${pkgs.fzf}/bin/fzf-tmux -p -w 85  --read0 --print0 --preview \"${pkgs.bat}/bin/bat --color=always --style=numbers {}\" | xargs -r -0 ${nvim}";
     # v = "${pkgs.fd}/bin/fd -H --type f --print0 --exclude .git | ${pkgs.fzf}/bin/fzf-tmux -p -w 85  --read0 --print0 --preview \"${pkgs.bat}/bin/bat --color=always --style=numbers {}\" | xargs -r -0 ${nvim}";
     ls = "${pkgs.eza}/bin/eza --group-directories-first";

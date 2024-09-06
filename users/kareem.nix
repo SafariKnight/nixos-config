@@ -3,8 +3,8 @@
   imports = [ ./../modules/home-manager ];
   qt = {
     enable = true;
-    platformTheme.name = "kde";
-    style.name = "Nord";
+    # platformTheme.name = "kde";
+    style.name = "Adwaita";
     # platformTheme.name = "gnome";
     # style.package = pkgs.libsForQt5.qtstyleplugins;
   };
@@ -26,6 +26,8 @@
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
       papirus-nord
+      adwaita-qt
+      adwaita-qt6
       # libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg

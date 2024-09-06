@@ -9,7 +9,7 @@ set -e
 #     exit 0
 # fi
 
-nixfmt .
+nixfmt **/
 git diff -U0
 
 read -p "Does that look good? (y/N)" -n 1 -r

@@ -45,13 +45,7 @@
         "aarch64-darwin" # 64-bit ARM macOS
       ];
       forEachSupportedSystem =
-        f:
-        nixpkgs.lib.genAttrs supportedSystems (
-          system:
-          f {
-            pkgs = import nixpkgs { inherit system; };
-          }
-        );
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
     in
     {
       nixConfig = {
@@ -71,6 +65,7 @@
           default = pkgs.mkShell {
             packages = with pkgs; [
               nixd
+              nixfmt-rfc-style
             ];
           };
         }
