@@ -11,6 +11,7 @@
     xdg-user-dirs
     xfce.thunar
     clipse
+    lxde.lxsession
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -24,6 +25,7 @@
       exec-once = [
         "dunst"
         "clipse -listen"
+        "lxsession"
       ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
