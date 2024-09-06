@@ -25,6 +25,7 @@
       papirus-nord
       adwaita-qt
       adwaita-qt6
+      gparted
       # libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
