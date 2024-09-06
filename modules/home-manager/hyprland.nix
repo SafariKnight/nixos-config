@@ -10,6 +10,7 @@
     hyprpicker
     xdg-user-dirs
     xfce.thunar
+    clipse
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -20,7 +21,10 @@
       debug = {
         disable_logs = false; # why is this disabled by default
       };
-      exec-once = [ "${pkgs.dunst}/bin/dunst" ];
+      exec-once = [
+        "dunst"
+        "clipse -listen"
+      ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
