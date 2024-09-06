@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   stylix.targets.neovim.enable = false;
   xdg.configFile.nvim = {
