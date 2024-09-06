@@ -28,15 +28,15 @@
       '';
     };
     # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "quiet"
       "boot.shell_on_fail"
       "i915.fastboot=1"
       "loglevel=3"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "quiet"
     ];
     tmp.useTmpfs = true;
 
@@ -70,6 +70,7 @@
     fzf
     eza
     btop
+    feh
     trash-cli
     bat
     nixfmt-rfc-style
