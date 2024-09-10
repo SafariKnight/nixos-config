@@ -131,6 +131,11 @@
   ### Mount Partions ###
   swapDevices = [ { device = "/dev/disk/by-label/Swap"; } ];
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   fileSystems."/mnt/hdd" = {
     label = "HDD";
     device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
