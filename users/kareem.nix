@@ -26,6 +26,7 @@
       adwaita-qt
       adwaita-qt6
       gparted
+      xorg.xhost
       # libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg

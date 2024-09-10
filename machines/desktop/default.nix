@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   inputs,
   outputs,
   userName,
@@ -29,6 +30,8 @@
     };
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_latest;
+    # extraModulePackages = [ config.boot.kernelPackages.rtl8821cu ];
+    blacklistedKernelModules = [ "rtl8xxxu" ];
     kernelParams = [
       "boot.shell_on_fail"
       "i915.fastboot=1"
@@ -53,6 +56,10 @@
 
   networking.hostName = "kareem-nixos";
   networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    # wifi.powersave = 2;
+    wifi.powersave = false;
+  };
 
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -70,6 +77,7 @@
     fzf
     eza
     btop
+    btrfs-progs
     feh
     trash-cli
     bat
@@ -122,4 +130,17 @@
 
   ### Mount Partions ###
   swapDevices = [ { device = "/dev/disk/by-label/Swap"; } ];
+
+  fileSystems."/mnt/hdd" = {
+    label = "HDD";
+    device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
+    fsType = "btrfs";
+    options = [
+      # "subvol=@hala-back"
+      "rw"
+      "user"
+      "compress-force=zstd"
+      "noatime"
+    ];
+  };
 }
