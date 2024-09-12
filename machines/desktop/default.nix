@@ -13,7 +13,7 @@
 
   console = {
     useXkbConfig = true;
-    earlySetup = false;
+    earlySetup = true;
   };
 
   boot = {
@@ -28,9 +28,7 @@
         PlymouthTimeout=0
       '';
     };
-    # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_latest;
-    # extraModulePackages = [ config.boot.kernelPackages.rtl8821cu ];
     blacklistedKernelModules = [ "rtl8xxxu" ];
     kernelParams = [
       "boot.shell_on_fail"
@@ -90,6 +88,7 @@
     p7zip
     qalculate-gtk
     libqalculate
+    usb-modeswitch
   ];
 
   fonts.packages = with pkgs; [
@@ -103,20 +102,6 @@
 
   programs.hyprland.enable = true;
   programs.fish.enable = true;
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd ${pkgs.bash}/bin/bash";
-        user = "${userName}";
-      };
-      initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland > /dev/null";
-        user = "${userName}";
-      };
-    };
-  };
 
   users.users.${userName} = {
     isNormalUser = true;

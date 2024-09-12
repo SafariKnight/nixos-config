@@ -9,7 +9,8 @@
     ./fish.nix
     # ./starship.nix
     ./direnv.nix
-    ./dunst.nix
+    # ./dunst.nix
+    ./mako.nix
     # ./nixvim
     ./nvim.nix
     ./ags

@@ -23,7 +23,7 @@
         disable_logs = false; # why is this disabled by default
       };
       exec-once = [
-        "dunst"
+        # "dunst"
         "clipse -listen"
         "lxsession"
       ];
@@ -119,6 +119,10 @@
         "float,class:(clipse)"
         "size 622 652,class:(clipse)"
 
+        # Bitwarden
+        "float,title:(Bitwarden)"
+        "size 622 652,title:(Bitwarden)"
+
         # Yazi
         "float,class:(yazi)"
         "size 1280 720,class:(yazi)"
@@ -159,7 +163,7 @@
         "$mod, S, togglesplit,"
 
         # Show the time
-        ''$mod SHIFT, U, exec, ${pkgs.dunst}/bin/dunstify "$(date)"''
+        ''$mod SHIFT, U, exec, notify-send "$(date)"''
 
         # Move focus with mod + hjkl
         "$mod, h, movefocus, l"
