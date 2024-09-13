@@ -10,6 +10,7 @@
 
 {
   imports = [ ./../../modules/nixos ];
+  modules.gaming.enable = true;
 
   console = {
     useXkbConfig = true;
@@ -98,8 +99,9 @@
     options = [
       "subvol=root"
       "rw"
+      "exec"
       "user"
-      "compress-force=zstd"
+      "compress=zstd"
       "noatime"
     ];
   };
@@ -112,13 +114,13 @@
       "subvol=important"
       "rw"
       "user"
-      "compress-force=zstd"
+      "exec"
+      "compress=zstd"
       "noatime"
     ];
   };
   services.snapper = {
     persistentTimer = true;
-    snapshotInterval = "2h";
     configs = {
       root = {
         # why does it complain if this isn't named root
@@ -135,8 +137,9 @@
     fsType = "btrfs";
     options = [
       "rw"
+      "exec"
       "user"
-      "compress-force=zstd"
+      "compress=zstd"
       "noatime"
     ];
   };

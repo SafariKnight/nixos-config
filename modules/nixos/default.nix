@@ -7,6 +7,7 @@
     ./greetd.nix
     ./plymouth.nix
     ./systemd-boot.nix
+    ./gaming.nix
   ];
   modules = {
     # Keep these modules enabled by default and have them be togglable
@@ -16,5 +17,6 @@
     greetd.enable = lib.mkDefault true;
     systemd-boot.enable = lib.mkDefault true;
     plymouth.enable = lib.mkDefault true;
+    gaming.enable = lib.mkDefault false;
   };
 }
