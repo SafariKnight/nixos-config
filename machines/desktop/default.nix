@@ -126,7 +126,44 @@
     device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
     fsType = "btrfs";
     options = [
-      # "subvol=@hala-back"
+      "subvol=root"
+      "rw"
+      "user"
+      "compress-force=zstd"
+      "noatime"
+    ];
+  };
+
+  fileSystems."/mnt/important" = {
+    label = "HDD";
+    device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
+    fsType = "btrfs";
+    options = [
+      "subvol=important"
+      "rw"
+      "user"
+      "compress-force=zstd"
+      "noatime"
+    ];
+  };
+  services.snapper = {
+    persistentTimer = true;
+    snapshotInterval = "2h";
+    configs = {
+      root = {
+        # why does it complain if this isn't named root
+        SUBVOLUME = "/mnt/important";
+        ALLOW_USERS = [ "${userName}" ];
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
+      };
+    };
+  };
+  fileSystems."/mnt/dbg" = {
+    label = "HDD";
+    device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
+    fsType = "btrfs";
+    options = [
       "rw"
       "user"
       "compress-force=zstd"
