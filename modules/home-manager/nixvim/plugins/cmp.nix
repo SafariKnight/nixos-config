@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.nixvim.plugins = {
     cmp = {
       enable = true;
@@ -21,8 +20,8 @@
           ];
         };
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
+          {name = "nvim_lsp";}
+          {name = "path";}
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";

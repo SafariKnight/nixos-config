@@ -3,19 +3,20 @@
 set -e
 
 echo "Starting Rebuild..."
-nixfmt **/
+alejandra .
 
 FLAKE_NAME="desktop"
 OPERATION="switch"
 
 
-while getopts 'o:f:' flag; do
+while getopts 'f:' flag; do
   case "${flag}" in
-    o) OPERATION=${OPTARG} ;;
+    # o) OPERATION=${OPTARG} ;;
     f) FLAKE_NAME=${OPTARG} ;;
   esac
 done
 
-nh os $OPERATION $(pwd) -H $FLAKE_NAME -a
+nh os build $(pwd) -H $FLAKE_NAME -a
+nh os switch $(pwd) -H $FLAKE_NAME -a
 
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available

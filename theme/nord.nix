@@ -1,5 +1,8 @@
-{ stylix, pkgs, ... }:
 {
+  stylix,
+  pkgs,
+  ...
+}: {
   stylix = {
     enable = true;
     autoEnable = true;

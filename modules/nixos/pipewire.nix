@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   options = {
     modules.pipewire.enable = lib.mkEnableOption "Enable Pipewire for Audio";
   };

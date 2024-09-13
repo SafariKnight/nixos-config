@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   options = {
     modules.gaming.enable = lib.mkEnableOption "Enable Gaming Things";
   };

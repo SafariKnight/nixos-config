@@ -20,6 +20,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # poggers
+    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+
     minimal-tmux = {
       # why do I really like this statusbar
       url = "github:niksingh710/minimal-tmux-status";
@@ -27,48 +30,43 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      # home-manager,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      mkSystem = import ./lib/mksystem.nix { inherit nixpkgs inputs outputs; };
+  outputs = {
+    self,
+    nixpkgs,
+    # home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    mkSystem = import ./lib/mksystem.nix {inherit nixpkgs inputs outputs;};
 
-      supportedSystems = [
-        "x86_64-linux" # 64-bit Intel/AMD Linux
-        "aarch64-linux" # 64-bit ARM Linux
-        "x86_64-darwin" # 64-bit Intel macOS
-        "aarch64-darwin" # 64-bit ARM macOS
-      ];
-      forEachSupportedSystem =
-        f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
-    in
-    {
-      nixConfig = {
-        warn-dirty = false;
-      };
-
-      overlays = import ./overlays { inherit inputs; };
-      nixosConfigurations = {
-        desktop = mkSystem "desktop" {
-          system = "x86_64_linux";
-          user = "kareem";
-        };
-      };
-      devShells = forEachSupportedSystem (
-        { pkgs }:
-        {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              nixd
-              nixfmt-rfc-style
-            ];
-          };
-        }
-      );
+    supportedSystems = [
+      "x86_64-linux" # 64-bit Intel/AMD Linux
+      "aarch64-linux" # 64-bit ARM Linux
+      "x86_64-darwin" # 64-bit Intel macOS
+      "aarch64-darwin" # 64-bit ARM macOS
+    ];
+    forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {pkgs = import nixpkgs {inherit system;};});
+  in {
+    nixConfig = {
+      warn-dirty = false;
     };
+
+    overlays = import ./overlays {inherit inputs;};
+    nixosConfigurations = {
+      desktop = mkSystem "desktop" {
+        system = "x86_64_linux";
+        user = "kareem";
+      };
+    };
+    devShells = forEachSupportedSystem (
+      {pkgs}: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            nixd
+            alejandra
+          ];
+        };
+      }
+    );
+  };
 }

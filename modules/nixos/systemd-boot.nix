@@ -1,5 +1,8 @@
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   options = {
     modules.systemd-boot.enable = lib.mkEnableOption "Enable systemd-boot";
   };

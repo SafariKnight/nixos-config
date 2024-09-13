@@ -1,11 +1,10 @@
-{ ... }:
-{
+{...}: {
   programs.nixvim.plugins = {
     mini = {
       enable = true;
       modules = {
-        ai = { };
-        pairs = { };
+        ai = {};
+        pairs = {};
         surround = {
           mappings = {
             add = "gza";

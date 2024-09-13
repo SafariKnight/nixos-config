@@ -6,10 +6,8 @@
   outputs,
   userName,
   ...
-}:
-
-{
-  imports = [ ./../../modules/nixos ];
+}: {
+  imports = [./../../modules/nixos];
   modules.gaming.enable = true;
 
   console = {
@@ -18,9 +16,9 @@
   };
 
   boot = {
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = ["ntfs"];
     kernelPackages = pkgs.linuxPackages_latest;
-    blacklistedKernelModules = [ "rtl8xxxu" ];
+    blacklistedKernelModules = ["rtl8xxxu"];
     tmp.useTmpfs = true;
   };
 
@@ -68,7 +66,7 @@
     noto-fonts
     jetbrains-mono
     roboto
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
   programs.hyprland.enable = true;
@@ -81,11 +79,11 @@
       "wheel"
     ];
     shell = pkgs.fish;
-    packages = with pkgs; [ vesktop ];
+    packages = with pkgs; [vesktop];
   };
 
   ### Mount Partions ###
-  swapDevices = [ { device = "/dev/disk/by-label/Swap"; } ];
+  swapDevices = [{device = "/dev/disk/by-label/Swap";}];
 
   hardware.graphics = {
     enable = true;
@@ -125,7 +123,7 @@
       root = {
         # why does it complain if this isn't named root
         SUBVOLUME = "/mnt/important";
-        ALLOW_USERS = [ "${userName}" ];
+        ALLOW_USERS = ["${userName}"];
         TIMELINE_CREATE = true;
         TIMELINE_CLEANUP = true;
       };

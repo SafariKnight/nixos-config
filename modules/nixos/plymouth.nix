@@ -1,5 +1,8 @@
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   options = {
     modules.plymouth.enable = lib.mkEnableOption "Enable Plymouth";
   };
@@ -9,7 +12,7 @@
       consoleLogLevel = 0;
       initrd.verbose = false;
       initrd.systemd.enable = true;
-      initrd.kernelModules = [ "amdgpu" ];
+      initrd.kernelModules = ["amdgpu"];
       plymouth = {
         enable = true;
         extraConfig = ''

@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.nixvim.plugins = {
     markview = {
       enable = true;
@@ -10,7 +9,7 @@
           "no"
           "c"
         ];
-        hybrid_modes = [ "i" ];
+        hybrid_modes = ["i"];
         callback.on_enable = ''
           function(_, win)
             vim.wo[win].conceallevel = 2

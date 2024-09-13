@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.nixvim.plugins = {
     fzf-lua = {
       enable = true;
@@ -21,7 +20,7 @@
           };
         };
         previewers = {
-          builtin = { };
+          builtin = {};
         };
       };
     };

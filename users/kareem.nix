@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = [ ./../modules/home-manager ];
+{pkgs, ...}: {
+  imports = [./../modules/home-manager];
   qt = {
     enable = true;
     style.name = "adwaita-dark";
@@ -12,7 +11,6 @@
     enable = true;
   };
   home = {
-
     username = "kareem";
     homeDirectory = "/home/kareem";
     stateVersion = "24.05";
@@ -33,7 +31,7 @@
       # kdePackages.qtsvg
       tlrc
     ];
-    file = { };
+    file = {};
     sessionVariables = {
       HYPRCURSOR_SIZE = 24;
       XCURSOR_SIZE = 24;

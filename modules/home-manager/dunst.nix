@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   services.dunst = {
     enable = true;
     settings = {
@@ -26,7 +25,6 @@
       #   foreground = "#cdd6f4";
       #   frame_color = "#fab387";
       # };
-
     };
   };
 }

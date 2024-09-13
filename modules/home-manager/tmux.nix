@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   stylix.targets.tmux.enable = false;
   programs.tmux = {
     enable = true;
@@ -47,7 +50,7 @@
           set -g @minimal-tmux-status "bottom"
         '';
       }
-      { plugin = pkgs.tmuxPlugins.vim-tmux-navigator; }
+      {plugin = pkgs.tmuxPlugins.vim-tmux-navigator;}
     ];
   };
 }

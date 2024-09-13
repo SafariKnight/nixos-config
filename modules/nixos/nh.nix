@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   options = {
     modules.nh.enable = lib.mkEnableOption "Enable Nix Helper";
   };

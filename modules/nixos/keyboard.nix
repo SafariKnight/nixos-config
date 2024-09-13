@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   options = {
     modules.cmk-keyboard.enable = lib.mkEnableOption "Set Keyboard Layout to Colemak CAWS";
   };
@@ -7,7 +10,7 @@
     services.xserver.xkb.extraLayouts.cmk = {
       description = "Colemak DH with Wide and Symbol mods (Colemak CAWS)";
       symbolsFile = ./../../assets/cmk;
-      languages = [ "eng" ];
+      languages = ["eng"];
     };
     services.xserver.xkb = {
       layout = "us";

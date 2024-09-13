@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     profiles = {
@@ -203,13 +202,13 @@
         search = {
           force = true;
           default = "Brave";
-          order = [ "Brave" ];
+          order = ["Brave"];
           engines = {
             "Brave" = {
-              urls = [ { template = "https://search.brave.com/search?q={searchTerms}"; } ];
+              urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
               iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = [ "@brave" ];
+              definedAliases = ["@brave"];
             };
             "Bing".metaData.hidden = true;
             "Google".metaData.hidden = true;

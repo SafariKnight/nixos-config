@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  programs.nixvim.extraPlugins = [ pkgs.vimPlugins.grapple-nvim ];
+{pkgs, ...}: {
+  programs.nixvim.extraPlugins = [pkgs.vimPlugins.grapple-nvim];
   programs.nixvim.extraConfigLua = ''
     require("grapple").setup({
       scope = "cwd",

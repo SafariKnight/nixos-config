@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = [ pkgs.gandhi-sans ];
+{pkgs, ...}: {
+  home.packages = [pkgs.gandhi-sans];
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
@@ -69,7 +68,6 @@
 
       # # External
       ytdl-format = "bestvideo[height<=?480][vcodec!=?vp9]+bestaudio/best";
-
     };
   };
 }

@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = [ pkgs.emmet-language-server ];
+{pkgs, ...}: {
+  home.packages = [pkgs.emmet-language-server];
   programs.nixvim.plugins = {
     lsp = {
       enable = true;

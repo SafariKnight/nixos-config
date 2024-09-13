@@ -1,4 +1,4 @@
 pkgs: {
-  bibata-nord = pkgs.callPackage ./bibata-nord.nix { };
-  gandhi-sans = pkgs.callPackage ./gandhi-sans.nix { };
+  bibata-nord = pkgs.callPackage ./bibata-nord.nix {};
+  gandhi-sans = pkgs.callPackage ./gandhi-sans.nix {};
 }

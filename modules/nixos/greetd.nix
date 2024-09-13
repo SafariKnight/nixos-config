@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   options = {
     modules.greetd.enable = lib.mkEnableOption "Enable Greetd Autologin";
   };

@@ -3,9 +3,10 @@
   outputs,
   nixpkgs,
   ...
+}: machine: {
+  system,
+  user,
 }:
-machine:
-{ system, user }:
 nixpkgs.lib.nixosSystem {
   inherit system;
   specialArgs = {
@@ -35,7 +36,7 @@ nixpkgs.lib.nixosSystem {
         "flakes"
       ];
     }
-    { system.stateVersion = "24.05"; }
+    {system.stateVersion = "24.05";}
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;

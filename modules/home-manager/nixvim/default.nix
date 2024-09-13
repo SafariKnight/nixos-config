@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
@@ -46,7 +49,7 @@
     viAlias = true;
     vimAlias = true;
 
-    extraPlugins = [ pkgs.vimPlugins.quick-scope ]; # I can't live without this anymore
+    extraPlugins = [pkgs.vimPlugins.quick-scope]; # I can't live without this anymore
     colorschemes.nord.enable = true;
   };
 }
