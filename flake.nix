@@ -21,7 +21,11 @@
     };
 
     # poggers
-    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    ghostty = {
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
 
     minimal-tmux = {
       # why do I really like this statusbar
@@ -62,6 +66,10 @@
       {pkgs}: {
         default = pkgs.mkShell {
           packages = with pkgs; [
+            lua
+            luajit
+            lua-language-server
+            stylua
             nixd
             alejandra
           ];

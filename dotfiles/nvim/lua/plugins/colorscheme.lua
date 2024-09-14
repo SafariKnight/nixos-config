@@ -24,6 +24,7 @@ return {
       -- local p = require("nordic.colors")
       -- local p = require("nordic.colors")
       require("nord").setup({
+        transparent = true,
         styles = { -- Style to be applied to different syntax groups
           comments = { italic = true }, -- Value is any valid attr-list value `:help attr-list`
           conditionals = { italic = true },

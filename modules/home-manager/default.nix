@@ -7,6 +7,7 @@
     ./git.nix
     ./fish.nix
     # ./starship.nix
+    ./ghostty.nix
     ./direnv.nix
     # ./dunst.nix
     ./mako.nix

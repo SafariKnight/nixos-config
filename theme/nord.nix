@@ -23,8 +23,8 @@
 
     fonts = {
       monospace = {
-        name = "JetBrains Mono Medium";
-        package = pkgs.jetbrains-mono;
+        name = "Monaspace Neon";
+        package = pkgs.monaspace;
       };
       sansSerif = {
         name = "Inter";

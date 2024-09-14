@@ -32,6 +32,15 @@
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  hardware.graphics.extraPackages = [
+    pkgs.amdvlk
+  ];
+
+  # To enable Vulkan support for 32-bit applications, also add:
+  hardware.graphics.extraPackages32 = [
+    pkgs.driversi686Linux.amdvlk
+  ];
+
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     wget
@@ -58,6 +67,7 @@
     p7zip
     qalculate-gtk
     libqalculate
+    inputs.ghostty.packages.${pkgs.system}.default
   ];
 
   fonts.packages = with pkgs; [
@@ -66,6 +76,7 @@
     noto-fonts
     jetbrains-mono
     roboto
+    monolisa
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
@@ -96,9 +107,6 @@
     fsType = "btrfs";
     options = [
       "subvol=root"
-      "rw"
-      "exec"
-      "user"
       "compress=zstd"
       "noatime"
     ];
@@ -110,9 +118,6 @@
     fsType = "btrfs";
     options = [
       "subvol=important"
-      "rw"
-      "user"
-      "exec"
       "compress=zstd"
       "noatime"
     ];
@@ -134,9 +139,6 @@
     device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
     fsType = "btrfs";
     options = [
-      "rw"
-      "exec"
-      "user"
       "compress=zstd"
       "noatime"
     ];

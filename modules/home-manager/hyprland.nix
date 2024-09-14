@@ -105,7 +105,7 @@
       windowrulev2 = [
         "workspace 1, class:(LibreWolf)"
         "workspace 1, class:(firefox)"
-        "workspace 2, class:(kitty)"
+        "workspace 2, class:(ghostty)"
         "workspace 2, class:(com.stremio.stremio)"
         "workspace 3, class:(mpv)"
         "fullscreen, class:(mpv)"
@@ -139,7 +139,7 @@
         "animation slide right, notifications"
       ];
       "$mod" = "SUPER";
-      "$terminal" = "kitty";
+      "$terminal" = "ghostty";
       "$terminalFileManager" = ''$terminal --class yazi -e "yazi"'';
       "$fileManager" = "thunar";
       "$browser" = "firefox";
