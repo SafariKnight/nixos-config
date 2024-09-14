@@ -22,6 +22,13 @@
     font-style-bold-italic = "Bold Italic";
     font-size = 12;
 
+    keybind = [
+      "ctrl+j=goto_split:bottom"
+      "ctrl+k=goto_split:top"
+      "ctrl+l=goto_split:right"
+      "ctrl+h=goto_split:left"
+    ];
+
     # Colors
     theme = "nord";
   };

@@ -79,7 +79,7 @@
           type = "prompt";
         }
       ];
-      console_title_template = "{{ .Shell }} in {{ .Folder }}";
+      console_title_template = "{{ .Folder }}";
       final_space = true;
       secondary_prompt = {
         background = "transparent";

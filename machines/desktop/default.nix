@@ -76,7 +76,6 @@
     noto-fonts
     jetbrains-mono
     roboto
-    monolisa
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
