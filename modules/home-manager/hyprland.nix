@@ -22,7 +22,7 @@
         disable_logs = false; # why is this disabled by default
       };
       exec-once = [
-        # "dunst"
+        "dunst"
         "clipse -listen"
         "lxsession"
       ];

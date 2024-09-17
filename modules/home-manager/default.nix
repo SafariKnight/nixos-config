@@ -9,8 +9,8 @@
     # ./starship.nix
     ./ghostty.nix
     ./direnv.nix
-    # ./dunst.nix
-    ./mako.nix
+    ./dunst.nix
+    # ./mako.nix
     # ./nixvim
     ./nvim.nix
     ./ags
