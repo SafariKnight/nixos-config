@@ -7,6 +7,7 @@ local ensure = {
   "cssls",
   "emmet_language_server",
   "gopls",
+  "basedpyright",
   "rust_analyzer",
   "tailwindcss"
 }
