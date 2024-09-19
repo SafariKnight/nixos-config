@@ -11,7 +11,16 @@
     xfce.thunar
     clipse
     lxde.lxsession
+    pulsemixer
+    kdePackages.polkit-kde-agent-1
+    kdePackages.xdg-desktop-portal-kde
+    kdePackages.dolphin
   ];
+  xdg.configFile."xdg-desktop-portal/hyprland-portals.conf".text = ''
+    [preferred]
+    default = hyprland;gtk
+    org.freedesktop.impl.portal.FileChooser = kde
+  '';
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -114,22 +123,21 @@
 
         "suppressevent maximize, class:.*"
 
-        # Clipse
-        "float,class:(clipse)"
-        "size 622 652,class:(clipse)"
+        "float,class:(term.applet)"
+        "size 622 652,class:(term.applet)"
 
-        # Bitwarden
+        "float,class:(term.app)"
+        "size 1280 720,class:(term.app)"
+
+        # Doesn't work
         "float,title:(Bitwarden)"
         "size 622 652,title:(Bitwarden)"
-
-        # Yazi
-        "float,class:(yazi)"
-        "size 1280 720,class:(yazi)"
       ];
       layerrule = [
         # Remove Grimblast animation
         "noanim, selection"
         "noanim, hyprpicker"
+
         # Remove Wallpaper animations
         "noanim, swww-daemon"
         "noanim, wallpaper"
@@ -140,52 +148,48 @@
       ];
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
-      "$terminalFileManager" = ''$terminal --class yazi -e "yazi"'';
       "$fileManager" = "thunar";
       "$browser" = "firefox";
       "$menu" = "rofi -show drun | xargs hyprctl dispatch exec";
       bind = [
-        # Global Shortcuts
+        ### Global Shortcuts ###
         ",F10,pass,vesktop"
 
-        "$mod, T, exec, $terminal"
-        "$mod, Q, killactive, "
-        "$mod SHIFT, Q, exec, wlogout"
-        "$mod SHIFT CTRL, Q, exit,"
-        "$mod, E, exec, $terminalFileManager"
-        "$mod SHIFT, E, exec, $fileManager"
+        ### Windows ###
+        "$mod, Q, killactive, " # Close windows
+        "$mod, Z, fullscreenstate, 1" # Zoom
+        "$mod, F, fullscreen"
+
+        # Alternate Layouts #
         "$mod, V, togglefloating, "
-        "$mod, R, exec, $menu"
-        "$mod, W, exec, $browser"
-        "$mod SHIFT, R, exec, $menu_alt"
         "$mod, P, pseudo,"
         "$mod, S, togglesplit,"
 
-        # Show the time
-        ''$mod SHIFT, U, exec, notify-send "$(date)"''
-
-        # Move focus with mod + hjkl
+        # Move between Windows #
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
         "$mod, k, movefocus, u"
         "$mod, j, movefocus, d"
 
-        # Move window with mod Shift + hjkl
+        # Move Windows #
         "$mod SHIFT, h, movewindow, l"
         "$mod SHIFT, l, movewindow, r"
         "$mod SHIFT, k, movewindow, u"
         "$mod SHIFT, j, movewindow, d"
 
-        # Resize with mod Ctrl + hjkl
+        # Resize Windows #
         "$mod CTRL, h, resizeactive, -20 0"
         "$mod CTRL, l, resizeactive, 20 0"
         "$mod CTRL, k, resizeactive, 0 -20"
         "$mod CTRL, j, resizeactive, 0 20"
 
-        # Dwindle Layout Groups
+        # Dwindle Layout Groups # imma be honest, I don't use these
         "$mod, g, togglegroup,"
         "$mod, tab, changegroupactive,"
 
+        ### Workspaces ###
+
+        # Switch Workspaces #
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
@@ -196,7 +200,12 @@
         "$mod, 8, workspace, 8"
         "$mod, 9, workspace, 9"
         "$mod, 0, workspace, 10"
+        "$mod, grave, togglespecialworkspace, magic" # Scratchpad
+        # Mouse controls
+        "$mod, mouse_down, workspace, e+1"
+        "$mod, mouse_up, workspace, e-1"
 
+        # Move Windows to Workspaces #
         "$mod SHIFT, 1, movetoworkspace, 1"
         "$mod SHIFT, 2, movetoworkspace, 2"
         "$mod SHIFT, 3, movetoworkspace, 3"
@@ -207,37 +216,30 @@
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
+        "$mod SHIFT, grave, movetoworkspace, special:magic" # Scratchpad
 
-        # Example special workspace (scratchpad)
-        "$mod, grave, togglespecialworkspace, magic"
-        "$mod SHIFT, grave, movetoworkspace, special:magic"
+        "$mod SHIFT, Q, exec, wlogout"
+        "$mod SHIFT CTRL, Q, exit,"
+        "$mod SHIFT, E, exec, $fileManager"
+        "$mod, R, exec, $menu"
+        "$mod, W, exec, $browser"
+        "$mod SHIFT, R, exec, $menu_alt"
 
-        # Scroll through existing workspaces with mod + scroll
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
+        ### Apps ###
 
-        # Screenshot
+        # Screenshots #
         "$mod, Print, exec, grimblast copysave screen $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
         "        , Print, exec, grimblast --freeze copysave area $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
-        # Fullscreen
-        "$mod, F, fullscreen"
 
-        # Zoom
-        "$mod, Z, fullscreenstate, 1"
+        # Info via Notifications #
+        ''$mod SHIFT, U, exec, notify-send "$(date)"'' # Time
 
-        # Reload waybar
-        "$mod SHIFT, P, exec, killall ags;ags &"
-        # "$mod SHIFT, P, exec, killall waybar;waybar -l off &"
-        # "$mod SHIFT, P, exec, killall gBar;gBar bar HDMI-A-1 &"
-
-        # Clipboard
-        "$mod SHIFT, V, exec,  $terminal --class clipse -e 'clipse' "
-
-        # Switch Wifi Connections (Script not in repo)
-        # "$mod SHIFT, Y, exec, /home/kareem/.local/bin/chwifi"
-
-        # Color Picker
-        "$mod SHIFT, M, exec, wl-color-picker"
+        # Terminal Apps #
+        "$mod, T, exec, $terminal" # Terminal
+        "$mod, E, exec, $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
+        "$mod ALT, P, exec,  $terminal --class=term.app -e 'pulsemixer' " # Pulse Mixer (Audio Mixer)
+        "$mod ALT, V, exec,  $terminal --class=term.applet -e 'clipse' " # Clipse (Clipboard Manager & History)
+        "$mod ALT, M, exec, wl-color-picker"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
