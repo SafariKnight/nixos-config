@@ -8,6 +8,7 @@
     modules.gaming.enable = lib.mkEnableOption "Enable Gaming Things";
   };
   config = lib.mkIf config.modules.gaming.enable {
+    modules.nix-ld.enable = lib.mkDefault true;
     programs.steam.enable = true;
     programs.steam.protontricks.enable = true;
     environment.systemPackages = with pkgs; [

@@ -68,12 +68,11 @@
     qalculate-gtk
     libqalculate
     inputs.ghostty.packages.${pkgs.system}.default
-  ];
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
+    dwarfs
+    bubblewrap
+    fuse-overlayfs
     fuse
-    icu.dev
+    gopeed
   ];
 
   fonts.packages = with pkgs; [

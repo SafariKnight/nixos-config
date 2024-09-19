@@ -7,6 +7,7 @@
     ./plymouth.nix
     ./systemd-boot.nix
     ./gaming.nix
+    ./nix-ld.nix
   ];
   modules = {
     # Keep these modules enabled by default and have them be togglable
