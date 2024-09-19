@@ -3,5 +3,5 @@ return { -- Might use this?
   enabled = false,
   lazy = false,
   priority = 2000,
-  opts = {}
+  opts = {},
 }

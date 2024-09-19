@@ -18,7 +18,7 @@ return {
         -- builtin.completion.spell,
 
         builtin.code_actions.refactoring,
-      }
+      },
     }
   end,
 }

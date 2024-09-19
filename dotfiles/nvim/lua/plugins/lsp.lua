@@ -9,7 +9,7 @@ local ensure = {
   "gopls",
   "basedpyright",
   "rust_analyzer",
-  "tailwindcss"
+  "tailwindcss",
 }
 
 return {
@@ -80,7 +80,6 @@ return {
       end,
     }
 
-
     local function get_server_config(server)
       return {
         [server] = function()
@@ -93,7 +92,6 @@ return {
       handlers =
         vim.tbl_deep_extend("force", handlers, get_server_config(server))
     end
-
 
     add_server_config("tsserver")
     add_server_config("volar")

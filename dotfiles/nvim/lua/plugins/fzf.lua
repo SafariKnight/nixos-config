@@ -38,14 +38,14 @@ return {
       {
         "<leader><space>",
         function()
-          fzf.files({ cmd = "fd --type f"})
+          fzf.files({ cmd = "fd --type f" })
         end,
         desc = "Find File",
       },
       {
         "<leader>ff",
         function()
-          fzf.files({ cmd = "fd --type f"})
+          fzf.files({ cmd = "fd --type f" })
         end,
         desc = "File",
       },
@@ -84,8 +84,7 @@ return {
 
   opts = {
     previewers = {
-      builtin = {
-      },
+      builtin = {},
     },
     winopts = {
       preview = {

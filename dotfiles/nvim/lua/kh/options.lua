@@ -22,9 +22,9 @@ vim.o.backup = false
 -- save undo history
 vim.o.undofile = true
 if vim.fn.has("linux") == 1 then
-	vim.o.undodir = vim.fn.expand("~/.vim/undodir")
+  vim.o.undodir = vim.fn.expand("~/.vim/undodir")
 elseif vim.fn.has("windows") == 1 then
-	vim.o.undodir = vim.fn.expand("$localappdata") .. "\\.vim\\undodir"
+  vim.o.undodir = vim.fn.expand("$localappdata") .. "\\.vim\\undodir"
 end
 
 -- -- enable break indent
@@ -66,7 +66,7 @@ vim.opt.splitbelow = true
 -- `:help 'list'`
 -- `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- show which line your cursos is on
 vim.opt.cursorline = false

@@ -74,8 +74,8 @@ return {
 
       sources = {
         { name = "nvim_lsp", group_index = 1 },
-        { name = "luasnip",  group_index = 1 },
-        { name = "buffer",   group_index = 2 },
+        { name = "luasnip", group_index = 1 },
+        { name = "buffer", group_index = 2 },
       },
     })
 
@@ -89,7 +89,7 @@ return {
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
-        { name = "path",    group_index = 1 },
+        { name = "path", group_index = 1 },
         { name = "cmdline", group_index = 2 },
       },
       matching = { disallow_symbol_nonprefix_matching = false },

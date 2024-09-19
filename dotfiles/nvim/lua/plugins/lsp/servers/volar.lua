@@ -16,7 +16,7 @@ require("lspconfig").volar.setup({
     },
   },
 })
-    -- vue = {
-    --   hybridMode = true,
-    -- },
-  -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+-- vue = {
+--   hybridMode = true,
+-- },
+-- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },

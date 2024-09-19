@@ -1,6 +1,6 @@
 return {
   "epwalsh/obsidian.nvim",
-  version = "*",  -- recommended, use latest release instead of latest commit
+  version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   enabled = false,
   ft = "markdown",
@@ -11,7 +11,7 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = vim.fn.expand("~") .. "/Notes/"
+        path = vim.fn.expand("~") .. "/Notes/",
         -- path = "/mnt/d/Notes/Personal/",
       },
     },

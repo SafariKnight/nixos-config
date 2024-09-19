@@ -34,8 +34,7 @@ return {
             bg = "transparent",
           },
         },
-        on_highlights = function(highlights, colors)
-        end,
+        on_highlights = function(highlights, colors) end,
       })
       vim.cmd.colorscheme("nord")
     end,
