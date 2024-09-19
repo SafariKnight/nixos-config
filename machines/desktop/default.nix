@@ -70,6 +70,12 @@
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    fuse
+    icu.dev
+  ];
+
   fonts.packages = with pkgs; [
     fira
     inter
