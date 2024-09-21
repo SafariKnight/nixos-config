@@ -37,6 +37,8 @@
       XCURSOR_SIZE = 24;
     };
     pointerCursor = {
+      # name = "bibata-nord";
+      # package = pkgs.bibata-nord;
       x11.enable = true;
       gtk.enable = true;
     };

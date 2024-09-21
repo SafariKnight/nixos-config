@@ -47,6 +47,7 @@ nixpkgs.lib.nixosSystem {
     }
     {system.stateVersion = "24.05";}
     inputs.home-manager.nixosModules.home-manager
+    inputs.lix-module.nixosModules.default
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;

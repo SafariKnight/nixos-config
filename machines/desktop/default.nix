@@ -90,6 +90,8 @@
     trusted-public-keys = ["ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="];
   };
   programs.hyprland.enable = true;
+  # programs.sway.enable = true;
+  # programs.sway.package = pkgs.swayfx;
   programs.fish.enable = true;
 
   users.users.${userName} = {
