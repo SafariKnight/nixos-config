@@ -31,10 +31,19 @@ nixpkgs.lib.nixosSystem {
     inputs.stylix.nixosModules.stylix
     ../theme/nord.nix
     {
-      nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      nix = {
+        gc.automatic = false;
+        optimise.automatic = true;
+        optimise.dates = ["weekly"];
+
+        settings.cores = 8;
+        settings.max-jobs = 16;
+        settings.use-xdg-base-directories = true;
+        settings.experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+      };
     }
     {system.stateVersion = "24.05";}
     inputs.home-manager.nixosModules.home-manager

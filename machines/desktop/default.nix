@@ -74,6 +74,7 @@
     fuse
     gopeed
   ];
+  services.flatpak.enable = true;
 
   fonts.packages = with pkgs; [
     fira

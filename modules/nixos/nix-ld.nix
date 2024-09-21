@@ -21,7 +21,9 @@
       expat
       fontconfig
       freetype
+      fuse
       fuse3
+      fuse-overlayfs
       gdk-pixbuf
       glib
       gtk3
