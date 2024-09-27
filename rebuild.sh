@@ -16,7 +16,7 @@ while getopts 'f:' flag; do
   esac
 done
 
-nh os build $(pwd) -H $FLAKE_NAME -a
+nh os build $(pwd) -H $FLAKE_NAME
 nh os switch $(pwd) -H $FLAKE_NAME -a
 
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available

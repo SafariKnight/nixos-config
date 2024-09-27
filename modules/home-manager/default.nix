@@ -11,6 +11,7 @@
     ./ghostty.nix
     ./direnv.nix
     ./dunst.nix
+    ./zellij.nix
     # ./mako.nix
     # ./nixvim
     ./nvim.nix

@@ -2,12 +2,13 @@
   imports = [./../modules/home-manager];
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
+    style.name = "adwaita";
   };
   programs.home-manager.enable = true;
 
   gtk = {
     iconTheme.name = "Papirus";
+    iconTheme.package = pkgs.papirus-nord;
     enable = true;
   };
   home = {
@@ -20,7 +21,6 @@
       stremio
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
-      papirus-nord
       adwaita-qt
       adwaita-qt6
       gparted

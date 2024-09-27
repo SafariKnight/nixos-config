@@ -14,6 +14,7 @@ return {
         builtin.formatting.shfmt,
         builtin.formatting.prettier,
         builtin.formatting.csharpier,
+        builtin.formatting.alejandra,
 
         -- builtin.completion.spell,
 

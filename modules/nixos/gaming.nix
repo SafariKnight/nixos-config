@@ -33,8 +33,10 @@
       wine
       wine64
       winetricks
+      cemu
       appimage-run
       dolphin-emu
+      openjdk17
       dolphin-emu-primehack
       pcsx2
       ppsspp
@@ -52,7 +54,7 @@
       #     # hash = "sha256-zQnR3KwlE1gTWH8f+GDRBsc7Whfn9XpT1D/NLg5TtrU=";
       #   };
       # })
-      (retroarch.override {cores = [pkgs.libretro.parallel-n64];})
+      (retroarch.override {cores = with pkgs.libretro; [parallel-n64 mgba];})
       libretro.parallel-n64
     ];
   };

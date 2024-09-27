@@ -68,11 +68,14 @@
     qalculate-gtk
     libqalculate
     inputs.ghostty.packages.${pkgs.system}.default
+    usbutils
     dwarfs
     bubblewrap
     fuse-overlayfs
     fuse
     gopeed
+    python313
+    input-remapper
   ];
   services.flatpak.enable = true;
 
