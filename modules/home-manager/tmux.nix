@@ -41,7 +41,7 @@
       bind -r C-j run "select-pane -D"
       bind -r C-k run "select-pane -U"
       bind -r C-l run "select-pane -R"
-      bind -r C-\ run "select-pane -l"
+      bind -r C-\\ run "select-pane -l"
     '';
     plugins = [
       {
