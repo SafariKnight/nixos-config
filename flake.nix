@@ -2,12 +2,16 @@
   description = "My NixOS config";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Have both in case I want to switch the original, so whatever is explicitly specified doesn't change
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nur.url = "github:nix-community/NUR";
     nixvim = {
       url = "github:nix-community/nixvim";
