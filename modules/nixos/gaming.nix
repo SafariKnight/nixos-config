@@ -46,6 +46,7 @@
       mgba
       flycast
       melonDS
+      gamescope
       # (osu-lazer-bin.overrideAttrs {
       #   # version = "2024.906.2";
       #   src = fetchurl {
