@@ -6,6 +6,7 @@
     ./rofi.nix
     ./git.nix
     ./fish.nix
+    ./lazygit.nix
     # ./starship.nix
     ./sway.nix
     ./ghostty.nix
