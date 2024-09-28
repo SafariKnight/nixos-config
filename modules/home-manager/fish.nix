@@ -8,6 +8,7 @@
     ls = "eza --group-directories-first";
     ovim = "NVIM_APPNAME=ovim nvim";
     gdvim = "nvim --listen 127.0.0.1:55432";
+    shell = "nix-shell --command fish";
     rt = "trash-put";
     cat = "bat";
     grep = "rg";
