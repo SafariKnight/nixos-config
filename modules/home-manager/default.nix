@@ -7,16 +7,13 @@
     ./git.nix
     ./fish.nix
     ./lazygit.nix
-    # ./starship.nix
     ./sway.nix
     ./ghostty.nix
     ./direnv.nix
     ./dunst.nix
     ./zellij.nix
-    # ./mako.nix
-    # ./nixvim
     ./nvim.nix
-    ./ags
+    ./ags.nix
     ./tmux.nix
     ./mpv.nix
     ./oh-my-posh.nix
