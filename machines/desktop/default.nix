@@ -85,6 +85,7 @@
     noto-fonts
     jetbrains-mono
     roboto
+    berkeley-mono
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 

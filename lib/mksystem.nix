@@ -55,6 +55,7 @@ nixpkgs.lib.nixosSystem {
       home-manager.extraSpecialArgs = {
         inherit inputs outputs;
       };
+      home-manager.backupFileExtension = "home-backup";
     }
     {
       # Extra arguments I can import into any modules

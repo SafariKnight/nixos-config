@@ -16,7 +16,7 @@ stdenvNoCC.mkDerivation rec {
   };
 
   installPhase = ''
-    install -m444 -Dt $out/share/fonts/truetype/${pname} *otf
+    install -m444 -Dt $out/share/fonts/opentype/${pname} *otf
   '';
 
   meta = with lib; {
