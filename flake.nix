@@ -61,6 +61,7 @@
     };
 
     overlays = import ./overlays {inherit inputs;};
+    formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
     nixosConfigurations = {
       desktop = mkSystem "desktop" {
         system = "x86_64_linux";
