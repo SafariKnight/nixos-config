@@ -56,12 +56,14 @@
     btop
     btrfs-progs
     feh
+    kdenlive
     trash-cli
     bat
     nixfmt-rfc-style
     yazi
     tree
     pavucontrol
+    obs-studio
     libnotify
     kdePackages.ark
     p7zip
