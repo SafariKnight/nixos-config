@@ -11,6 +11,7 @@
     modules.nix-ld.enable = lib.mkDefault true;
     programs.steam.enable = true;
     programs.steam.protontricks.enable = true;
+    programs.fuse.userAllowOther = true;
     environment.systemPackages = with pkgs; [
       (lutris.override {
         extraPkgs = pkgs:
