@@ -4,17 +4,33 @@
   ...
 }: {
   imports = [./../modules/home-manager];
-  qt = {
-    enable = true;
-    style.name = "adwaita";
-  };
   programs.home-manager.enable = true;
 
+  # stylix.targets.gtk.enable = true;
   gtk = {
     iconTheme.name = "Papirus";
     iconTheme.package = pkgs.papirus-nord;
     enable = true;
   };
+
+  qt = {
+    enable = true;
+
+    platformTheme.name = "gtk2";
+    # platformTheme.package = pkgs.qtstyleplugins;
+
+    style.name = "gtk2";
+    # style.package = pkgs.qtstyleplugins;
+  };
+  # gtk = {
+  #   theme = {
+  #     package = pkgs.nordic;
+  #     name = "nordic";
+  #   };
+  #   iconTheme.name = "Papirus";
+  #   iconTheme.package = pkgs.papirus-nord;
+  #   enable = true;
+  # };
   home = {
     username = "kareem";
     homeDirectory = "/home/kareem";
