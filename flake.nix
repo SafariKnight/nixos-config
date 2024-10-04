@@ -13,10 +13,6 @@
     };
 
     nur.url = "github:nix-community/NUR";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
     stylix = {
@@ -31,6 +27,7 @@
     # poggers
     ghostty = {
       url = "git+ssh://git@github.com/ghostty-org/ghostty";
+      # I have to do this for whatever reason
       inputs.nixpkgs-unstable.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
