@@ -31,7 +31,7 @@
                 fetch_status = true;
               };
               style = "plain";
-              template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
+              template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}<cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
               type = "git";
             }
             {
@@ -40,7 +40,7 @@
               foreground = "yellow";
               background = "transparent";
               # template = "(nix-{{ .Type }})";
-              template = ''{{if ne .Type "unknown"}}({{.Type}}){{ end }}'';
+              template = " {{if ne .Type \"unknown\"}}({{.Type}}){{ end }}";
             }
           ];
           type = "prompt";
