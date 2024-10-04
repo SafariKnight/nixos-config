@@ -32,6 +32,7 @@ nixpkgs.lib.nixosSystem {
     ../theme/nord.nix
     {
       nix = {
+        extraOptions = "warn-dirty = false";
         gc.automatic = false;
         optimise.automatic = true;
         optimise.dates = ["weekly"];
