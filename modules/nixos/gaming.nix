@@ -39,6 +39,7 @@
       dolphin-emu
       openjdk17
       dolphin-emu-primehack
+      gamemode
       pcsx2
       ppsspp
       duckstation
