@@ -8,7 +8,7 @@
 
   # stylix.targets.gtk.enable = true;
   gtk = {
-    iconTheme.name = "Papirus";
+    iconTheme.name = "Papirus-Dark";
     iconTheme.package = pkgs.papirus-nord;
     enable = true;
   };
@@ -49,6 +49,9 @@
       # libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
+      gimp
+      krita
+      inkscape
       tlrc
     ];
     file = {};
