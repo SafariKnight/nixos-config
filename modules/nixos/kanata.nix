@@ -42,15 +42,15 @@
             (defalias
               ext (tap-hold-release 0 200 esc (layer-while-held edit))
 
-              lmet (tap-hold-release 250 200 a lmet)
-              lalt (tap-hold-release 250 200 s lalt)
-              lsft (tap-hold-release 250 200 d lsft)
-              lctl (tap-hold-release 250 200 f lctl)
+              lmet (tap-hold-release 175 175 a lmet)
+              lalt (tap-hold-release 175 175 s lalt)
+              lsft (tap-hold-release 175 175 d lsft)
+              lctl (tap-hold-release 175 175 f lctl)
 
-              rctl (tap-hold-release 250 200 k rctl)
-              rsft (tap-hold-release 250 200 l rsft)
-              ralt (tap-hold-release 250 200 ; lalt) ;; outputs lalt because fuck ralt
-              rmet (tap-hold-release 250 200 ' rmet)
+              rctl (tap-hold-release 175 175 k rctl)
+              rsft (tap-hold-release 175 175 l rsft)
+              ralt (tap-hold-release 175 175 ; lalt) ;; outputs lalt because fuck ralt
+              rmet (tap-hold-release 175 175 ' rmet)
             )
 
             ;; (deflayer cmk-caws{{{
