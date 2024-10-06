@@ -63,7 +63,7 @@
     overlays = import ./overlays {inherit inputs;};
     formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
     nixosConfigurations = {
-      desktop = mkSystem "desktop" {
+      desktop = mkSystem "krypton" {
         system = "x86_64_linux";
         user = "kareem";
       };

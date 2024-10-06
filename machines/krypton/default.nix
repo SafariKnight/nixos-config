@@ -23,7 +23,7 @@
     tmp.useTmpfs = true;
   };
 
-  networking.hostName = "kareem-nixos";
+  networking.hostName = "krypton";
   networking.networkmanager.enable = true;
   networking.networkmanager = {
     # wifi.powersave = 2;
@@ -89,6 +89,7 @@
     jetbrains-mono
     roboto
     berkeley-mono
+    hack-font
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
