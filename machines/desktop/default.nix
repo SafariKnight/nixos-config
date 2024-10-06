@@ -9,6 +9,7 @@
 }: {
   imports = [./../../modules/nixos];
   modules.gaming.enable = true;
+  modules.kanata.enable = true;
 
   console = {
     useXkbConfig = true;
@@ -106,6 +107,7 @@
       "networkmanager"
       "wheel"
       "input"
+      "uinput"
     ];
     shell = pkgs.fish;
     packages = with pkgs; [vesktop];
