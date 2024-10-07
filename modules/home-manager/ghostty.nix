@@ -15,7 +15,8 @@
     shell-integration-features = "no-cursor, sudo, title";
 
     # Font
-    font-family = "Berkeley Mono";
+    # font-family = "Berkeley Mono";
+    font-family = "Hack";
 
     # font-family = "JetBrains Mono";
     # font-style = "SemiBold";
