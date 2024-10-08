@@ -90,6 +90,7 @@
     roboto
     berkeley-mono
     hack-font
+    iosevka
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 

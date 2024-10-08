@@ -16,7 +16,7 @@
 
     # Font
     # font-family = "Berkeley Mono";
-    font-family = "Hack";
+    font-family = "Iosevka";
 
     # font-family = "JetBrains Mono";
     # font-style = "SemiBold";
