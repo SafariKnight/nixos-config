@@ -12,19 +12,18 @@
       inherit inputs outputs;
     };
   };
-  nixpkgs-settings = 
-      {
-        nixpkgs = {
-          overlays = [
-            outputs.overlays.extra-packages
-            outputs.overlays.additions
-            inputs.nur.overlay
-          ];
-          config = {
-            allowUnfree = true;
-          };
-        };
+  nixpkgs-settings = {
+    nixpkgs = {
+      overlays = [
+        outputs.overlays.extra-packages
+        outputs.overlays.additions
+        inputs.nur.overlay
+      ];
+      config = {
+        allowUnfree = true;
       };
+    };
+  };
 in {
   nixosConfigurations.${machine} = nixpkgs.lib.nixosSystem {
     inherit system;
