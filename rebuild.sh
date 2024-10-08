@@ -5,7 +5,7 @@ set -e
 echo "Starting Rebuild..."
 nix fmt
 
-FLAKE_NAME="desktop"
+FLAKE_NAME="krypton"
 OPERATION="switch"
 
 

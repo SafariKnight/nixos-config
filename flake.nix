@@ -55,32 +55,31 @@
       "aarch64-darwin" # 64-bit ARM macOS
     ];
     forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {pkgs = import nixpkgs {inherit system;};});
-  in {
-    nixConfig = {
-      warn-dirty = false;
-    };
-
-    overlays = import ./overlays {inherit inputs;};
-    formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
-    nixosConfigurations = {
-      desktop = mkSystem "krypton" {
-        system = "x86_64_linux";
-        user = "kareem";
+  in
+    (mkSystem "krypton" {
+      system = "x86_64-linux";
+      user = "kareem";
+    })
+    // {
+      nixConfig = {
+        warn-dirty = false;
       };
+
+      overlays = import ./overlays {inherit inputs;};
+      formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
+      devShells = forEachSupportedSystem (
+        {pkgs}: {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              lua
+              luajit
+              lua-language-server
+              stylua
+              nixd
+              alejandra
+            ];
+          };
+        }
+      );
     };
-    devShells = forEachSupportedSystem (
-      {pkgs}: {
-        default = pkgs.mkShell {
-          packages = with pkgs; [
-            lua
-            luajit
-            lua-language-server
-            stylua
-            nixd
-            alejandra
-          ];
-        };
-      }
-    );
-  };
 }
