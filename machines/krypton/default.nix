@@ -147,8 +147,7 @@
   services.snapper = {
     persistentTimer = true;
     configs = {
-      root = {
-        # why does it complain if this isn't named root
+      root = { # why does it complain if this isn't named root
         SUBVOLUME = "/mnt/important";
         ALLOW_USERS = ["${userName}"];
         TIMELINE_CREATE = true;
