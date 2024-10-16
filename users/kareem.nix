@@ -46,6 +46,7 @@
       gparted
       xorg.xhost
       prismlauncher
+      thunderbird
       # libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
