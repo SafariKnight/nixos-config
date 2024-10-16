@@ -7,7 +7,7 @@ xkb_symbols "colemak_dh_wide_symbol" {
     key <AE07> { [ backslash, bar        ] };
     key <AE12> { [ equal    , plus       ] };
 
-    key <CAPS> { [ Control_L , Escape     ] };
+    // key <CAPS> { [ Control_L , Escape     ] };
 
     key <AD11> {[ apostrophe, quotedbl   ] };
     key <AD12> {[ minus     , underscore ] };
