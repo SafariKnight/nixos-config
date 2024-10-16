@@ -130,6 +130,9 @@
         "float,class:(term.app)"
         "size 1280 720,class:(term.app)"
 
+        "float,class:(org.pulseaudio.pavucontrol)"
+        "size 1280 720,class:(org.pulseaudio.pavucontrol)"
+
         # Doesn't work
         "float,title:(Bitwarden)"
         "size 622 652,title:(Bitwarden)"
@@ -228,6 +231,9 @@
 
         ### Apps ###
 
+        # Audio #
+        "$mod ALT, P, exec, pavucontrol"
+
         # Screenshots #
         "$mod, Print, exec, grimblast copysave screen $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
         "        , Print, exec, grimblast --freeze copysave area $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
@@ -238,7 +244,7 @@
         # Terminal Apps #
         "$mod, T, exec, $terminal" # Terminal
         "$mod, E, exec, $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
-        "$mod ALT, P, exec,  $terminal --class=term.app -e 'pulsemixer' " # Pulse Mixer (Audio Mixer)
+        # "$mod ALT, P, exec,  $terminal --class=term.app -e 'pulsemixer' " # Pulse Mixer (Audio Mixer)
         "$mod ALT, V, exec,  $terminal --class=term.applet -e 'clipse' " # Clipse (Clipboard Manager & History)
         "$mod ALT, M, exec, wl-color-picker"
       ];
