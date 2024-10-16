@@ -15,19 +15,22 @@
           settings = {
             main = {
               capslock = "overload(nav, esc)";
-              esc = "capslock";
+              esc = "noop"; # I have this so I can get in the habit of pressing capslock over escape
 
-              a = "overloadt(meta, a, 175)";
-              s = "overloadt(alt, s, 175)";
-              d = "overloadt(shift, d, 175)";
-              f = "overloadt(control, f, 175)";
-
-              k = "overloadt(control, k, 175)";
-              l = "overloadt(shift, l, 175)";
-              ";" = "overloadt(alt, ;, 175)";
-              "'" = "overloadt(meta, ', 175)";
+              # a = "overloadt(meta, a, 175)";
+              # s = "overloadt(alt, s, 175)";
+              # d = "overloadt(shift, d, 175)";
+              # f = "overloadt(control, f, 175)";
+              #
+              # k = "overloadt(control, k, 175)";
+              # l = "overloadt(shift, l, 175)";
+              # ";" = "overloadt(alt, ;, 175)";
+              # "'" = "overloadt(meta, ', 175)";
             };
-            nav = {
+            "nav:C" = {
+              d = "layer(shift)";
+              f = "layer(control)";
+
               j = "left";
               k = "down";
               l = "up";

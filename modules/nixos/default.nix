@@ -9,6 +9,7 @@
     ./gaming.nix
     ./nix-ld.nix
     ./kanata.nix
+    ./keyd.nix
   ];
   modules = {
     # Keep these modules enabled by default and have them be togglable
