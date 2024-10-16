@@ -201,14 +201,21 @@
         };
         search = {
           force = true;
-          default = "Brave";
-          order = ["Brave"];
+          default = "Duckduckgo";
+          order = ["Duckduckgo" "Brave"];
           engines = {
             "Brave" = {
               urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
               iconUpdateURL = "https://cdn.search.brave.com/serp/v2/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@brave"];
+            };
+
+            "Duckduckgo" = {
+              urls = [{template = "https://start.duckduckgo.com/?q={searchTerms}";}];
+              iconUpdateURL = "https://start.duckduckgo.com/favicon.ico";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@duckduckgo"];
             };
             "Bing".metaData.hidden = true;
             "Google".metaData.hidden = true;
