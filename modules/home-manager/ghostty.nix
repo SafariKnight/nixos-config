@@ -1,9 +1,4 @@
-{
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   xdg.configFile."ghostty/config".text = lib.generators.toKeyValue {listsAsDuplicateKeys = true;} {
     # Window
     background-opacity = 0.9;
