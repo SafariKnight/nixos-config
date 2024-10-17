@@ -8,7 +8,7 @@
       };
       ui = {
         editor = "nvim";
-        # diff-editor = "nvim -d";
+        diff-editor = ":builtin";
         # merge-editor = "nvim -d";
         default-command = "status";
         # paginate = "never";
