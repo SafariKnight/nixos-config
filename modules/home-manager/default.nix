@@ -17,5 +17,6 @@
     ./tmux.nix
     ./mpv.nix
     ./oh-my-posh.nix
+    ./jujutsu.nix
   ];
 }

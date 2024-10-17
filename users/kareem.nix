@@ -50,6 +50,7 @@
       # libsForQt5.qtstyleplugins
       # kdePackages.breeze-icons
       # kdePackages.qtsvg
+      just
       gimp
       krita
       inkscape
