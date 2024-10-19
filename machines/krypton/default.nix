@@ -11,6 +11,7 @@
   modules.gaming.enable = true;
   # modules.kanata.enable = true;
   modules.keyd.enable = true;
+  modules.greetd.command = "niri-session";
 
   console = {
     useXkbConfig = true;
@@ -43,8 +44,10 @@
     pkgs.driversi686Linux.amdvlk
   ];
 
-  # List packages installed in system profile. To search, run:
+  # List packages installed in system profile. To search, run: nh search <package-name>
   environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
     wget
     git
     wl-clipboard

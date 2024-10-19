@@ -18,5 +18,7 @@
     ./mpv.nix
     ./oh-my-posh.nix
     ./jujutsu.nix
+    ./niri.nix
   ];
+  modules.niri.enable = true;
 }
