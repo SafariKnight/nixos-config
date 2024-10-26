@@ -160,8 +160,8 @@ binds {
     Mod+O { consume-or-expel-window-right; }
 
     /// Columns ///
-    // Mod+R { switch-preset-column-width; }
-    // Mod+Shift+R { switch-preset-window-height; }
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+C { center-column; }
