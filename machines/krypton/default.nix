@@ -38,6 +38,7 @@
   hardware.graphics.extraPackages = [
     pkgs.amdvlk
   ];
+  hardware.i2c.enable = true;
 
   # To enable Vulkan support for 32-bit applications, also add:
   hardware.graphics.extraPackages32 = [
