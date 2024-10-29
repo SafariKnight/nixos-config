@@ -93,7 +93,7 @@
     noto-fonts
     jetbrains-mono
     roboto
-    berkeley-mono
+    # berkeley-mono
     hack-font
     iosevka
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
