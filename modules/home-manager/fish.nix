@@ -13,6 +13,7 @@
     cat = "bat";
     grep = "rg";
     find = "fd";
+    less = "less -r";
   };
   programs.fish = {
     enable = true;
