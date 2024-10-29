@@ -9,9 +9,10 @@
       ui = {
         editor = "nvim";
         diff-editor = ":builtin";
+        color = "always";
         # merge-editor = "nvim -d";
         default-command = "status";
-        # paginate = "never";
+        paginate = "never";
       };
     };
   };
