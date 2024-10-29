@@ -4,6 +4,9 @@ default:
 k:
   @just rebuild krypton
 
+updatek:
+  @just update krypton
+
 home:
   echo "Starting Home Reconfiguration..."
   nix fmt
@@ -20,3 +23,16 @@ rebuild FLAKE_NAME:
   nh os switch $(pwd) -H {{FLAKE_NAME}}
 
   notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+
+update FLAKE_NAME:
+  echo "Starting Update..."
+  nix fmt
+
+  nix flake update
+  notify-send -e "Flake Update OK!" --icon=software-update-available
+
+  nixos-rebuild build --flake .#{{FLAKE_NAME}}
+  notify-send -e "NixOS Build OK!" --icon=software-update-available
+
+  sudo nixos-rebuild switch --flake .#{{FLAKE_NAME}}
+  notify-send -e "NixOS Update FINISHED!" --icon=software-update-available
