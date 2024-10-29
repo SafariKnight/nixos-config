@@ -37,7 +37,20 @@
       cemu
       appimage-run
       dolphin-emu
-      openjdk17
+      (prismlauncher.override
+        {
+          jdks = with pkgs; [
+            temurin-jre-bin-17
+            temurin-jre-bin-21
+            temurin-jre-bin-8
+          ];
+          # jdk17 = pkgs.temurin-jre-bin-17;
+          # jdk21 = pkgs.temurin-jre-bin-21;
+          # jdk8 = pkgs.temurin-jre-bin-8;
+        })
+      # temurin-jre-bin-8
+      # temurin-jre-bin-21
+      # openjdk17
       dolphin-emu-primehack
       gamemode
       pcsx2
