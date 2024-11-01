@@ -35,9 +35,9 @@
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  hardware.graphics.extraPackages = [
-    pkgs.amdvlk
-  ];
+  # hardware.graphics.extraPackages = [
+  #   pkgs.amdvlk
+  # ];
   hardware.i2c.enable = true;
 
   # To enable Vulkan support for 32-bit applications, also add:
