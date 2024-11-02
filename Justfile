@@ -4,8 +4,11 @@ default:
 k:
   @just rebuild krypton
 
-updatek:
+kup:
   @just update krypton
+
+ktest:
+  @just test krypton
 
 home:
   echo "Starting Home Reconfiguration..."
@@ -14,6 +17,15 @@ home:
   nh home switch
 
   notify-send -e "Home Manager Switched OK!" --icon=software-update-available
+
+
+test FLAKE_NAME:
+  echo "Starting Rebuild..."
+  nix fmt
+
+  nh os test $(pwd) -H {{FLAKE_NAME}}
+
+  notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
 
 rebuild FLAKE_NAME:
   echo "Starting Rebuild..."
