@@ -50,12 +50,21 @@ in {
             "nix-command"
             "flakes"
           ];
+          settings.substituters = [
+            # "https://cosmic.cachix.org/"
+            "https://ghostty.cachix.org/"
+          ];
+          settings.trusted-public-keys = [
+            # "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+            "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+          ];
         };
       }
       {system.stateVersion = "24.05";}
       inputs.stylix.nixosModules.stylix
       inputs.home-manager.nixosModules.home-manager
       inputs.lix-module.nixosModules.default
+      # inputs.nixos-cosmic.nixosModules.default
       {
         home-manager = (
           home

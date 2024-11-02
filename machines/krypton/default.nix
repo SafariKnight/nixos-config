@@ -99,10 +99,6 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
-  nix.settings = {
-    trusted-substituters = ["https://ghostty.cachix.org/"];
-    trusted-public-keys = ["ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="];
-  };
   programs.hyprland.enable = true;
   # programs.sway.enable = true;
   # programs.sway.package = pkgs.swayfx;
@@ -170,4 +166,8 @@
       "noatime"
     ];
   };
+
+  # services.desktopManager.cosmic.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
+  # modules.greetd.enable = false;
 }
