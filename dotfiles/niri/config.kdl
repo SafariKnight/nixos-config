@@ -103,6 +103,10 @@ window-rule {
     // block-out-from "screencast"
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 binds {
 
     /// Windows ///
