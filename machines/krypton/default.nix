@@ -45,10 +45,21 @@
     pkgs.driversi686Linux.amdvlk
   ];
 
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+        libsForQt5.xdg-desktop-portal-kde
+      ];
+    };
+  };
+  environment.variables.MOZ_ENABLE_WAYLAND = "1";
+
   # List packages installed in system profile. To search, run: nh search <package-name>
   environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
     wget
     git
     wl-clipboard
@@ -167,7 +178,12 @@
     ];
   };
 
+  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+  boot.kernelModules = ["v4l2loopback"];
   # services.desktopManager.cosmic.enable = true;
   # services.displayManager.cosmic-greeter.enable = true;
   # modules.greetd.enable = false;
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
 }
