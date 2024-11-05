@@ -51,7 +51,7 @@
       ];
       sub-bold = "yes";
       sub-font = "Gandhi Sans";
-      sub-font-size = 39;
+      sub-font-size = 30;
       sub-blur = 0.1;
       sub-color = "1.0/1.0/1.0/1.0";
       # sub-border-color=0.0/0.0/0.0/1.0
