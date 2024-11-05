@@ -11,6 +11,8 @@
     home.packages = with pkgs; [
       niri
       xwayland-satellite
+      # cosmic-files
+      xfce.thunar
       # # install system level instead of here
       # xdg-desktop-portal-gnome
       # xdg-desktop-portal-gtk
