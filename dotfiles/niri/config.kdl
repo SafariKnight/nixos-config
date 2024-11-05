@@ -186,6 +186,7 @@ binds {
     /// Apps ///
     Mod+T { spawn "ghostty"; }
     Mod+E { spawn "ghostty" "--class=term.app" "-e" "yazi"; }
+    Mod+Shift+E { spawn "thunar"; }
     Mod+D { spawn "rofi" "-show" "drun"; }
     Mod+W { spawn "firefox"; }
     Mod+Shift+Q { spawn "wlogout"; }
@@ -208,7 +209,7 @@ binds {
     Alt+Print { screenshot-window; }
 
     /// Misc ///
-    Mod+Shift+E { quit; }
+    Mod+Ctrl+Shift+Q { quit; }
     Mod+Shift+P { power-off-monitors; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 }
