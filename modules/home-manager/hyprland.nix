@@ -26,7 +26,7 @@
     package = pkgs.hyprland;
     xwayland.enable = true;
     settings = {
-      monitor = ["HDMI-A-1,1920x1080@144.00,0x0,1"];
+      monitor = ["DP-1,1920x1080@165.003,0x0,1"];
       debug = {
         disable_logs = false; # why is this disabled by default
       };
