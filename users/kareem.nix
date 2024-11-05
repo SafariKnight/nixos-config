@@ -32,6 +32,14 @@
   #   iconTheme.package = pkgs.papirus-nord;
   #   enable = true;
   # };
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = "feh.desktop";
+      "image/jpeg" = "feh.desktop";
+      "image/jpg" = "feh.desktop";
+    };
+  };
   home = {
     username = "kareem";
     homeDirectory = "/home/kareem";
