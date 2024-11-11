@@ -13,6 +13,7 @@
 
     # rofi.enable = false;
     targets.nixvim.enable = false;
+    targets.plymouth.enable = false;
     opacity = {
       terminal = 0.9;
     };
