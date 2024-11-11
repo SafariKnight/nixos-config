@@ -15,7 +15,6 @@
 
   console = {
     useXkbConfig = true;
-    earlySetup = true;
   };
 
   boot = {
@@ -28,19 +27,14 @@
   networking.hostName = "krypton";
   networking.networkmanager.enable = true;
   networking.networkmanager = {
-    # wifi.powersave = 2;
     wifi.powersave = false;
   };
 
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # hardware.graphics.extraPackages = [
-  #   pkgs.amdvlk
-  # ];
   hardware.i2c.enable = true;
 
-  # To enable Vulkan support for 32-bit applications, also add:
   hardware.graphics.extraPackages32 = [
     pkgs.driversi686Linux.amdvlk
   ];
@@ -180,10 +174,4 @@
 
   boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
   boot.kernelModules = ["v4l2loopback"];
-  # services.desktopManager.cosmic.enable = true;
-  # services.displayManager.cosmic-greeter.enable = true;
-  # modules.greetd.enable = false;
-  # services.desktopManager.plasma6.enable = true;
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
 }

@@ -7,7 +7,7 @@
     modules.plymouth.enable = lib.mkEnableOption "Enable Plymouth";
   };
   config = lib.mkIf config.modules.plymouth.enable {
-    console.earlySetup = true;
+    console.earlySetup = false;
     boot = {
       consoleLogLevel = 0;
       initrd.verbose = false;
