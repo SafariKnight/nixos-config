@@ -26,8 +26,6 @@
     stateVersion = "24.05";
 
     packages = with pkgs; [
-      miru
-      stremio
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
       adwaita-qt

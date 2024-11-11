@@ -118,7 +118,6 @@
       "uinput"
     ];
     shell = pkgs.fish;
-    packages = with pkgs; [vesktop];
   };
 
   ### Mount Partions ###
