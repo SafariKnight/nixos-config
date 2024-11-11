@@ -89,6 +89,7 @@
     gopeed
     python313
     input-remapper
+    obsidian
   ];
   services.flatpak.enable = true;
 
