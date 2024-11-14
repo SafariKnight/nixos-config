@@ -11,6 +11,7 @@
     home.packages = with pkgs; [
       niri
       xwayland-satellite
+      cliphist
       # cosmic-files
       xfce.thunar
       # # install system level instead of here

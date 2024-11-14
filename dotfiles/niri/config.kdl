@@ -70,6 +70,7 @@ layout {
 spawn-at-startup "swaybg" "-i" "/home/kareem/nixos-config/theme/nord.png"
 spawn-at-startup "xwayland-satellite" ":69" // haha 69
 spawn-at-startup "dunst"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 prefer-no-csd
 
