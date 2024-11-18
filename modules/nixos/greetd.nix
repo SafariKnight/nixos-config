@@ -21,7 +21,7 @@
           user = "${userName}";
         };
         initial_session = {
-          command = "${config.modules.greetd.command} > /dev/null";
+          command = "${config.modules.greetd.command} >/dev/null";
           user = "${userName}";
         };
       };

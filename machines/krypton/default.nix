@@ -12,6 +12,11 @@
   # modules.kanata.enable = true;
   modules.keyd.enable = true;
   modules.greetd.command = "niri-session";
+  modules.greetd.enable = false;
+
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   console = {
     useXkbConfig = true;
@@ -39,18 +44,20 @@
     pkgs.driversi686Linux.amdvlk
   ];
 
-  xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-gtk
-        libsForQt5.xdg-desktop-portal-kde
-      ];
-    };
-  };
-  environment.variables.MOZ_ENABLE_WAYLAND = "1";
+  # xdg = {
+  #   portal = {
+  #     enable = true;
+  #     wlr.enable = true;
+  #     extraPortals = with pkgs; [
+  #       xdg-desktop-portal-gnome
+  #       xdg-desktop-portal-gtk
+  #       libsForQt5.xdg-desktop-portal-kde
+  #     ];
+  #   };
+  # };
+  # environment.variables.MOZ_ENABLE_WAYLAND = "1";
+
+  virtualisation.waydroid.enable = true;
 
   # List packages installed in system profile. To search, run: nh search <package-name>
   environment.systemPackages = with pkgs; [
@@ -78,7 +85,7 @@
     libnotify
     kdePackages.ark
     p7zip
-    qalculate-gtk
+    qalculate-qt
     libqalculate
     inputs.ghostty.packages.${pkgs.system}.default
     usbutils
@@ -118,7 +125,7 @@
       "input"
       "uinput"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
   };
 
   ### Mount Partions ###

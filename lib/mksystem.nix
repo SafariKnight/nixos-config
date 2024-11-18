@@ -72,7 +72,7 @@ in {
             users.${user} = import ./../users/${user}.nix;
             useGlobalPkgs = true;
             useUserPackages = true;
-            backupFileExtension = "home-backup";
+            backupFileExtension = "BACKUP.HOME";
           }
         );
       }

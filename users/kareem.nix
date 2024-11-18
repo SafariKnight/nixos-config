@@ -10,6 +10,11 @@
   gtk = {
     iconTheme.name = "Papirus-Dark";
     iconTheme.package = pkgs.papirus-nord;
+    cursorTheme = {
+      name = "bibata-nord";
+      package = pkgs.bibata-nord;
+      size = 24;
+    };
     enable = true;
   };
   xdg.mimeApps = {
@@ -40,14 +45,15 @@
       krita
       inkscape
       tlrc
-      (zoom-us.overrideAttrs (old: {
-        postFixup =
-          old.postFixup
-          + ''
-            wrapProgram $out/bin/zoom --unset XDG_SESSION_TYPE
-            wrapProgram $out/bin/zoom-us --unset XDG_SESSION_TYPE
-          '';
-      }))
+      # zoom-us
+      # (zoom-us.overrideAttrs (old: {
+      #   postFixup =
+      #     old.postFixup
+      #     + ''
+      #       wrapProgram $out/bin/zoom --unset XDG_SESSION_TYPE
+      #       wrapProgram $out/bin/zoom-us --unset XDG_SESSION_TYPE
+      #     '';
+      # }))
     ];
     file = {};
     sessionVariables = {

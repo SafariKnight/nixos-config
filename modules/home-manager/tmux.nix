@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   stylix.targets.tmux.enable = false;
@@ -36,6 +37,9 @@
 
       # Top Status Bar
       set-option -g status-position bottom
+
+      set -g default-shell /etc/profiles/per-user/${config.home.username}/bin/fish
+
 
       bind -r C-h run "select-pane -L"
       bind -r C-j run "select-pane -D"

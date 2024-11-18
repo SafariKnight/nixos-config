@@ -4,6 +4,8 @@
     background-opacity = 0.9;
     window-decoration = false;
 
+    command = "fish";
+
     # Cursor
     cursor-style-blink = false;
     adjust-cursor-thickness = 1;
