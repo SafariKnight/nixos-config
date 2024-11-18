@@ -63,7 +63,7 @@ in {
       {system.stateVersion = "24.05";}
       inputs.stylix.nixosModules.stylix
       inputs.home-manager.nixosModules.home-manager
-      inputs.lix-module.nixosModules.default
+      # inputs.lix-module.nixosModules.default
       # inputs.nixos-cosmic.nixosModules.default
       {
         home-manager = (
@@ -97,7 +97,7 @@ in {
         inputs.stylix.homeManagerModules.stylix
         ../theme/nord.nix
         nixpkgs-settings
-        inputs.lix-module.nixosModules.default
+        # inputs.lix-module.nixosModules.default
       ];
     }
   );
