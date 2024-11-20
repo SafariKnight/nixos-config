@@ -1,22 +1,16 @@
 {
   pkgs,
-  lib,
   config,
   inputs,
-  outputs,
-  userName,
   ...
-}: {
-  imports = [./../../modules/nixos];
-  modules.gaming.enable = true;
-  # modules.kanata.enable = true;
-  modules.keyd.enable = true;
-  modules.greetd.command = "niri-session";
-  modules.greetd.enable = false;
-
+}: let
+  mainUser = "kareem";
+in {
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  modules.boot.sddm.enable = true;
+  modules.nix.nh.flakePath = "/home/${mainUser}/nixos-config";
+
+  system.stateVersion = "24.05";
 
   console = {
     useXkbConfig = true;
@@ -43,19 +37,6 @@
   hardware.graphics.extraPackages32 = [
     pkgs.driversi686Linux.amdvlk
   ];
-
-  # xdg = {
-  #   portal = {
-  #     enable = true;
-  #     wlr.enable = true;
-  #     extraPortals = with pkgs; [
-  #       xdg-desktop-portal-gnome
-  #       xdg-desktop-portal-gtk
-  #       libsForQt5.xdg-desktop-portal-kde
-  #     ];
-  #   };
-  # };
-  # environment.variables.MOZ_ENABLE_WAYLAND = "1";
 
   virtualisation.waydroid.enable = true;
 
@@ -117,7 +98,7 @@
   # programs.sway.package = pkgs.swayfx;
   programs.fish.enable = true;
 
-  users.users.${userName} = {
+  users.users.${mainUser} = {
     isNormalUser = true;
     extraGroups = [
       "networkmanager"
@@ -163,7 +144,7 @@
       root = {
         # why does it complain if this isn't named root
         SUBVOLUME = "/mnt/important";
-        ALLOW_USERS = ["${userName}"];
+        ALLOW_USERS = [mainUser];
         TIMELINE_CREATE = true;
         TIMELINE_CLEANUP = true;
       };

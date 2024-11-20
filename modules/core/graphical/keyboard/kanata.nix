@@ -3,10 +3,7 @@
   config,
   ...
 }: {
-  options = {
-    modules.kanata.enable = lib.mkEnableOption "Enable Kanta";
-  };
-  config = lib.mkIf config.modules.kanata.enable {
+  config = lib.mkIf config.modules.keyboard.kanata.enable {
     services.kanata = {
       enable = true;
       keyboards = {

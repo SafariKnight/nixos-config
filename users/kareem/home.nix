@@ -1,12 +1,28 @@
-{
-  pkgs,
-  inputs,
-  config,
-  ...
-}: {
-  imports = [./../modules/home-manager];
-  programs.home-manager.enable = true;
+{pkgs, ...}: {
+  imports = [
+    ./direnv.nix
+    ./firefox.nix
+    ./fish.nix
+    ./ghostty.nix
+    ./git.nix
+    ./jujutsu.nix
+    ./lazygit.nix
+    ./mpv.nix
+    ./nvim.nix
+    ./oh-my-posh.nix
+    ./tmux.nix
+    ./zellij.nix
 
+    # ./ags.nix
+    # ./dunst.nix
+    # ./hyprland.nix
+    # ./kitty.nix
+    # ./mako.nix
+    # ./niri.nix
+    # ./rofi.nix
+    # ./starship.nix
+    # ./sway.nix
+  ];
   gtk = {
     iconTheme.name = "Papirus-Dark";
     iconTheme.package = pkgs.papirus-nord;
@@ -45,15 +61,6 @@
       krita
       inkscape
       tlrc
-      # zoom-us
-      # (zoom-us.overrideAttrs (old: {
-      #   postFixup =
-      #     old.postFixup
-      #     + ''
-      #       wrapProgram $out/bin/zoom --unset XDG_SESSION_TYPE
-      #       wrapProgram $out/bin/zoom-us --unset XDG_SESSION_TYPE
-      #     '';
-      # }))
     ];
     file = {};
     sessionVariables = {
@@ -61,8 +68,6 @@
       XCURSOR_SIZE = 24;
     };
     pointerCursor = {
-      # name = "bibata-nord";
-      # package = pkgs.bibata-nord;
       x11.enable = true;
       gtk.enable = true;
     };

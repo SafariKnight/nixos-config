@@ -3,10 +3,7 @@
   config,
   ...
 }: {
-  options = {
-    modules.keyd.enable = lib.mkEnableOption "Enable Keyd";
-  };
-  config = lib.mkIf config.modules.keyd.enable {
+  config = lib.mkIf config.modules.keyboard.keyd.enable {
     services.keyd = {
       enable = true;
       keyboards = {
