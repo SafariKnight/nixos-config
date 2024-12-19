@@ -67,6 +67,7 @@ in {
     kdePackages.ark
     p7zip
     qalculate-qt
+    libreoffice
     libqalculate
     inputs.ghostty.packages.${pkgs.system}.default
     usbutils
