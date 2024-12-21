@@ -9,7 +9,7 @@
           ppsspp
           duckstation
           bsnes-hd
-          ryujinx
+          ryujinx-greemdev
           mgba
           flycast
           melonDS

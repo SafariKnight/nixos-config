@@ -27,6 +27,8 @@ return {
       "gosum",
       "gomod",
       "gotmpl",
+      "just",
+      "nix",
     },
     highlight = { enable = true },
     indent = { enable = true, disable = { "html" } },

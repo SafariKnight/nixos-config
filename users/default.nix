@@ -25,9 +25,9 @@ in {
     # the users.users.<name>.packages option
     useUserPackages = true;
 
-    # Move existing files to the .hm.old suffix rather than failing
+    # Move existing files to the .home.old suffix rather than failing
     # with a very long error message about it
-    backupFileExtension = "hm.old";
+    backupFileExtension = "home.old";
 
     # Additional specialArgs passed to Home Manager.
     # For reference, the config argument in nixos can be accessed

@@ -33,7 +33,7 @@ return {
     -- },
 
     -- Interaction between cmp and lsp
-    "hrsh7th/cmp-nvim-lsp",
+    -- "hrsh7th/cmp-nvim-lsp",
 
     -- CSharp stuff
     -- "jmederosalvarado/roslyn.nvim",
@@ -56,7 +56,7 @@ return {
       lineFoldingOnly = true,
     }
 
-    _G.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+    _G.capabilities = require('blink.cmp').get_lsp_capabilities(_G.capabilities)
 
     local signs = {
       Error = require("kh.icons").BoldError,
@@ -72,13 +72,15 @@ return {
 
     local handlers = {
       function(server)
-        -- print(server)
         lspconfig[server].setup({
           capabilities = _G.capabilities,
-          on_attach = require("plugins.lsp.on_attach"),
         })
       end,
     }
+    vim.api.nvim_create_autocmd("LspAttach", {
+      desc = "LSP actions",
+      callback = require("plugins.lsp.on_attach"),
+    })
 
     local function get_server_config(server)
       return {
@@ -93,7 +95,7 @@ return {
         vim.tbl_deep_extend("force", handlers, get_server_config(server))
     end
 
-    add_server_config("tsserver")
+    add_server_config("ts_ls")
     add_server_config("volar")
     add_server_config("lua_ls")
     require("plugins.lsp.servers.gdscript")

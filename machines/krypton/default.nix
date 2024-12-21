@@ -67,7 +67,7 @@ in {
     kdePackages.ark
     p7zip
     qalculate-qt
-    libreoffice
+    onlyoffice-desktopeditors
     libqalculate
     inputs.ghostty.packages.${pkgs.system}.default
     usbutils
@@ -91,7 +91,8 @@ in {
     # berkeley-mono
     hack-font
     iosevka
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    # (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    nerd-fonts.symbols-only
   ];
 
   programs.hyprland.enable = true;
@@ -119,7 +120,7 @@ in {
   };
 
   fileSystems."/mnt/hdd" = {
-    label = "HDD";
+    # label = "HDD";
     device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
     fsType = "btrfs";
     options = [
@@ -130,7 +131,7 @@ in {
   };
 
   fileSystems."/mnt/important" = {
-    label = "HDD";
+    # label = "HDD";
     device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
     fsType = "btrfs";
     options = [
@@ -152,7 +153,7 @@ in {
     };
   };
   fileSystems."/mnt/dbg" = {
-    label = "HDD";
+    # label = "HDD";
     device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
     fsType = "btrfs";
     options = [

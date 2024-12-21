@@ -29,12 +29,14 @@ return {
           comments = { italic = true }, -- Value is any valid attr-list value `:help attr-list`
           conditionals = { italic = true },
         },
-        override = {
-          FzfLuaFzfGutter = {
-            bg = "transparent",
-          },
-        },
-        on_highlights = function(highlights, colors) end,
+        on_highlights = function(highlights, colors)
+          highlights.FzfLuaFzfGutter = {
+            bg = colors.none,
+          }
+          highlights.BlinkCmpGhostText = {
+            fg = colors.polar_night.brightest
+          }
+        end,
       })
       vim.cmd.colorscheme("nord")
     end,

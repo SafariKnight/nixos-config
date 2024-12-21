@@ -18,6 +18,7 @@ vim.keymap.set(
   "v:count == 0 ? 'gj' : 'j'",
   { desc = "Down", expr = true }
 )
+vim.keymap.set("n", "<C-z>", "<CMD>stop<CR>", { desc = "Close to background" })
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Down" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Up" })

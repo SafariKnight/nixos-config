@@ -24,7 +24,7 @@
 
   nixpkgs = {
     overlays = [
-      inputs.nur.overlay
+      inputs.nur.overlays.default
       (final: _prev: import ./../../../pkgs final.pkgs)
       (final: _prev: {
         stable = import inputs.nixpkgs-stable {

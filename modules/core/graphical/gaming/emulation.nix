@@ -9,17 +9,18 @@
     ppsspp
     duckstation
     bsnes-hd
-    ryujinx
+    ryujinx-greemdev
     mgba
     flycast
     melonDS
     gamescope
-    (retroarch.override {
-      cores = with pkgs.libretro; [
-        parallel-n64
-        mgba
-      ];
-    })
+    (retroarch.withCores (
+      cores:
+        with cores; [
+          parallel-n64
+          mgba
+        ]
+    ))
     libretro.parallel-n64
   ];
 }

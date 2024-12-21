@@ -30,7 +30,7 @@ local vue_typescript_plugin = os.getenv("VUE_TYPESCRIPT_PLUGIN")
 --   },
 -- })
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
   capabilities = _G.capabilities,
   -- cmd = { "tsserver", "--stdio"};
   init_options = {
