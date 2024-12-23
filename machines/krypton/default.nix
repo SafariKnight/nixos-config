@@ -6,8 +6,13 @@
 }: let
   mainUser = "kareem";
 in {
+  imports = [
+    ./mounts.nix
+  ];
   services.desktopManager.plasma6.enable = true;
-  modules.boot.sddm.enable = true;
+  modules.boot.greetd.enable = true;
+  modules.boot.greetd.command = "Hyprland";
+  modules.boot.greetd.startupUser = mainUser;
 
   modules.nix.nh.flakePath = "/home/${mainUser}/nixos-config";
 
@@ -49,12 +54,10 @@ in {
     wlogout
     wl-color-picker
     ripgrep
-    libsForQt5.qt5.qtwayland
-    kdePackages.qtwayland
     fd
+    zoom-us
     gcc
     fzf
-    zoom-us
     eza
     btop
     btrfs-progs
@@ -93,22 +96,19 @@ in {
     noto-fonts
     jetbrains-mono
     roboto
-    # berkeley-mono
     hack-font
     iosevka
-    # (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     nerd-fonts.symbols-only
   ];
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
-  ];
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = with pkgs; [
+  #   xdg-desktop-portal-gnome
+  #   xdg-desktop-portal-gtk
+  # ];
 
   programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = true;
-  # programs.sway.enable = true;
-  # programs.sway.package = pkgs.swayfx;
+  programs.hyprland.withUWSM = false;
+
   programs.fish.enable = true;
 
   users.users.${mainUser} = {
@@ -128,49 +128,6 @@ in {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-  };
-
-  fileSystems."/mnt/hdd" = {
-    # label = "HDD";
-    device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
-    fsType = "btrfs";
-    options = [
-      "subvol=root"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  fileSystems."/mnt/important" = {
-    # label = "HDD";
-    device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
-    fsType = "btrfs";
-    options = [
-      "subvol=important"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-  services.snapper = {
-    persistentTimer = true;
-    configs = {
-      root = {
-        # why does it complain if this isn't named root
-        SUBVOLUME = "/mnt/important";
-        ALLOW_USERS = [mainUser];
-        TIMELINE_CREATE = true;
-        TIMELINE_CLEANUP = true;
-      };
-    };
-  };
-  fileSystems."/mnt/dbg" = {
-    # label = "HDD";
-    device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
-    fsType = "btrfs";
-    options = [
-      "compress=zstd"
-      "noatime"
-    ];
   };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];

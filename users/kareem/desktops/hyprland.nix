@@ -1,35 +1,25 @@
 {
-  lib,
-  config,
   pkgs,
+  config,
   ...
 }: {
   home.packages = with pkgs; [
     grimblast
     hyprpicker
     hyprpolkitagent
-    pavucontrol
   ];
-  # xdg.configFile."xdg-desktop-portal/hyprland-portals.conf".text = ''
-  #   [preferred]
-  #   default = hyprland;gtk
-  #   org.freedesktop.impl.portal.FileChooser = kde
-  # '';
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
     xwayland.enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
     settings = {
       monitor = ["DP-1,1920x1080@165.003,0x0,1"];
       debug = {
         disable_logs = false; # why is this disabled by default
       };
       exec-once = [
-        "dunst"
-        "clipse -listen"
-        "lxsession"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user start hyprpolkitagent"
+        "swaybg -i ${config.home.homeDirectory}/nixos-config/users/kareem/desktops/wallpaper.png"
       ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -37,8 +27,8 @@
         gaps_in = 2;
         gaps_out = 3;
         border_size = 2;
-        # "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        # "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(5e81acee) rgba(81a1c1ee) 45deg";
+        "col.inactive_border" = "rgba(d8dee9aa)";
 
         layout = "dwindle";
 
@@ -55,14 +45,12 @@
           size = 8;
           passes = 1;
         };
-
         shadow = {
           enabled = true;
           range = 2;
           render_power = 10;
           color = "rgba(1a1a1aee)";
         };
-        # "col.shadow" = "rgba(1a1a1aee)";
       };
       animations = {
         enabled = true;
@@ -95,8 +83,6 @@
           "fadeLayersIn, 1, 2, menu_decel"
           "fadeLayersOut, 1, 4.5, menu_accel"
           "workspaces, 0"
-          # "workspaces, 1, 7, menu_decel, slide"
-          # "specialWorkspace, 1, 3, md3_decel, slidevert"
         ];
       };
       dwindle = {
@@ -111,6 +97,7 @@
         accel_profile = "flat";
         sensitivity = 0;
       };
+
       windowrulev2 = [
         "workspace 1, class:(LibreWolf)"
         "workspace 1, class:(firefox)"
@@ -120,6 +107,7 @@
         "fullscreen, class:(mpv)"
         "workspace 4, class:(vesktop)"
         "workspace 10, class:(lutris)"
+
         "opacity 0.0 override, class:^(xwaylandvideobridge)$"
         "noanim, class:^(xwaylandvideobridge)$"
         "noinitialfocus, class:^(xwaylandvideobridge)$"
@@ -137,10 +125,6 @@
 
         "float,class:(org.pulseaudio.pavucontrol)"
         "size 1280 720,class:(org.pulseaudio.pavucontrol)"
-
-        # Doesn't work
-        "float,title:(Bitwarden)"
-        "size 622 652,title:(Bitwarden)"
       ];
       layerrule = [
         # Remove Grimblast animation
@@ -155,11 +139,13 @@
         "animation slide top, audio-flyout"
         "animation slide right, notifications"
       ];
+
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
       "$fileManager" = "thunar";
       "$browser" = "firefox";
       "$menu" = "rofi -show drun | xargs hyprctl dispatch exec";
+
       bind = [
         ### Global Shortcuts ###
         ",F10,pass,vesktop"
@@ -227,31 +213,28 @@
         "$mod SHIFT, 0, movetoworkspace, 10"
         "$mod SHIFT, grave, movetoworkspace, special:magic" # Scratchpad
 
-        "$mod SHIFT, Q, exec, uwsm app -- wlogout"
+        "$mod SHIFT, Q, exec, wlogout"
         "$mod SHIFT CTRL, Q, exit,"
-        "$mod SHIFT, E, exec, uwsm app -- $fileManager"
-        "$mod, R, exec, uwsm app -- $menu"
-        "$mod, W, exec, uwsm app -- $browser"
-        "$mod SHIFT, R, exec, uwsm app -- $menu_alt"
+        "$mod SHIFT, E, exec, $fileManager"
+        # "$mod, R, exec, uwsm app -- $menu"
+        # "$mod SHIFT, R, exec, uwsm app -- $menu_alt"
+        "$mod, W, exec, $browser"
 
         ### Apps ###
 
         # Audio #
-        "$mod ALT, P, exec, uwsm app -- pavucontrol"
+        "$mod ALT, P, exec, pavucontrol"
 
         # Screenshots #
         "$mod, Print, exec, grimblast copysave screen $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
-        "        , Print, exec, grimblast --freeze copysave area $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
+        "    , Print, exec, grimblast --freeze copysave area $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
 
         # Info via Notifications #
         ''$mod SHIFT, U, exec, notify-send "$(date)"'' # Time
 
         # Terminal Apps #
-        "$mod, T, exec, uwsm app -- $terminal" # Terminal
-        "$mod, E, exec, uwsm app -- $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
-        # "$mod ALT, P, exec,  $terminal --class=term.app -e 'pulsemixer' " # Pulse Mixer (Audio Mixer)
-        "$mod ALT, V, exec,  uwsm app -- $terminal --class=term.applet -e 'clipse' " # Clipse (Clipboard Manager & History)
-        "$mod ALT, M, exec, uwsm app -- wl-color-picker"
+        "$mod, T, exec, $terminal" # Terminal
+        "$mod, E, exec, $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
       ];
       bindm = [
         "$mod, mouse:272, movewindow"

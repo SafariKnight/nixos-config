@@ -1,40 +1,26 @@
 {pkgs, ...}: {
   imports = [
-    ./direnv.nix
-    ./firefox.nix
-    ./fish.nix
-    ./ghostty.nix
-    ./git.nix
-    ./jujutsu.nix
-    ./lazygit.nix
     ./mpv.nix
-    ./nvim.nix
-    ./hyprland.nix
-    ./oh-my-posh.nix
-    ./tmux.nix
-    ./zellij.nix
-
-    # ./ags.nix
+    ./ags.nix
+    ./fuzzel.nix
+    ./firefox.nix
     # ./dunst.nix
-    # ./hyprland.nix
-    # ./kitty.nix
-    # ./mako.nix
-    # ./niri.nix
-    # ./rofi.nix
-    # ./starship.nix
-    # ./sway.nix
+
+    ./desktops
+    ./cmdline
   ];
   # modules.niri.enable = true;
   gtk = {
     iconTheme.name = "Papirus-Dark";
     iconTheme.package = pkgs.papirus-nord;
     cursorTheme = {
-      name = "bibata-nord";
+      name = "Bibata-Nord";
       package = pkgs.bibata-nord;
       size = 24;
     };
     enable = true;
   };
+  qt.platformTheme.name = "kde";
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -53,8 +39,8 @@
       stremio
       qbittorrent-enhanced
       fastfetch # NEED TO FLEX
-      adwaita-qt
-      adwaita-qt6
+      # adwaita-qt
+      # adwaita-qt6
       gparted
       xorg.xhost
       thunderbird
@@ -70,8 +56,8 @@
       XCURSOR_SIZE = 24;
     };
     pointerCursor = {
-      name = "bibata-nord";
-      package = pkgs.papirus-nord;
+      name = "Bibata-Nord";
+      package = pkgs.bibata-nord;
       size = 24;
       x11.enable = true;
       gtk.enable = true;
