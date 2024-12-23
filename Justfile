@@ -31,7 +31,7 @@ rebuild FLAKE_NAME:
   echo "Starting Rebuild..."
   nix fmt
 
-  nh os build $(pwd) -H {{FLAKE_NAME}}
+  nh os build $(pwd) -H {{FLAKE_NAME}} --no-nom
   nh os switch $(pwd) -H {{FLAKE_NAME}}
 
   notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
@@ -43,8 +43,8 @@ update FLAKE_NAME:
   nix flake update
   notify-send -e "Flake Update OK!" --icon=software-update-available
 
-  nixos-rebuild build --flake .#{{FLAKE_NAME}}
+  nh os build $(pwd) -H {{FLAKE_NAME}} --no-nom
   notify-send -e "NixOS Build OK!" --icon=software-update-available
 
-  sudo nixos-rebuild switch --flake .#{{FLAKE_NAME}}
+  nh os switch $(pwd) -H {{FLAKE_NAME}}
   notify-send -e "NixOS Update FINISHED!" --icon=software-update-available

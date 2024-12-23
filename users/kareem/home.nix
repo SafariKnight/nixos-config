@@ -9,6 +9,7 @@
     ./lazygit.nix
     ./mpv.nix
     ./nvim.nix
+    ./hyprland.nix
     ./oh-my-posh.nix
     ./tmux.nix
     ./zellij.nix
@@ -23,6 +24,7 @@
     # ./starship.nix
     # ./sway.nix
   ];
+  # modules.niri.enable = true;
   gtk = {
     iconTheme.name = "Papirus-Dark";
     iconTheme.package = pkgs.papirus-nord;
@@ -68,6 +70,9 @@
       XCURSOR_SIZE = 24;
     };
     pointerCursor = {
+      name = "bibata-nord";
+      package = pkgs.papirus-nord;
+      size = 24;
       x11.enable = true;
       gtk.enable = true;
     };

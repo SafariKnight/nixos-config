@@ -7,24 +7,19 @@
   home.packages = with pkgs; [
     grimblast
     hyprpicker
-    xdg-user-dirs
-    xfce.thunar
-    clipse
-    lxde.lxsession
-    pulsemixer
-    kdePackages.polkit-kde-agent-1
-    kdePackages.xdg-desktop-portal-kde
-    kdePackages.dolphin
+    hyprpolkitagent
+    pavucontrol
   ];
-  xdg.configFile."xdg-desktop-portal/hyprland-portals.conf".text = ''
-    [preferred]
-    default = hyprland;gtk
-    org.freedesktop.impl.portal.FileChooser = kde
-  '';
+  # xdg.configFile."xdg-desktop-portal/hyprland-portals.conf".text = ''
+  #   [preferred]
+  #   default = hyprland;gtk
+  #   org.freedesktop.impl.portal.FileChooser = kde
+  # '';
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
+    systemd.enable = false;
     settings = {
       monitor = ["DP-1,1920x1080@165.003,0x0,1"];
       debug = {
@@ -34,6 +29,7 @@
         "dunst"
         "clipse -listen"
         "lxsession"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -60,9 +56,12 @@
           passes = 1;
         };
 
-        drop_shadow = "yes";
-        shadow_range = 2;
-        shadow_render_power = 10;
+        shadow = {
+          enabled = true;
+          range = 2;
+          render_power = 10;
+          color = "rgba(1a1a1aee)";
+        };
         # "col.shadow" = "rgba(1a1a1aee)";
       };
       animations = {
@@ -121,6 +120,12 @@
         "fullscreen, class:(mpv)"
         "workspace 4, class:(vesktop)"
         "workspace 10, class:(lutris)"
+        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
+        "noanim, class:^(xwaylandvideobridge)$"
+        "noinitialfocus, class:^(xwaylandvideobridge)$"
+        "maxsize 1 1, class:^(xwaylandvideobridge)$"
+        "noblur, class:^(xwaylandvideobridge)$"
+        "nofocus, class:^(xwaylandvideobridge)$"
 
         "suppressevent maximize, class:.*"
 
@@ -222,17 +227,17 @@
         "$mod SHIFT, 0, movetoworkspace, 10"
         "$mod SHIFT, grave, movetoworkspace, special:magic" # Scratchpad
 
-        "$mod SHIFT, Q, exec, wlogout"
+        "$mod SHIFT, Q, exec, uwsm app -- wlogout"
         "$mod SHIFT CTRL, Q, exit,"
-        "$mod SHIFT, E, exec, $fileManager"
-        "$mod, R, exec, $menu"
-        "$mod, W, exec, $browser"
-        "$mod SHIFT, R, exec, $menu_alt"
+        "$mod SHIFT, E, exec, uwsm app -- $fileManager"
+        "$mod, R, exec, uwsm app -- $menu"
+        "$mod, W, exec, uwsm app -- $browser"
+        "$mod SHIFT, R, exec, uwsm app -- $menu_alt"
 
         ### Apps ###
 
         # Audio #
-        "$mod ALT, P, exec, pavucontrol"
+        "$mod ALT, P, exec, uwsm app -- pavucontrol"
 
         # Screenshots #
         "$mod, Print, exec, grimblast copysave screen $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
@@ -242,11 +247,11 @@
         ''$mod SHIFT, U, exec, notify-send "$(date)"'' # Time
 
         # Terminal Apps #
-        "$mod, T, exec, $terminal" # Terminal
-        "$mod, E, exec, $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
+        "$mod, T, exec, uwsm app -- $terminal" # Terminal
+        "$mod, E, exec, uwsm app -- $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
         # "$mod ALT, P, exec,  $terminal --class=term.app -e 'pulsemixer' " # Pulse Mixer (Audio Mixer)
-        "$mod ALT, V, exec,  $terminal --class=term.applet -e 'clipse' " # Clipse (Clipboard Manager & History)
-        "$mod ALT, M, exec, wl-color-picker"
+        "$mod ALT, V, exec,  uwsm app -- $terminal --class=term.applet -e 'clipse' " # Clipse (Clipboard Manager & History)
+        "$mod ALT, M, exec, uwsm app -- wl-color-picker"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"

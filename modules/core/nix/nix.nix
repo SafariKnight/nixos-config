@@ -15,6 +15,7 @@
     settings.substituters = [
       # "https://cosmic.cachix.org/"
       "https://ghostty.cachix.org/"
+      "https://aseipp-nix-cache.global.ssl.fastly.net"
     ];
     settings.trusted-public-keys = [
       # "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="

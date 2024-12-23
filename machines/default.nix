@@ -78,7 +78,7 @@
         modules = [graphical];
         extraModules = [
           home
-          nord
+          # nord
         ];
       };
     };

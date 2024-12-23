@@ -8,6 +8,7 @@
 in {
   services.desktopManager.plasma6.enable = true;
   modules.boot.sddm.enable = true;
+
   modules.nix.nh.flakePath = "/home/${mainUser}/nixos-config";
 
   system.stateVersion = "24.05";
@@ -48,9 +49,12 @@ in {
     wlogout
     wl-color-picker
     ripgrep
+    libsForQt5.qt5.qtwayland
+    kdePackages.qtwayland
     fd
     gcc
     fzf
+    zoom-us
     eza
     btop
     btrfs-progs
@@ -68,6 +72,7 @@ in {
     p7zip
     qalculate-qt
     onlyoffice-desktopeditors
+    libreoffice
     libqalculate
     inputs.ghostty.packages.${pkgs.system}.default
     usbutils
@@ -94,8 +99,14 @@ in {
     # (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     nerd-fonts.symbols-only
   ];
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
+  ];
 
   programs.hyprland.enable = true;
+  programs.hyprland.withUWSM = true;
   # programs.sway.enable = true;
   # programs.sway.package = pkgs.swayfx;
   programs.fish.enable = true;

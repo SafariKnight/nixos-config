@@ -12,7 +12,7 @@
           user = "${config.modules.boot.greetd.startupUser}";
         };
         initial_session = {
-          command = "${config.modules.greetd.command} >/dev/null";
+          command = "${config.modules.boot.greetd.command} >/dev/null";
           user = "${config.modules.boot.greetd.startupUser}";
         };
       };
