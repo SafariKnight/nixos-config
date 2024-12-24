@@ -36,6 +36,10 @@
           system = final.system;
           config.allowUnfree = true;
         };
+        umu-launcher = inputs.umu.packages.${final.system}.umu.override {
+          version = inputs.umu.shortRev;
+          truststore = true;
+        };
       })
     ];
     config = {

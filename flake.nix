@@ -46,5 +46,11 @@
       url = "github:niksingh710/minimal-tmux-status";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    umu = {
+      # why isn't this packaged
+      url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
