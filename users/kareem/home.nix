@@ -3,6 +3,7 @@
     ./mpv.nix
     ./ags.nix
     ./fuzzel.nix
+    ./rofi.nix
     ./firefox.nix
     # ./dunst.nix
 

@@ -1,6 +1,6 @@
 {...}: {
   programs.fuzzel = {
-    enable = true;
+    enable = false;
     settings = {
       main = {
         font = "Jet Brains Mono:size=12";
