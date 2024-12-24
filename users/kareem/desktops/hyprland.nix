@@ -257,7 +257,7 @@
         "    , Print, exec, grimblast --freeze copysave area $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
 
         # Info via Notifications #
-        ''$mod SHIFT, U, exec, notify-send "$(date)"'' # Time
+        ''$mod SHIFT, U, exec, notify-send --icon clock-symbolic "$(date)"'' # Time
 
         # Terminal Apps #
         "$mod, T, exec, $terminal" # Terminal
