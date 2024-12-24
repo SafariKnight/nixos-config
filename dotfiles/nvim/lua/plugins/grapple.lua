@@ -5,7 +5,6 @@ return {
     icons = true,
     status = true,
   },
-  dependencies = { "nvim-tree/nvim-web-devicons" },
   cmd = { "Grapple" },
   keys = {
     { "<A-a>", "<cmd>Grapple toggle<cr>", desc = "Tag a file" },

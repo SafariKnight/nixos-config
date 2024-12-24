@@ -1,7 +1,15 @@
 return {
   "echasnovski/mini.nvim",
-  version = "*",
+  version = false,
+  lazy = false,
+  priority = 1000,
   opts = {
+    ai = {},
+    comment = {},
+    pairs = {},
+    icons = {},
+    snippets = {},
+    sessions = {},
     surround = {
       mappings = {
         add = "gza",
@@ -18,16 +26,8 @@ return {
     },
   },
   config = function(_, opts)
-    local activate = function(plugin)
-      require("mini." .. plugin).setup(opts[plugin])
+    for module, options in pairs(opts) do
+      require("mini." .. module).setup(options)
     end
-
-    activate("ai")
-    -- activate("animate")
-    activate("comment")
-    -- activate("icons") --why is this erroring
-    activate("pairs")
-    -- activate("statusline")
-    activate("surround")
   end,
 }

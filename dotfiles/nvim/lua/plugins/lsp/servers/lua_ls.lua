@@ -1,5 +1,4 @@
-require("lspconfig").lua_ls.setup({
-  capabilities = _G.capabilities,
+return {
   settings = {
     Lua = {
       workspace = {
@@ -24,4 +23,4 @@ require("lspconfig").lua_ls.setup({
       },
     },
   },
-})
+}

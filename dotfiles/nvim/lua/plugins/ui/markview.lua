@@ -1,11 +1,11 @@
 ---@type LazySpec
 return {
   "OXY2DEV/markview.nvim",
-  lazy = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
+  ft = "markdown",
   opts = {
     modes = { "n", "i", "no", "c" },
     hybrid_modes = { "i" },

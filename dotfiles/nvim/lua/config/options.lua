@@ -5,8 +5,6 @@ vim.o.incsearch = true
 -- preview substitutions live, as you type!
 vim.o.inccommand = "split"
 
--- hey this looks better
-
 -- make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -66,7 +64,8 @@ vim.opt.splitbelow = true
 -- `:help 'list'`
 -- `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars =
+  { tab = "» ", multispace = "·", trail = "·", nbsp = "␣" }
 
 -- show which line your cursos is on
 vim.opt.cursorline = false
@@ -79,7 +78,7 @@ vim.o.timeoutlen = 800
 vim.o.foldmethod = "marker"
 
 -- Turn off mode
-vim.o.showmode = true
+vim.o.showmode = false
 
 -- REMOVE EVERYTHING
 vim.opt.cmdheight = 0

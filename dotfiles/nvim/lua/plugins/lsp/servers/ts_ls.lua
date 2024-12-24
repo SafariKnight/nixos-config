@@ -31,7 +31,6 @@ local vue_typescript_plugin = os.getenv("VUE_TYPESCRIPT_PLUGIN")
 -- })
 
 require("lspconfig").ts_ls.setup({
-  capabilities = _G.capabilities,
   -- cmd = { "tsserver", "--stdio"};
   init_options = {
     plugins = {
@@ -46,10 +45,10 @@ require("lspconfig").ts_ls.setup({
   filetypes = {
     "javascript",
     "javascriptreact",
-    "javascript.jsx",
+    -- "javascript.jsx",
     "typescript",
     "typescriptreact",
-    "typescript.tsx",
+    -- "typescript.tsx",
     "vue",
   },
 })
