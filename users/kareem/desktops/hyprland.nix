@@ -8,6 +8,35 @@
     hyprpicker
     hyprpolkitagent
   ];
+  programs.hyprlock = {
+    enable = false; # Still gotta integrate it better
+    settings = {
+      general = {
+        grace = 300;
+        no_fade_in = false;
+      };
+      background = [
+        {
+          path = "${config.home.homeDirectory}/nixos-config/users/kareem/desktops/wallpaper.png";
+        }
+      ];
+      input-field = [
+        {
+          size = "200, 50";
+          position = "0, -80";
+          monitor = "";
+          dots_center = true;
+          fade_on_empty = false;
+          font_color = "rgb(202, 211, 245)";
+          inner_color = "rgb(91, 96, 120)";
+          outer_color = "rgb(24, 25, 38)";
+          outline_thickness = 5;
+          placeholder_text = "\'<span foreground=\"##cad3f5\">Password...</span>\'";
+          shadow_passes = 2;
+        }
+      ];
+    };
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -213,14 +242,12 @@
         "$mod SHIFT, 0, movetoworkspace, 10"
         "$mod SHIFT, grave, movetoworkspace, special:magic" # Scratchpad
 
+        ### Apps ###
         "$mod SHIFT, Q, exec, wlogout"
         "$mod SHIFT CTRL, Q, exit,"
         "$mod SHIFT, E, exec, $fileManager"
-        # "$mod, R, exec, uwsm app -- $menu"
-        # "$mod SHIFT, R, exec, uwsm app -- $menu_alt"
         "$mod, W, exec, $browser"
-
-        ### Apps ###
+        "$mod, R, exec, $menu"
 
         # Audio #
         "$mod ALT, P, exec, pavucontrol"
