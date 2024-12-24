@@ -20,7 +20,7 @@
     # font-style-bold = "Bold";
     # font-style-italic = "SemiBold Italic";
     # font-style-bold-italic = "Bold Italic";
-    font-size = 16;
+    font-size = 15;
 
     keybind = [
       "ctrl+j=goto_split:bottom"
