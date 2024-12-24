@@ -51,7 +51,6 @@ in {
     wget
     git
     wl-clipboard
-    wlogout
     wl-color-picker
     ripgrep
     fd

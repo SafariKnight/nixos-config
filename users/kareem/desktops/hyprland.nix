@@ -243,7 +243,7 @@
         "$mod SHIFT, grave, movetoworkspace, special:magic" # Scratchpad
 
         ### Apps ###
-        "$mod SHIFT, Q, exec, wlogout"
+        "$mod SHIFT, Q, exec, rofi-logout"
         "$mod SHIFT CTRL, Q, exit,"
         "$mod SHIFT, E, exec, $fileManager"
         "$mod, W, exec, $browser"

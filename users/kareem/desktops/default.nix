@@ -8,5 +8,6 @@
   home.packages = with pkgs; [
     pavucontrol
     swaybg
+    rofi-logout
   ];
 }
