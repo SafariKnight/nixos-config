@@ -53,8 +53,12 @@ in {
 
   # List packages installed in system profile. To search, run: nh search <package-name>
   environment.systemPackages = with pkgs; [
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
+    usb-modeswitch
     wget
     git
+    scrcpy
     wl-clipboard
     wl-color-picker
     ripgrep
@@ -70,7 +74,6 @@ in {
     trash-cli
     bat
     nixfmt-rfc-style
-    yazi
     tree
     pavucontrol
     obs-studio
@@ -103,6 +106,8 @@ in {
     roboto
     hack-font
     iosevka
+    corefonts
+    vistafonts
     nerd-fonts.symbols-only
   ];
   # xdg.portal.enable = true;
