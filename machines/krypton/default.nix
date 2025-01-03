@@ -45,9 +45,9 @@ in {
 
   hardware.i2c.enable = true;
 
-  hardware.graphics.extraPackages32 = [
-    pkgs.driversi686Linux.amdvlk
-  ];
+  # hardware.graphics.extraPackages32 = [
+  #   pkgs.driversi686Linux.amdvlk
+  # ];
 
   virtualisation.waydroid.enable = true;
 
