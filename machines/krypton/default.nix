@@ -38,6 +38,11 @@ in {
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   hardware.i2c.enable = true;
 
   hardware.graphics.extraPackages32 = [
