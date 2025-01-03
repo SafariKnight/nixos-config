@@ -21,6 +21,11 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+  # Disable wifi powersaving
+  boot.extraModprobeConfig = ''
+    options iwlmvm  power_scheme=1
+    options iwlwifi power_save=0
+  '';
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/709b455c-06b1-4268-8bec-dc637c272d46";
@@ -45,6 +50,10 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp8s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp9s0f4u1.useDHCP = lib.mkDefault true;
+  networking.interfaces.wlp9s0f4u1 = {
+    mtu = 1478;
+    name = "wlan0";
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

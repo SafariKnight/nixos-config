@@ -3,6 +3,6 @@
     wine
     wine64
     winetricks
-    umu-launcher
+    # umu-launcher
   ];
 }

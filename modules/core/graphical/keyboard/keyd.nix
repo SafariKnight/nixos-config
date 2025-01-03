@@ -12,7 +12,7 @@
           settings = {
             main = {
               capslock = "overload(nav, esc)";
-              esc = "noop"; # I have this so I can get in the habit of pressing capslock over escape
+              # esc = "noop"; # I have this so I can get in the habit of pressing capslock over escape
 
               # a = "overloadt(meta, a, 175)";
               # s = "overloadt(alt, s, 175)";
@@ -24,6 +24,20 @@
               # ";" = "overloadt(alt, ;, 175)";
               # "'" = "overloadt(meta, ', 175)";
             };
+            # "nav:C" = {
+            #   d = "layer(shift)";
+            #   f = "layer(control)";
+            #
+            #   h = "left";
+            #   j = "down";
+            #   k = "up";
+            #   l = "right";
+            #
+            #   semicolon = "backspace";
+            #   p = "delete";
+            # };
+
+            # Colemak CAWS
             "nav:C" = {
               d = "layer(shift)";
               f = "layer(control)";

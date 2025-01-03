@@ -51,6 +51,8 @@ in {
 
   virtualisation.waydroid.enable = true;
 
+  services.gvfs.enable = true;
+
   # List packages installed in system profile. To search, run: nh search <package-name>
   environment.systemPackages = with pkgs; [
     gpu-screen-recorder
@@ -116,6 +118,8 @@ in {
   #   xdg-desktop-portal-gtk
   # ];
 
+  services.cloudflare-warp.enable = true;
+
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = false;
 
@@ -140,6 +144,8 @@ in {
     enable32Bit = true;
   };
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
   boot.kernelModules = ["v4l2loopback"];
 }

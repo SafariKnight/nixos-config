@@ -5,6 +5,7 @@
     window-decoration = false;
 
     command = "fish";
+    gtk-single-instance = true;
 
     # Cursor
     cursor-style-blink = false;

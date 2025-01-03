@@ -1,4 +1,9 @@
 {...}: {
-  programs.steam.enable = true;
-  programs.steam.protontricks.enable = true;
+  programs.steam = {
+    enable = true;
+    protontricks.enable = true;
+  };
+  services.dnsmasq = {
+    enable = true;
+  };
 }

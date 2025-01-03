@@ -8,6 +8,7 @@
     hyprpicker
     hyprpolkitagent
   ];
+  services.playerctld.enable = true;
   programs.hyprlock = {
     enable = false; # Still gotta integrate it better
     settings = {
@@ -49,6 +50,7 @@
       exec-once = [
         "systemctl --user start hyprpolkitagent"
         "swaybg -i ${config.home.homeDirectory}/nixos-config/users/kareem/desktops/wallpaper.png"
+        "ghostty --initial-window=false --quit-after-last-window-closed=false"
       ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -119,7 +121,7 @@
         preserve_split = "yes";
       };
       input = {
-        kb_layout = "cmk,ara,us";
+        kb_layout = "cmk,ara";
         kb_options = "grp:win_space_toggle,altwin:menu_win";
         repeat_rate = 60;
         repeat_delay = 400;
@@ -171,7 +173,7 @@
 
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
-      "$fileManager" = "thunar";
+      "$fileManager" = "dolphin";
       "$browser" = "firefox";
       "$menu" = "rofi -show drun | xargs hyprctl dispatch exec";
 
@@ -245,7 +247,7 @@
         ### Apps ###
         "$mod SHIFT, Q, exec, rofi-logout"
         "$mod SHIFT CTRL, Q, exit,"
-        "$mod SHIFT, E, exec, $fileManager"
+        "$mod, E, exec, $fileManager"
         "$mod, W, exec, $browser"
         "$mod, R, exec, $menu"
 
@@ -261,11 +263,23 @@
 
         # Terminal Apps #
         "$mod, T, exec, $terminal" # Terminal
-        "$mod, E, exec, $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
+        "$mod SHIFT, E, exec, $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
+      ];
+
+      ### Media Buttons ###
+      bindel = [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
+      bindl = [
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
       ];
     };
   };

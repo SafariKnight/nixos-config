@@ -11,5 +11,6 @@
     ./git.nix
     ./oh-my-posh.nix
     ./jujutsu.nix
+    ./yazi.nix
   ];
 }

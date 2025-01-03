@@ -201,7 +201,7 @@
         };
         search = {
           force = true;
-          default = "Duckduckgo";
+          default = "Brave";
           order = ["Duckduckgo" "Brave"];
           engines = {
             "Brave" = {
