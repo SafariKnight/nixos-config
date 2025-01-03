@@ -64,8 +64,12 @@ vim.opt.splitbelow = true
 -- `:help 'list'`
 -- `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars =
-  { tab = "» ", multispace = "·", trail = "·", nbsp = "␣" }
+vim.opt.listchars = {
+  tab = "» ",
+  -- multispace = "·",
+  trail = "·",
+  nbsp = "␣",
+}
 
 -- show which line your cursos is on
 vim.opt.cursorline = false

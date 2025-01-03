@@ -27,6 +27,12 @@ return {
       nerd_font_variant = "normal",
     },
     signature = { enabled = true },
+    -- snippets = {
+    --   expand = function(snippet)
+    --     print(snippet)
+    --     vim.snippet.expand(snippet)
+    --   end,
+    -- },
 
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer" },

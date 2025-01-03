@@ -51,6 +51,11 @@ return {
         )
         map("n", "crn", vim.lsp.buf.rename, { desc = "Rename Symbol" })
         map("n", "crf", vim.lsp.buf.format, { desc = "Format" })
+
+        map("n", "crs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)"})
+        map("n", "crd", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "Definitions / References / ... (Trouble)"})
+        map("n", "crx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Workspace Diagnostics (Trouble)"})
+        map("n", "crx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Document Diagnostics (Trouble)"})
       end,
     })
 

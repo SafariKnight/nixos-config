@@ -11,10 +11,6 @@ return {
           conditionals = { italic = true },
         },
         on_highlights = function(hl, c)
-          hl.FzfLuaFzfGutter = {
-            bg = c.none,
-            fg = c.none,
-          }
           hl.BlinkCmpGhostText = {
             fg = c.polar_night.brightest,
           }
