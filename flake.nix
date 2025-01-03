@@ -36,11 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty";
-      inputs.nixpkgs-unstable.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-    };
+    # ghostty = {
+    #   url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    #   inputs.nixpkgs-unstable.follows = "nixpkgs";
+    #   inputs.nixpkgs-stable.follows = "nixpkgs";
+    # };
 
     minimal-tmux = {
       url = "github:niksingh710/minimal-tmux-status";

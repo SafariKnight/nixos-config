@@ -76,7 +76,8 @@ in {
     onlyoffice-desktopeditors
     libreoffice
     libqalculate
-    inputs.ghostty.packages.${pkgs.system}.default
+    # inputs.ghostty.packages.${pkgs.system}.default
+    ghostty
     usbutils
     dwarfs
     bubblewrap
