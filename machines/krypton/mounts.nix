@@ -45,4 +45,6 @@ in {
       "noatime"
     ];
   };
+
+  swapDevices = [{device = "/dev/disk/by-label/Swap";}];
 }

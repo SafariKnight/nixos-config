@@ -136,9 +136,6 @@ in {
     shell = pkgs.bash;
   };
 
-  ### Mount Partions ###
-  swapDevices = [{device = "/dev/disk/by-label/Swap";}];
-
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
