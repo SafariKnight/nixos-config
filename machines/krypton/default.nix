@@ -31,7 +31,6 @@ in {
     supportedFilesystems = ["ntfs"];
     kernelPackages = pkgs.linuxPackages_latest;
     blacklistedKernelModules = ["rtl8xxxu"];
-    tmp.useTmpfs = true;
   };
 
   networking.hostName = "krypton";

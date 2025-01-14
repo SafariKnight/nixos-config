@@ -1,6 +1,8 @@
 {...}: let
   mainUser = "kareem";
 in {
+  boot.tmp.useTmpfs = true;
+
   fileSystems."/mnt/hdd" = {
     # label = "HDD";
     device = "/dev/disk/by-uuid/4916caf0-5be2-4187-bdd5-722a13a19fa6";
