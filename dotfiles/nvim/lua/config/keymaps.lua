@@ -16,3 +16,6 @@ vim.keymap.set(
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Line Down" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Line Up" })
+
+vim.keymap.set("n", "<leader>h", "<CMD>tabprev<CR>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<leader>l", "<CMD>tabnext<CR>", { desc = "Next Tab" })

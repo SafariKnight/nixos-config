@@ -11,6 +11,7 @@ return {
       lua_ls = require("plugins.lsp.servers.lua_ls"),
       gdscript = {},
       markdown_oxide = {},
+      nixd = {},
       tailwindcss = {},
       cssls = {},
       html = {},
