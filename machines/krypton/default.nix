@@ -18,6 +18,11 @@ in {
 
   system.stateVersion = "24.05";
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true; # no idea what a binfmt is
+  }
+
   console = {
     useXkbConfig = true;
   };
