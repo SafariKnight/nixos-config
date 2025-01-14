@@ -1,5 +1,5 @@
 {...}: {
-  imports = builtins.trace "nix trace" [
+  imports = [
     ./nh.nix
     ./nix-ld.nix
     ./nix.nix

@@ -23,10 +23,6 @@ in {
     binfmt = true; # no idea what a binfmt is
   };
 
-  console = {
-    useXkbConfig = true;
-  };
-
   boot = {
     supportedFilesystems = ["ntfs"];
     kernelPackages = pkgs.linuxPackages_latest;

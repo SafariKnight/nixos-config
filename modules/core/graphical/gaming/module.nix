@@ -1,5 +1,5 @@
 {...}: {
-  imports = builtins.trace "gayming" [
+  imports = [
     ./emulation.nix
     ./lutris.nix
     ./prismlauncher.nix

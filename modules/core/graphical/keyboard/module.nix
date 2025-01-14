@@ -1,5 +1,5 @@
 {...}: {
-  imports = builtins.trace "graphical keyboard trace" [
+  imports = [
     ./cmk-caws.nix
     ./kanata.nix
     ./keyd.nix

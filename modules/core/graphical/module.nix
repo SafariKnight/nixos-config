@@ -1,5 +1,5 @@
 {...}: {
-  imports = builtins.trace "graphical root trace" [
+  imports = [
     ./pipewire.nix
   ];
 }
