@@ -41,7 +41,7 @@
       flatten [
         ./${hostname}/default.nix
         ./${hostname}/hardware.nix
-        (forEach modules (path: mkModuleTree {inherit path ignoredPaths;}))
+        (forEach (flatten modules) (path: mkModuleTree {inherit path ignoredPaths;}))
         (forEach defaultModules (path: mkModuleTree {inherit path ignoredPaths;}))
         extraModules
       ];
@@ -66,10 +66,29 @@
     options = modules + /options;
 
     boot = coreModules + /boot;
-    graphical = coreModules + /graphical;
+    compat = coreModules + /compat;
+    gaming = coreModules + /gaming;
+    keyboard = coreModules + /keyboard;
+
+    graphical = [
+      compat
+      gaming
+      keyboard
+    ];
+
     nixModule = coreModules + /nix;
 
-    inherit (import ./mkNixosSystem.nix {inherit lib withSystem inputs self;}) mkNixosSystem;
+    inherit
+      (import ./mkNixosSystem.nix {
+        inherit
+          lib
+          withSystem
+          inputs
+          self
+          ;
+      })
+      mkNixosSystem
+      ;
   in {
     krypton = mkNixosSystem {
       hostname = "krypton";

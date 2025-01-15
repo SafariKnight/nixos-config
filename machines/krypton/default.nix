@@ -18,11 +18,6 @@ in {
 
   system.stateVersion = "24.05";
 
-  programs.appimage = {
-    enable = true;
-    binfmt = true; # no idea what a binfmt is
-  };
-
   boot = {
     supportedFilesystems = ["ntfs"];
     kernelPackages = pkgs.linuxPackages_latest;
@@ -98,7 +93,6 @@ in {
     input-remapper
     obsidian
   ];
-  services.flatpak.enable = true;
 
   fonts.packages = with pkgs; [
     fira
@@ -118,8 +112,6 @@ in {
   #   xdg-desktop-portal-gtk
   # ];
 
-  services.cloudflare-warp.enable = true;
-
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = false;
 
@@ -134,11 +126,6 @@ in {
       "uinput"
     ];
     shell = pkgs.bash;
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
   };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [

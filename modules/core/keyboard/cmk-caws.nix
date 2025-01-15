@@ -5,7 +5,7 @@
 }: {
   services.xserver.xkb.extraLayouts.cmk = {
     description = "Colemak DH with Wide and Symbol mods (Colemak CAWS)";
-    symbolsFile = ./../../../../assets/cmk;
+    symbolsFile = ./../../../assets/cmk;
     languages = ["eng"];
   };
   services.xserver.xkb = {
