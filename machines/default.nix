@@ -67,12 +67,14 @@
 
     boot = coreModules + /boot;
     compat = coreModules + /compat;
+    desktops = coreModules + /desktops;
     gaming = coreModules + /gaming;
     keyboard = coreModules + /keyboard;
 
     graphical = [
       compat
       gaming
+      desktops
       keyboard
     ];
 

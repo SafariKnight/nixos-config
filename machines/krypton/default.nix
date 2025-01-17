@@ -9,10 +9,14 @@ in {
   imports = [
     ./mounts.nix
   ];
-  services.desktopManager.plasma6.enable = true;
   modules.boot.greetd.enable = true;
   modules.boot.greetd.command = "Hyprland";
   modules.boot.greetd.startupUser = mainUser;
+
+  modules.desktop.plasma.enable = true;
+
+  modules.desktop.hyprland.enable = true;
+  modules.desktop.hyprland.uwsm = true;
 
   modules.nix.nh.flakePath = "/home/${mainUser}/nixos-config";
 
@@ -47,6 +51,8 @@ in {
   virtualisation.waydroid.enable = true;
 
   services.gvfs.enable = true;
+
+  programs.gpu-screen-recorder.enable = true;
 
   # List packages installed in system profile. To search, run: nh search <package-name>
   environment.systemPackages = with pkgs; [
@@ -111,9 +117,6 @@ in {
   #   xdg-desktop-portal-gnome
   #   xdg-desktop-portal-gtk
   # ];
-
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = false;
 
   programs.fish.enable = true;
 

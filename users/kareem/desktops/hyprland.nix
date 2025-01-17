@@ -1,8 +1,12 @@
 {
   pkgs,
   config,
+  osConfig,
   ...
-}: {
+}: let
+  cfg = osConfig.modules.desktop.hyprland;
+  kp = cfg.keyPrefix;
+in {
   home.packages = with pkgs; [
     grimblast
     hyprpicker
@@ -39,18 +43,18 @@
     };
   };
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = cfg.enable;
     xwayland.enable = true;
-    systemd.enable = true;
+    systemd.enable = !cfg.uwsm;
     settings = {
       monitor = ["DP-1,1920x1080@165.003,0x0,1"];
       debug = {
         disable_logs = false; # why is this disabled by default
       };
       exec-once = [
-        "systemctl --user start hyprpolkitagent"
-        "swaybg -i ${config.home.homeDirectory}/nixos-config/users/kareem/desktops/wallpaper.png"
-        "ghostty --initial-window=false --quit-after-last-window-closed=false"
+        "$kp systemctl --user start hyprpolkitagent"
+        "$kp swaybg -i ${config.home.homeDirectory}/nixos-config/users/kareem/desktops/wallpaper.png"
+        "$kp ghostty --initial-window=false --quit-after-last-window-closed=false"
       ];
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -121,7 +125,7 @@
         preserve_split = "yes";
       };
       input = {
-        kb_layout = "cmk,ara";
+        kb_layout = "cmk,us,ara";
         kb_options = "grp:win_space_toggle,altwin:menu_win";
         repeat_rate = 60;
         repeat_delay = 400;
@@ -175,11 +179,18 @@
       "$terminal" = "ghostty";
       "$fileManager" = "dolphin";
       "$browser" = "firefox";
-      "$menu" = "rofi -show drun | xargs hyprctl dispatch exec";
+      "$menu" =
+        "rofi -show drun | xargs "
+        + (
+          if kp == "uwsm app --"
+          then "uwsm app"
+          else "hyprctl dispatch exec"
+        );
+      "$kp" = kp;
 
       bind = [
         ### Global Shortcuts ###
-        ",F10,pass,vesktop"
+        ",F10,pass, vesktop"
 
         ### Windows ###
         "$mod, Q, killactive, " # Close windows
@@ -247,12 +258,12 @@
         ### Apps ###
         "$mod SHIFT, Q, exec, rofi-logout"
         "$mod SHIFT CTRL, Q, exit,"
-        "$mod, E, exec, $fileManager"
-        "$mod, W, exec, $browser"
-        "$mod, R, exec, $menu"
+        "$mod, E, exec, $kp $fileManager"
+        "$mod, W, exec, $kp $browser"
+        "$mod, R, exec, $kp $menu"
 
         # Audio #
-        "$mod ALT, P, exec, pavucontrol"
+        "$mod ALT, P, exec, $kp pavucontrol"
 
         # Screenshots #
         "$mod, Print, exec, grimblast copysave screen $(xdg-user-dir)/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S%Z).png"
@@ -262,8 +273,8 @@
         ''$mod SHIFT, U, exec, notify-send --icon clock-symbolic "$(date)"'' # Time
 
         # Terminal Apps #
-        "$mod, T, exec, $terminal" # Terminal
-        "$mod SHIFT, E, exec, $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
+        "$mod, T, exec, $kp $terminal" # Terminal
+        "$mod SHIFT, E, exec, $kp $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
