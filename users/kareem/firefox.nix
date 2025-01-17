@@ -9,6 +9,7 @@
           bitwarden
           vimium
           translate-web-pages
+          violentmonkey
         ];
         settings = {
           "browser.tabs.closeWindowWithLastTab" = false;
