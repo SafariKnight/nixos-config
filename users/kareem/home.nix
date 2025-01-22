@@ -9,19 +9,8 @@
 
     ./desktops
     ./cmdline
+    ./theming
   ];
-  # modules.niri.enable = true;
-  gtk = {
-    iconTheme.name = "Papirus-Dark";
-    iconTheme.package = pkgs.papirus-nord;
-    cursorTheme = {
-      name = "Bibata-Nord";
-      package = pkgs.bibata-nord;
-      size = 24;
-    };
-    enable = true;
-  };
-  qt.platformTheme.name = "kde";
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {

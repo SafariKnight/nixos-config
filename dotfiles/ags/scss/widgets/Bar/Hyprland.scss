@@ -1,0 +1,10 @@
+@use '../../shared/default' as *;
+
+.Workspaces {
+  >button {
+    border-radius: 0;
+    border: none;
+    border-bottom: $clr-accent 3px solid;
+    margin: 0 3px;
+  }
+}

@@ -14,7 +14,6 @@
     newSession = true;
     escapeTime = 1;
     extraConfig = ''
-
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf
       bind a displayp
