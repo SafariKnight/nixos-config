@@ -30,6 +30,7 @@
       "image/jpg" = "feh.desktop";
     };
   };
+  programs.go.enable = true;
   home = {
     username = "kareem";
     homeDirectory = "/home/kareem";
