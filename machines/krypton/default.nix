@@ -127,6 +127,8 @@ in {
       "wheel"
       "input"
       "uinput"
+      "kvm"
+      "libvirt"
     ];
     shell = pkgs.bash;
   };

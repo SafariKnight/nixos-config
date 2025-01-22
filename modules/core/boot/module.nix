@@ -1,5 +1,5 @@
 {...}: {
-  imports = builtins.trace "boot trace" [
+  imports = [
     ./greetd.nix
     ./plymouth.nix
     ./sddm.nix
