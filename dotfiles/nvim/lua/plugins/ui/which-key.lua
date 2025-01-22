@@ -17,6 +17,26 @@ return {
 
     wk.add({
       { "<leader>f", group = "Find" },
+      { "<leader>d", group = "Debug" },
+      {
+        "<leader>d<space>",
+        function()
+          wk.show({
+            keys = "<leader>d",
+            loop = true,
+          })
+        end,
+        group = "Debug",
+      },
+      {
+        "<c-w><space>",
+        function()
+          wk.show({
+            keys = "<c-w>",
+            loop = true,
+          })
+        end,
+      },
     })
   end,
 }

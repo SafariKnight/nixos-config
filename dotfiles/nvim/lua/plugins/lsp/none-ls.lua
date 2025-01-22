@@ -16,6 +16,10 @@ return {
         builtin.formatting.csharpier,
         builtin.formatting.alejandra,
 
+        builtin.formatting.gofumpt,
+        builtin.formatting.goimports_reviser,
+        builtin.formatting.golines,
+
         -- builtin.completion.spell,
 
         builtin.code_actions.refactoring,

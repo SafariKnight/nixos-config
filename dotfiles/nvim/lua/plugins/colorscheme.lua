@@ -14,6 +14,9 @@ return {
           hl.BlinkCmpGhostText = {
             fg = c.polar_night.brightest,
           }
+          hl.SignColumn = {
+            fg = c.aurora.purple
+          }
         end,
       })
 
