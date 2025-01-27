@@ -5,10 +5,20 @@ return {
     preset = "helix",
     icons = {
       breadcrumb = "", -- symbol used in the command line area that shows your active key combo
-      separator = " ", -- symbol used between a key and it's label
+      separator = "", -- symbol used between a key and it's label
       group = "+", -- symbol prepended to a group
       ellipsis = "…",
       mappings = false,
+    },
+    replace = {
+      key = {
+        -- function(key)
+        --   return require("which-key.view").format(key)
+        -- end,
+        { "<Space>", "SPC" },
+        { "<leader>", "SPC" },
+        { ",", "COM" },
+      },
     },
   },
   config = function(_, opts)
@@ -18,6 +28,7 @@ return {
     wk.add({
       { "<leader>f", group = "Find" },
       { "<leader>d", group = "Debug" },
+      { ",", group = nil },
       {
         "<leader>d<space>",
         function()
