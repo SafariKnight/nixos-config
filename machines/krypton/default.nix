@@ -98,6 +98,7 @@ in {
     python313
     input-remapper
     obsidian
+    pkgs.devenv
   ];
 
   fonts.packages = with pkgs; [
