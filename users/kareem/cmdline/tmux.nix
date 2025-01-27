@@ -11,7 +11,7 @@
     keyMode = "vi";
     terminal = "xterm-kitty";
     baseIndex = 1;
-    newSession = true;
+    newSession = false;
     escapeTime = 1;
     extraConfig = ''
       unbind r
@@ -39,6 +39,9 @@
 
       set -g default-shell /etc/profiles/per-user/${config.home.username}/bin/fish
 
+      # Bindings for creating a new session & for killing them
+      bind S command-prompt -p "New Session:","Session Location:" "new-session -c \"#{pane_current_path}/%2\" -A -s \"%%\""
+      bind K confirm kill-session
 
       bind h select-pane -L
       bind j select-pane -D
