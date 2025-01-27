@@ -24,6 +24,7 @@
   "quick-scope": { "branch": "master", "commit": "4d35d3b2bc6794666353dcc241b2680bd560416f" },
   "refactoring.nvim": { "branch": "master", "commit": "2db6d378e873de31d18ade549c2edba64ff1c2e3" },
   "snacks.nvim": { "branch": "main", "commit": "98df370703b3c47a297988f3e55ce99628639590" },
+  "tailwind-tools": { "branch": "master", "commit": "0862805c3c0d8a8d61ec1baffc79b9fbf5578d82" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "90610e55f438d833c052867d022ff11f27647210" },
   "trouble.nvim": { "branch": "main", "commit": "46cf952fc115f4c2b98d4e208ed1e2dce08c9bf6" },
   "vim-tmux-navigator": { "branch": "master", "commit": "424b5caa154bff34dc258ee53cec5a8e36cf7ea8" },
