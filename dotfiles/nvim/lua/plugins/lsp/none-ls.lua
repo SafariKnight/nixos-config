@@ -4,6 +4,7 @@ return {
   dependencies = {
     "ThePrimeagen/refactoring.nvim",
     "nvim-lua/plenary.nvim",
+    "nvimtools/none-ls-extras.nvim",
   },
   opts = function()
     local null_ls = require("null-ls")
@@ -20,6 +21,7 @@ return {
         builtin.formatting.goimports_reviser,
         builtin.formatting.golines,
 
+        require("none-ls.diagnostics.eslint"),
         -- builtin.completion.spell,
 
         builtin.code_actions.refactoring,
