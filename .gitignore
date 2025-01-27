@@ -3,3 +3,4 @@ nixos-switch.log
 .direnv/
 result/
 dotfiles/ags/@girs
+tmux-server-*
