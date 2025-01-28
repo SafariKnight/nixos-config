@@ -43,21 +43,14 @@ return {
         map("n", "gd", vim.lsp.buf.definition, { desc = "Go to declaration" })
         map("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 
-        -- Designed like new default mappings
-        map("n", "crr", vim.lsp.buf.code_action, { desc = "Code Action" })
-        map(
-          { "v", "x" },
-          "<leader>ca",
-          vim.lsp.buf.code_action,
-          { desc = "Code Action" }
-        )
-        map("n", "crn", vim.lsp.buf.rename, { desc = "Rename Symbol" })
-        map("n", "crf", vim.lsp.buf.format, { desc = "Format" })
+        map({ "n", "v", "x" }, "<localleader>lr", vim.lsp.buf.code_action, { desc = "Code Action" })
+        map("n", "<localleader>ln", vim.lsp.buf.rename, { desc = "Rename Symbol" })
+        map("n", "<localleader>lf", vim.lsp.buf.format, { desc = "Format" })
 
-        map("n", "crs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)"})
-        map("n", "crd", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "Definitions / References / ... (Trouble)"})
-        map("n", "crx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Workspace Diagnostics (Trouble)"})
-        map("n", "crx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Document Diagnostics (Trouble)"})
+        map("n", "<localleader>ls", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)"})
+        map("n", "<localleader>ld", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "Definitions / References / ... (Trouble)"})
+        map("n", "<localleader>lX", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Workspace Diagnostics (Trouble)"})
+        map("n", "<localleader>lx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Document Diagnostics (Trouble)"})
       end,
     })
 
