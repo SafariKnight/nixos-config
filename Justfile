@@ -1,50 +1,32 @@
 default:
-  @just --list
+    just --list
 
-k:
-  @just rebuild krypton
+rebuild flake="$(uname -n)":
+  #!/usr/bin/env bash
+  just _rebuild {{ flake }} &&
+  notify-send -e "NixOS Rebuild" "OK!" --icon=emblem-ok-symbolic ||
+  notify-send -e "NixOS Rebuild" "FAILED!" --icon=window-close-symbolic
 
-kup:
-  @just update krypton
+test flake="$(uname -n)":
+  #!/usr/bin/env bash
+  just _test {{ flake }} &&
+  notify-send -e "NixOS Test" "OK!" --icon=emblem-ok-symbolic ||
+  notify-send -e "NixOS Test" "FAILED!" --icon=window-close-symbolic
 
-ktest:
-  @just test krypton
+update flake="$(uname -n)":
+  #!/usr/bin/env bash
+  just _update {{ flake }} &&
+  notify-send -e "NixOS Update" "OK!" --icon=emblem-ok-symbolic ||
+  notify-send -e "NixOS Update" "FAILED!" --icon=window-close-symbolic
 
-home:
-  echo "Starting Home Reconfiguration..."
-  nix fmt
+_format:
+  nix fmt &>/dev/null
 
-  nh home switch
+_rebuild flake: _format
+  nh os switch $(pwd) -H {{flake}} --no-nom
 
-  notify-send -e "Home Manager Switched OK!" --icon=software-update-available
+_test flake: _format
+  nh os test $(pwd) -H {{flake}} --no-nom
 
-
-test FLAKE_NAME:
-  echo "Starting Rebuild..."
-  nix fmt
-
-  nh os test $(pwd) -H {{FLAKE_NAME}}
-
-  notify-send -e "NixOS Test OK!" --icon=software-update-available
-
-rebuild FLAKE_NAME:
-  echo "Starting Rebuild..."
-  nix fmt
-
-  nh os build $(pwd) -H {{FLAKE_NAME}} --no-nom
-  nh os switch $(pwd) -H {{FLAKE_NAME}}
-
-  notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
-
-update FLAKE_NAME:
-  echo "Starting Update..."
-  nix fmt
-
-  nix flake update
-  notify-send -e "Flake Update OK!" --icon=software-update-available
-
-  nh os build $(pwd) -H {{FLAKE_NAME}} --no-nom
-  notify-send -e "NixOS Build OK!" --icon=software-update-available
-
-  nh os switch $(pwd) -H {{FLAKE_NAME}}
-  notify-send -e "NixOS Update FINISHED!" --icon=software-update-available
+_update flake: _format
+  nh os switch $(pwd) -H {{flake}} --no-nom -u
