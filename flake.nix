@@ -1,11 +1,13 @@
 {
   description = "My NixOS config";
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
       imports = [
         ./flake
         ./machines
+        inputs.treefmt-nix.flakeModule
       ];
     };
   inputs = {
@@ -14,6 +16,8 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     systems.url = "github:nix-systems/default-linux";
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
 
     # Have both in case I want to switch the original, so whatever is explicitly specified doesn't change
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -31,21 +35,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # ghostty = {
-    #   url = "git+ssh://git@github.com/ghostty-org/ghostty";
-    #   inputs.nixpkgs-unstable.follows = "nixpkgs";
-    #   inputs.nixpkgs-stable.follows = "nixpkgs";
-    # };
 
     minimal-tmux = {
       url = "github:niksingh710/minimal-tmux-status";

@@ -15,7 +15,7 @@ return {
         builtin.formatting.shfmt,
         builtin.formatting.prettier,
         builtin.formatting.csharpier,
-        builtin.formatting.alejandra,
+        builtin.formatting.nixfmt,
 
         builtin.formatting.gofumpt,
         builtin.formatting.goimports_reviser,

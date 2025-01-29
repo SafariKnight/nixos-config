@@ -23,10 +23,10 @@ export default () =>
       self.icon = icons.audio.volume[icon];
     }),
     on_middle_click: () => {
-      audio.speaker.is_muted = !audio.speaker.is_muted
+      audio.speaker.is_muted = !audio.speaker.is_muted;
     },
     on_clicked: () => {
       App.toggleWindow("audio-flyout");
     },
-    setup: (self) => { },
+    setup: (self) => {},
   });

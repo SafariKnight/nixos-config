@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./mpv.nix
     ./ags.nix
@@ -41,7 +42,7 @@
       inkscape
       tlrc
     ];
-    file = {};
+    file = { };
     sessionVariables = {
       HYPRCURSOR_SIZE = 24;
       XCURSOR_SIZE = 24;

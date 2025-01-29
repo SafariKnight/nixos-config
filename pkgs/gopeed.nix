@@ -72,7 +72,7 @@ stdenv.mkDerivation rec {
   fixupPhase = ''
     runHook preFixup
     makeWrapper $out/opt/gopeed/gopeed $out/bin/gopeed \
-      --prefix PATH : ${lib.makeBinPath [zenity]}
+      --prefix PATH : ${lib.makeBinPath [ zenity ]}
     runHook postFixup
   '';
 
@@ -84,10 +84,10 @@ stdenv.mkDerivation rec {
       and supports all platforms. It is also a highly customizable that supports implementing more features through
       integration with APIs or installation and development of extensions.
     '';
-    maintainers = with lib.maintainers; [ByteSudoer];
-    license = with lib.licenses; [gpl3Only];
-    platforms = ["x86_64-linux"];
+    maintainers = with lib.maintainers; [ ByteSudoer ];
+    license = with lib.licenses; [ gpl3Only ];
+    platforms = [ "x86_64-linux" ];
     mainProgram = "gopeed";
-    sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
   };
 }

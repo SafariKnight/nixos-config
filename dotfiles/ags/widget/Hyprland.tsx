@@ -1,7 +1,7 @@
 import { bind } from "astal";
 import Hyprland from "gi://AstalHyprland";
 
-export default function() {
+export default function () {
   const hypr = Hyprland.get_default();
   return (
     <box className="Workspaces">
@@ -15,7 +15,9 @@ export default function() {
                 ws === fw ? "focused" : "",
               )}
               onClicked={() => ws.focus()}
-            >{ws.id}</button>
+            >
+              {ws.id}
+            </button>
           )),
       )}
     </box>

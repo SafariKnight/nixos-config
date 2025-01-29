@@ -1,6 +1,8 @@
-{...}: let
+{ ... }:
+let
   mainUser = "kareem";
-in {
+in
+{
   boot.tmp.useTmpfs = true;
 
   fileSystems."/mnt/hdd" = {
@@ -30,7 +32,7 @@ in {
       root = {
         # why does it complain if this isn't named root
         SUBVOLUME = "/mnt/important";
-        ALLOW_USERS = [mainUser];
+        ALLOW_USERS = [ mainUser ];
         TIMELINE_CREATE = true;
         TIMELINE_CLEANUP = true;
       };
@@ -46,5 +48,5 @@ in {
     ];
   };
 
-  swapDevices = [{device = "/dev/disk/by-label/Swap";}];
+  swapDevices = [ { device = "/dev/disk/by-label/Swap"; } ];
 }

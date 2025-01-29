@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     modules.niri.enable = lib.mkEnableOption "Enable Niri Wayland Compositor";
   };

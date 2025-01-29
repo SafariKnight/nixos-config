@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   gtk = {
     iconTheme.name = "Adwaita";
     iconTheme.package = pkgs.adwaita-icon-theme;

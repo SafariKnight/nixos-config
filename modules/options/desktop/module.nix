@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   options = {
     modules.desktop.plasma.enable = lib.mkEnableOption "Enable KDE Plasma DE";
     modules.desktop.hyprland = {

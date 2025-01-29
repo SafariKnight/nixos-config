@@ -1,12 +1,12 @@
-@use '../../shared/default' as *;
-@use 'Hyprland';
+@use "../../shared/default" as *;
+@use "Hyprland";
 
 window.Bar {
   background: transparent;
   color: $clr-fg;
   font-weight: bold;
 
-  >box {
+  > box {
     background: $nord1;
     border-radius: 10px;
     margin: 8px;

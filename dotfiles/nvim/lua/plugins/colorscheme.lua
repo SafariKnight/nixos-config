@@ -15,7 +15,7 @@ return {
             fg = c.polar_night.brightest,
           }
           hl.SignColumn = {
-            fg = c.aurora.purple
+            fg = c.aurora.purple,
           }
         end,
       })

@@ -2,13 +2,14 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.modules.keyboard.keyd.enable {
     services.keyd = {
       enable = true;
       keyboards = {
         default = {
-          ids = ["*"];
+          ids = [ "*" ];
           settings = {
             main = {
               capslock = "overload(nav, esc)";

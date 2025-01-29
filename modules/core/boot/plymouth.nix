@@ -2,13 +2,14 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   console.earlySetup = false;
   boot = {
     consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.enable = true;
-    initrd.kernelModules = ["amdgpu"];
+    initrd.kernelModules = [ "amdgpu" ];
     plymouth = {
       enable = true;
       extraConfig = ''

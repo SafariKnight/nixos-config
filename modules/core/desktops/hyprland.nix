@@ -3,17 +3,15 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.modules.desktop.hyprland;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     programs.hyprland.enable = true;
     programs.hyprland.withUWSM = cfg.uwsm;
-    modules.desktop.hyprland.keyPrefix = lib.mkOverride 150 (
-      if cfg.uwsm
-      then "uwsm app -- "
-      else ""
-    );
+    modules.desktop.hyprland.keyPrefix = lib.mkOverride 150 (if cfg.uwsm then "uwsm app -- " else "");
     security.polkit.enable = true;
   };
 }

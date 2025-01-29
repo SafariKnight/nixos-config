@@ -1,9 +1,10 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   nix = {
     extraOptions = "warn-dirty = false";
     gc.automatic = false;
     optimise.automatic = true;
-    optimise.dates = ["weekly"];
+    optimise.dates = [ "weekly" ];
 
     settings.cores = 8;
     settings.max-jobs = 16;
@@ -11,6 +12,7 @@
     settings.experimental-features = [
       "nix-command"
       "flakes"
+      "pipe-operators"
     ];
     settings.substituters = [
       # "https://cosmic.cachix.org/"

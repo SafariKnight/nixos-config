@@ -29,8 +29,16 @@ return {
         end
         vim.print = _G.dd
 
-        vim.api.nvim_create_user_command("Messages", Snacks.notifier.show_history, {})
-        vim.api.nvim_create_user_command("Mess", Snacks.notifier.show_history, {})
+        vim.api.nvim_create_user_command(
+          "Messages",
+          Snacks.notifier.show_history,
+          {}
+        )
+        vim.api.nvim_create_user_command(
+          "Mess",
+          Snacks.notifier.show_history,
+          {}
+        )
       end,
     })
   end,

@@ -7,12 +7,21 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib.modules) mkForce;
   # inherit (lib.attrsets) genAttrs;
 
-  specialArgs = {inherit inputs self inputs' self';};
-in {
+  specialArgs = {
+    inherit
+      inputs
+      self
+      inputs'
+      self'
+      ;
+  };
+in
+{
   home-manager = {
     # Tell home-manager to be as verbose as possible
     verbose = true;

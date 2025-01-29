@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.modules.keyboard.kanata.enable {
     services.kanata = {
       enable = true;

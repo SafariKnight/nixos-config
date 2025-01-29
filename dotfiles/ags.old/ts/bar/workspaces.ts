@@ -27,7 +27,12 @@ export default () =>
         },
       }),
     ),
-    setup: self => self.hook(hyprland, () => self.children.forEach(btn => {
-        btn.visible = hyprland.workspaces.some(ws => ws.id === btn.attribute);
-    })),
+    setup: (self) =>
+      self.hook(hyprland, () =>
+        self.children.forEach((btn) => {
+          btn.visible = hyprland.workspaces.some(
+            (ws) => ws.id === btn.attribute,
+          );
+        }),
+      ),
   });

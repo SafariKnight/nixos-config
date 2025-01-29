@@ -3,10 +3,12 @@
   config,
   osConfig,
   ...
-}: let
+}:
+let
   cfg = osConfig.modules.desktop.hyprland;
   kp = cfg.keyPrefix;
-in {
+in
+{
   home.packages = with pkgs; [
     grimblast
     hyprpicker
@@ -47,7 +49,7 @@ in {
     xwayland.enable = true;
     systemd.enable = !cfg.uwsm;
     settings = {
-      monitor = ["DP-1,1920x1080@165,0x0,1"];
+      monitor = [ "DP-1,1920x1080@165,0x0,1" ];
       debug = {
         disable_logs = false; # why is this disabled by default
       };
@@ -180,12 +182,7 @@ in {
       "$fileManager" = "dolphin";
       "$browser" = "firefox";
       "$menu" =
-        "rofi -show drun | xargs "
-        + (
-          if kp == "uwsm app --"
-          then "uwsm app"
-          else "hyprctl dispatch exec"
-        );
+        "rofi -show drun | xargs " + (if kp == "uwsm app --" then "uwsm app" else "hyprctl dispatch exec");
       "$kp" = kp;
 
       bind = [

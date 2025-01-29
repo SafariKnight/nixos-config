@@ -3,9 +3,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   mainUser = "kareem";
-in {
+in
+{
   imports = [
     ./mounts.nix
   ];
@@ -23,9 +25,9 @@ in {
   system.stateVersion = "24.05";
 
   boot = {
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
     kernelPackages = pkgs.linuxPackages_latest;
-    blacklistedKernelModules = ["rtl8xxxu"];
+    blacklistedKernelModules = [ "rtl8xxxu" ];
   };
 
   networking.hostName = "krypton";
@@ -137,5 +139,5 @@ in {
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
-  boot.kernelModules = ["v4l2loopback"];
+  boot.kernelModules = [ "v4l2loopback" ];
 }

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     cemu
     dolphin-emu
@@ -14,11 +15,10 @@
     melonDS
     gamescope
     (retroarch.withCores (
-      cores:
-        with cores; [
-          parallel-n64
-          mgba
-        ]
+      cores: with cores; [
+        parallel-n64
+        mgba
+      ]
     ))
     libretro.parallel-n64
   ];

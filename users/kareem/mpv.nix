@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.gandhi-sans];
+{ pkgs, ... }:
+{
+  home.packages = [ pkgs.gandhi-sans ];
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [

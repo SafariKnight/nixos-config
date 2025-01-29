@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   boot.loader = {
     timeout = lib.mkDefault 0;
     efi.canTouchEfiVariables = true;

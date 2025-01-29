@@ -1,5 +1,4 @@
-import GLib from "gi://GLib?version=2.0"
-
+import GLib from "gi://GLib?version=2.0";
 
 export const substitutes = {
   "transmission-gtk": "transmission",
@@ -148,18 +147,14 @@ export const icons = {
   },
 };
 
-
 export function icon(name: string | null, fallback = icons.missing) {
-    if (!name)
-        return fallback || ""
+  if (!name) return fallback || "";
 
-    if (GLib.file_test(name, GLib.FileTest.EXISTS))
-        return name
+  if (GLib.file_test(name, GLib.FileTest.EXISTS)) return name;
 
-    const icon = (substitutes[name] || name)
-    if (Utils.lookUpIcon(icon))
-        return icon
+  const icon = substitutes[name] || name;
+  if (Utils.lookUpIcon(icon)) return icon;
 
-    print(`no icon substitute "${icon}" for "${name}", fallback: "${fallback}"`)
-    return fallback
+  print(`no icon substitute "${icon}" for "${name}", fallback: "${fallback}"`);
+  return fallback;
 }

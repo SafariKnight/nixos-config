@@ -1,8 +1,8 @@
 import Bar from "ts/bar/bar";
-import AudioFlyout from "ts/quicksettings/audio"
-App.addIcons(`${App.configDir}/assets`)
+import AudioFlyout from "ts/quicksettings/audio";
+App.addIcons(`${App.configDir}/assets`);
 
-const monitor = 0
+const monitor = 0;
 
 const loadCss = () => {
   const mainScss = `${App.configDir}/scss/style.scss`;
@@ -14,13 +14,9 @@ const loadCss = () => {
   App.applyCss(tempCss);
 };
 
-
 Utils.monitorFile(`${App.configDir}/scss`, loadCss);
 loadCss();
 
 App.config({
-  windows: [
-    Bar(monitor),
-    AudioFlyout(monitor),
-  ],
+  windows: [Bar(monitor), AudioFlyout(monitor)],
 });

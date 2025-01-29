@@ -1,8 +1,8 @@
 import date from "./date";
 import ws from "./workspaces";
 import title from "./title";
-import language from "./language"
-import audio from "./audio"
+import language from "./language";
+import audio from "./audio";
 
 export default (monitor = 0) =>
   Widget.Window({
@@ -29,10 +29,7 @@ export default (monitor = 0) =>
       endWidget: Widget.Box({
         children: [
           Widget.Box({
-            children: [
-              audio(),
-              language(),
-            ],
+            children: [audio(), language()],
             className: "right",
           }),
         ],

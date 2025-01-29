@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options = {
     modules.keyboard.keyd.enable = lib.mkEnableOption "Enable Keyd";
     modules.keyboard.kanata.enable = lib.mkEnableOption "Enable Kanata";

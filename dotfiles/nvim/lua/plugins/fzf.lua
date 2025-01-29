@@ -35,5 +35,5 @@ return {
     local fzf = require("fzf-lua")
     fzf.setup(opts)
     fzf.register_ui_select()
-  end
+  end,
 }

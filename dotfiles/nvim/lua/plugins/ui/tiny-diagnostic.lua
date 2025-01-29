@@ -3,10 +3,8 @@ return {
   event = "LspAttach",
   priority = 1000,
   enabled = false,
-  opts = {
-
-  },
-  init = function ()
+  opts = {},
+  init = function()
     vim.diagnostic.config({ virtual_text = false })
-  end
+  end,
 }

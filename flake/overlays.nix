@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   flake.overlays = [
     (final: _prev: import ../pkgs final.pkgs)
     (final: _prev: {
