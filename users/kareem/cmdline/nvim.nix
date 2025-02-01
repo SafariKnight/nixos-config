@@ -20,4 +20,39 @@
     viAlias = true;
     vimAlias = true;
   };
+  home.packages = with pkgs; [
+    # Language Servers
+    vue-language-server
+    typescript-language-server
+    svelte-language-server
+    typescript-language-server
+    typescript
+    basedpyright
+    markdown-oxide
+    gopls
+    nil
+    tailwindcss-language-server
+    vscode-langservers-extracted
+    emmet-language-server
+
+    # Formatters
+    treefmt
+    stylua
+    shfmt
+    nodejs.pkgs.prettier
+    nixfmt-rfc-style
+    gofumpt
+    golines
+    goimports-reviser
+
+    # Linters
+    eslint
+
+    # Debuggers
+    delve
+  ];
+  home.sessionVariables = {
+    VUE_TYPESCRIPT_PLUGIN = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin";
+    TSSERVERJS = "${pkgs.typescript}/lib/node_modules/typescript/lib";
+  };
 }

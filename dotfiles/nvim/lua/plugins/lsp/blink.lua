@@ -12,7 +12,7 @@ return {
       ["<Down>"] = { "select_next", "fallback" },
     },
     completion = {
-      keyword = { range = "full" },
+      keyword = { range = "prefix" },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,

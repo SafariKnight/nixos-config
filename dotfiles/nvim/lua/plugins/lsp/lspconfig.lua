@@ -12,11 +12,12 @@ return {
       gdscript = {},
       markdown_oxide = {},
       gopls = {},
-      nixd = {},
+      nil_ls = {},
       tailwindcss = {},
       cssls = {},
       html = {},
       emmet_language_server = {},
+      svelte = {},
     },
   },
   config = function(_, opts)
