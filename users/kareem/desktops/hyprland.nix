@@ -14,6 +14,25 @@ in
     hyprpicker
     hyprpolkitagent
   ];
+  systemd.user.services.clipse = {
+    Unit = {
+      Description = "Clipse clipboard manager";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.clipse}/bin/clipse -listen";
+      Restart = "on-failure";
+      RestartSec = "3";
+      RemainAfterExit = true;
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
   services.playerctld.enable = true;
   programs.hyprlock = {
     enable = false; # Still gotta integrate it better
@@ -272,6 +291,7 @@ in
         # Terminal Apps #
         "$mod, T, exec, $kp $terminal" # Terminal
         "$mod SHIFT, E, exec, $kp $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
+        "$mod SHIFT, V, exec, $kp $terminal --class=term.applet -e 'clipse' " # Clipse (Clipboard Manager)
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
