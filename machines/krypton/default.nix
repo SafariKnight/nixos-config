@@ -15,6 +15,18 @@ in
   modules.boot.greetd.command = "Hyprland";
   modules.boot.greetd.startupUser = mainUser;
 
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L"
+    ];
+    dates = "09:00";
+    randomizedDelaySec = "45min";
+  };
+
   modules.desktop.plasma.enable = true;
 
   modules.desktop.hyprland.enable = true;
@@ -27,7 +39,10 @@ in
   boot = {
     supportedFilesystems = [ "ntfs" ];
     kernelPackages = pkgs.linuxPackages_latest;
-    blacklistedKernelModules = [ "rtl8xxxu" ];
+    blacklistedKernelModules = [
+      "rtl8xxxu"
+      "rtw_8821cu"
+    ];
   };
 
   networking.hostName = "krypton";
@@ -60,7 +75,7 @@ in
   environment.systemPackages = with pkgs; [
     gpu-screen-recorder
     gpu-screen-recorder-gtk
-    usb-modeswitch
+    # usb-modeswitch
     wget
     git
     scrcpy
@@ -135,9 +150,9 @@ in
     ];
     shell = pkgs.bash;
   };
-
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
+  hardware.usb-modeswitch.enable = true;
   boot.kernelModules = [ "v4l2loopback" ];
 }
