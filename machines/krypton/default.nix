@@ -71,6 +71,11 @@ in
 
   programs.gpu-screen-recorder.enable = true;
 
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "kde";
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
+
   # List packages installed in system profile. To search, run: nh search <package-name>
   environment.systemPackages = with pkgs; [
     gpu-screen-recorder
