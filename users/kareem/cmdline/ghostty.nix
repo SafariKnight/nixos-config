@@ -2,7 +2,8 @@
 {
   xdg.configFile."ghostty/config".text = lib.generators.toKeyValue { listsAsDuplicateKeys = true; } {
     # Window
-    background-opacity = 0.9;
+    # background-opacity = 0.9;
+    background-opacity = 1;
     window-decoration = false;
 
     command = "fish";
@@ -32,6 +33,6 @@
     ];
 
     # Colors
-    theme = "nord";
+    theme = "GruvboxDark";
   };
 }
