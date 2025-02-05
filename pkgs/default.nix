@@ -4,5 +4,4 @@ pkgs: {
   gopeed = pkgs.callPackage ./gopeed.nix { };
 
   rofi-logout = pkgs.callPackage ./scripts/rofi-logout.nix { };
-  # berkeley-mono = pkgs.callPackage ./berkeley-mono.nix {};
 }
