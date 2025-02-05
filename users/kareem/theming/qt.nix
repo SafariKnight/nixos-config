@@ -9,9 +9,9 @@
     libsForQt5.qt5ct
   ];
 
-  home.sessionVariables = {
-    XDG_CURRENT_DESKTOP = "kde"; # Fixes some apps like dolphin
-  };
+  # home.sessionVariables = {
+  #   XDG_CURRENT_DESKTOP = "kde"; # Fixes some apps like dolphin
+  # };
 
   qt = {
     enable = true;

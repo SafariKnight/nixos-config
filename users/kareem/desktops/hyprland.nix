@@ -274,7 +274,7 @@ in
         ### Apps ###
         "$mod SHIFT, Q, exec, rofi-logout"
         "$mod SHIFT CTRL, Q, exit,"
-        "$mod, E, exec, $kp $fileManager"
+        "$mod, E, exec, XDG_CURRENT_DESKTOP=kde $kp $fileManager"
         "$mod, W, exec, $kp $browser"
         "$mod, R, exec, $kp $menu"
 
