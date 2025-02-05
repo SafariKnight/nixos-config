@@ -12,7 +12,7 @@ return {
       gdscript = {},
       markdown_oxide = {},
       gopls = {},
-      nil_ls = {},
+      nixd = {},
       tailwindcss = {},
       cssls = {},
       html = {},
@@ -89,6 +89,8 @@ return {
     local lspconfig_defaults = lspconfig.util.default_config
     lspconfig_defaults.capabilities =
       require("blink.cmp").get_lsp_capabilities(lspconfig_defaults.capabilities)
+    lspconfig_defaults.capabilities.textDocument.completion.completionItem.snippetSupport =
+      true
 
     for server, config in pairs(opts.servers) do
       lspconfig[server].setup(config)
