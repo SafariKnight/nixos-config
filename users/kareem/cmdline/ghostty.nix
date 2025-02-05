@@ -33,6 +33,6 @@
     ];
 
     # Colors
-    theme = "GruvboxDark";
+    theme = "catppuccin-mocha";
   };
 }

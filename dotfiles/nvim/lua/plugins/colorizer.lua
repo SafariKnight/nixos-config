@@ -3,7 +3,7 @@ return {
   event = "BufReadPre",
   opts = { -- set to setup table
     user_default_options = {
-      names = false;
+      names = false,
       css_fn = true,
     },
   },

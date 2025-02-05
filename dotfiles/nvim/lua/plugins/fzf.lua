@@ -1,19 +1,20 @@
 return {
   "ibhagwan/fzf-lua",
   command = { "FzfLua" },
-  -- opts = function()
-  --   return {
-  --     fzf_colors = {
-  --       ["bg+"] = c.palette.polar_night.bright,
-  --       ["fg+"] = c.palette.snow_storm.brightest,
-  --       ["pointer"] = c.palette.polar_night.bright,
-  --       ["gutter"] = "-1",
-  --       ["border"] = c.palette.polar_night.origin,
-  --       ["preview-border"] = c.palette.polar_night.origin,
-  --       ["separator"] = c.palette.polar_night.origin,
-  --     },
-  --   }
-  -- end,
+  opts = function()
+    local c = require("catppuccin.palettes").get_palette("mocha")
+    return {
+      fzf_colors = {
+        ["bg+"] = c.surface0,
+        ["fg+"] = c.text,
+        ["pointer"] = c.mantle,
+        ["gutter"] = "-1",
+        ["border"] = c.base,
+        ["preview-border"] = c.base,
+        ["separator"] = c.base,
+      },
+    }
+  end,
   keys = {
     {
       "<leader>ff",
