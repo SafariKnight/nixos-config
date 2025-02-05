@@ -30,7 +30,7 @@
     basedpyright
     markdown-oxide
     gopls
-    nil
+    nixd
     tailwindcss-language-server
     vscode-langservers-extracted
     emmet-language-server
