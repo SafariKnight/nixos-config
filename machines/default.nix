@@ -43,7 +43,7 @@
         }:
         flatten [
           ./${hostname}/default.nix
-          ./${hostname}/hardware.nix
+          # ./${hostname}/hardware.nix
           (flatten modules |> map (path: mkModuleTree { inherit path ignoredPaths; }))
           (defaultModules |> map (path: mkModuleTree { inherit path ignoredPaths; }))
           extraModules

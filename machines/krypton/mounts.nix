@@ -4,6 +4,19 @@ let
 in
 {
   boot.tmp.useTmpfs = true;
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/709b455c-06b1-4268-8bec-dc637c272d46";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/C029-3856";
+    fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
+  };
 
   fileSystems."/mnt/hdd" = {
     # label = "HDD";
