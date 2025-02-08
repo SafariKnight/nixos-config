@@ -5,18 +5,27 @@
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback
     ];
+    supportedFilesystems = [ "ntfs" ];
     extraModprobeConfig = ''
       options iwlmvm  power_scheme=1
       options iwlwifi power_save=0
+      options usbcore use_both_schemes=y
     '';
-    kernelModules = [ "v4l2loopback" ];
+    kernelModules = [
+      "v4l2loopback"
+      "usbcore"
+      "uas"
+      "usb_storage"
+    ];
     initrd = {
       kernelModules = [ "kvm-amd" ];
       availableKernelModules = [
         "xhci_pci"
         "ahci"
-        "usb_storage"
         "usbhid"
+        "uas"
+        "usbcore"
+        "usb_storage"
         "sd_mod"
       ];
     };
