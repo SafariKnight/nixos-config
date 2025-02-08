@@ -2,10 +2,13 @@
 {
   programs.gpu-screen-recorder.enable = true;
   programs.fish.enable = true;
+  programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs; [
     vscode
     gpu-screen-recorder
+    anydesk
+    rustdesk
     gpu-screen-recorder-gtk
     # usb-modeswitch
     wget
