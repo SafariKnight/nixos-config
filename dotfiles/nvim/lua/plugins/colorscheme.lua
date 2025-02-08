@@ -13,10 +13,10 @@ return {
       custom_highlights = function(c)
         return {
           BlinkCmpGhostText = {
-            fg = c.subtext0
+            fg = c.subtext0,
           },
           SignColumn = {
-            fg = c.mauve
+            fg = c.mauve,
           },
         }
       end,

@@ -41,13 +41,16 @@
           # nord13 = mkLiteral "#EBCB8B";
           # nord14 = mkLiteral "#A3BE8C";
           # nord15 = mkLiteral "#B48EAD";
+          bg-col = mkLiteral "#1e1e2e";
+          selected-col = mkLiteral "#f38ba8";
+          fg-col = mkLiteral "#cdd6f4";
 
-          background-color = mkLiteral "@nord0";
-          text-color = mkLiteral "@nord4";
+          background-color = mkLiteral "@bg-col";
+          text-color = mkLiteral "@fg-col";
         };
 
         "selected" = {
-          text-color = mkLiteral "@nord8";
+          text-color = mkLiteral "@selected-col";
           font-weight = 900;
         };
 

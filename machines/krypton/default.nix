@@ -27,6 +27,12 @@ in
     usb-modeswitch.enable = true;
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   users.users.${mainUser} = {
     isNormalUser = true;

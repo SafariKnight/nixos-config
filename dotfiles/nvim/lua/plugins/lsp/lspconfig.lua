@@ -35,10 +35,18 @@ return {
 
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "LSP actions",
-      callback = function(_, buffer)
+      callback = function(client, buffer)
         local map = function(mode, lhs, rhs, options)
           options = vim.tbl_deep_extend("force", options, { buffer = buffer })
           vim.keymap.set(mode, lhs, rhs, options)
+        end
+        local format = function(bufnr)
+          vim.lsp.buf.format({
+            filter = function(lsp)
+              return lsp.name == "null-ls"
+            end,
+            bufnr = bufnr,
+          })
         end
 
         map("n", "gd", vim.lsp.buf.definition, { desc = "Go to declaration" })
@@ -56,7 +64,7 @@ return {
           vim.lsp.buf.rename,
           { desc = "Rename Symbol" }
         )
-        map("n", "<localleader>lf", vim.lsp.buf.format, { desc = "Format" })
+        map("n", "<localleader>lf", format, { desc = "Format" })
 
         map(
           "n",

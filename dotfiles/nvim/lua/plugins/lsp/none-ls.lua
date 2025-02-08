@@ -11,19 +11,19 @@ return {
     local builtin = null_ls.builtins
     return {
       sources = {
-        builtin.formatting.treefmt,
-        -- builtin.formatting.stylua,
-        -- builtin.formatting.shfmt,
-        -- builtin.formatting.prettier,
-        -- builtin.formatting.csharpier,
-        -- builtin.formatting.nixfmt,
+        -- builtin.formatting.treefmt,
+        builtin.formatting.stylua,
+        builtin.formatting.shfmt,
+        builtin.formatting.prettier,
+        builtin.formatting.csharpier,
+        builtin.formatting.nixfmt,
 
-        -- builtin.formatting.gofumpt,
-        -- builtin.formatting.goimports_reviser,
-        -- builtin.formatting.golines,
+        builtin.formatting.gofumpt,
+        builtin.formatting.goimports_reviser,
+        builtin.formatting.golines,
 
         -- require("none-ls.diagnostics.eslint"),
-        -- builtin.completion.spell,
+        builtin.completion.spell,
 
         builtin.code_actions.refactoring,
       },

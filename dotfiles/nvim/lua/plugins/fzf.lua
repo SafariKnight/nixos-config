@@ -4,6 +4,10 @@ return {
   opts = function()
     local c = require("catppuccin.palettes").get_palette("mocha")
     return {
+      lsp = {
+        -- make lsp requests synchronous so they work with null-ls
+        async_or_timeout = 3000,
+      },
       fzf_colors = {
         ["bg+"] = c.surface0,
         ["fg+"] = c.text,

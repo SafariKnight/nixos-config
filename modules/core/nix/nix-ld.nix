@@ -51,7 +51,7 @@
       dbus
       cups
       libcap
-      SDL2
+      # SDL2
       libusb1
       udev
       dbus-glib
@@ -71,8 +71,8 @@
       libuuid
       libogg
       libvorbis
-      SDL
-      SDL2_image
+      # SDL
+      # SDL2_image
       glew110
       openssl
       libidn
@@ -93,11 +93,11 @@
       libtiff
       pixman
       speex
-      SDL_image
-      SDL_ttf
-      SDL_mixer
-      SDL2_ttf
-      SDL2_mixer
+      # SDL_image
+      # SDL_ttf
+      # SDL_mixer
+      # SDL2_ttf
+      # SDL2_mixer
       libappindicator-gtk2
       libcaca
       libcanberra

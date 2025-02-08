@@ -3,7 +3,10 @@
   home.packages = with pkgs; [
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
-    gruvbox-kvantum
+    (catppuccin-kvantum.override {
+      accent = "mauve";
+      variant = "mocha";
+    })
 
     kdePackages.qt6ct
     libsForQt5.qt5ct
@@ -19,6 +22,6 @@
   };
   xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
     [General]
-    theme=Gruvbox-Dark-Brown
+    theme=catppuccin-mocha-mauve
   '';
 }
