@@ -199,7 +199,7 @@ in
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
       "$fileManager" = "dolphin";
-      "$browser" = "firefox";
+      "$browser" = "flatpak run app.zen_browser.zen";
       "$menu" =
         "rofi -show drun | xargs " + (if kp == "uwsm app --" then "uwsm app" else "hyprctl dispatch exec");
       "$kp" = kp;
