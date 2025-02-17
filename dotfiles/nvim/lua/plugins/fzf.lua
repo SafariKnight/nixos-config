@@ -1,6 +1,7 @@
 return {
   "ibhagwan/fzf-lua",
   command = { "FzfLua" },
+  enabled = false,
   opts = function()
     local c = require("catppuccin.palettes").get_palette("mocha")
     return {

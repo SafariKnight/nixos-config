@@ -1,18 +1,20 @@
+local dim = false
 return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
     animate = { enabled = true },
     bigfile = { enabled = true },
+    dim = { enabled = true },
     dashboard = { enabled = true },
+    explorer = { enabled = true },
+    image = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
+    picker = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
@@ -42,4 +44,54 @@ return {
       end,
     })
   end,
+  keys = {
+    {
+      "<leader><space>",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Find Files",
+    },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Files",
+    },
+    {
+      "<leader>fM",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Tree",
+    },
+    {
+      "<leader>ft",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Text",
+    },
+    {
+      "<leader>fu",
+      function()
+        Snacks.picker.undo()
+      end,
+      desc = "Undo",
+    },
+    {
+      "<leader>F",
+      function()
+        if dim then
+          Snacks.dim.disable()
+          dim = false
+        else
+          Snacks.dim()
+          dim = true
+        end
+      end,
+      desc = "Focus",
+    },
+  },
 }
