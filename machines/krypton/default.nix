@@ -27,11 +27,17 @@ in
     usb-modeswitch.enable = true;
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
+  };
+
+  qt = {
+    enable = true;
+    style = "kvantum";
   };
 
   users.users.${mainUser} = {

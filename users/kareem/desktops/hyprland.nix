@@ -2,6 +2,7 @@
   pkgs,
   config,
   osConfig,
+  inputs,
   ...
 }:
 let
@@ -34,37 +35,14 @@ in
     };
   };
   services.playerctld.enable = true;
-  programs.hyprlock = {
-    enable = false; # Still gotta integrate it better
-    settings = {
-      general = {
-        grace = 300;
-        no_fade_in = false;
-      };
-      background = [
-        {
-          path = "${config.home.homeDirectory}/nixos-config/users/kareem/desktops/wallpaper.png";
-        }
-      ];
-      input-field = [
-        {
-          size = "200, 50";
-          position = "0, -80";
-          monitor = "";
-          dots_center = true;
-          fade_on_empty = false;
-          font_color = "rgb(202, 211, 245)";
-          inner_color = "rgb(91, 96, 120)";
-          outer_color = "rgb(24, 25, 38)";
-          outline_thickness = 5;
-          placeholder_text = "\'<span foreground=\"##cad3f5\">Password...</span>\'";
-          shadow_passes = 2;
-        }
-      ];
-    };
-  };
   wayland.windowManager.hyprland = {
     enable = cfg.enable;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # plugins = [
+    #   inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
+    # ];
     xwayland.enable = true;
     systemd.enable = !cfg.uwsm;
     settings = {
@@ -216,7 +194,9 @@ in
         # Alternate Layouts #
         "$mod, V, togglefloating, "
         "$mod, P, pseudo,"
-        "$mod, S, togglesplit,"
+        "$mod SHIFT, S, togglesplit,"
+
+        "$mod, S, hyprtasking:toggle, all"
 
         # Move between Windows #
         "$mod, h, movefocus, l"

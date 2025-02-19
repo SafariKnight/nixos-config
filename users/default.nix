@@ -37,7 +37,7 @@ in
     # Move existing files to the .home.old suffix rather than failing
     # with a very long error message about it
     # WHY DOES IT KEEP FORCING ME TO CHANGE THIS
-    backupFileExtension = "home.old.old.old";
+    backupFileExtension = "home.old.old.old.old.old.old.old";
 
     # Additional specialArgs passed to Home Manager.
     # For reference, the config argument in nixos can be accessed

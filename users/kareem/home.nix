@@ -24,6 +24,7 @@
   home = {
     username = "kareem";
     homeDirectory = "/home/kareem";
+
     stateVersion = "24.05";
 
     packages = with pkgs; [

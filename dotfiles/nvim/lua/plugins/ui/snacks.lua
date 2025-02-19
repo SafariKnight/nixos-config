@@ -48,9 +48,9 @@ return {
     {
       "<leader><space>",
       function()
-        Snacks.picker.smart()
+        Snacks.picker.files()
       end,
-      desc = "Smart Find Files",
+      desc = "Find Files",
     },
     {
       "<leader>ff",
@@ -58,6 +58,13 @@ return {
         Snacks.picker.files()
       end,
       desc = "Files",
+    },
+    {
+      "<leader>fs",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Files",
     },
     {
       "<leader>fM",

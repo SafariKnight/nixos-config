@@ -23,10 +23,10 @@ _format:
   nix fmt &>/dev/null
 
 _rebuild flake: _format
-  nh os switch $(pwd) -H {{flake}} --no-nom
+  nh os switch $(pwd) -H {{flake}}
 
 _test flake: _format
-  nh os test $(pwd) -H {{flake}} --no-nom
+  nh os test $(pwd) -H {{flake}}
 
 _update flake: _format
-  nh os switch $(pwd) -H {{flake}} --no-nom -u
+  nh os switch $(pwd) -H {{flake}} -u

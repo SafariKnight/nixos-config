@@ -10,6 +10,27 @@ return {
     servers = {
       lua_ls = require("plugins.lsp.servers.lua_ls"),
       gdscript = {},
+      basedpyright = {
+        settings = {
+          basedpyright = {
+            disableOrganizeImports = true,
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting
+              ignore = { "*" },
+            },
+          },
+        },
+      },
+      ruff = {
+        cmd_env = { RUFF_TRACE = "messages" },
+        -- init_options = {
+        --   settings = {
+        --     lint = {
+        --       enable = false;
+        --     },
+        --   },
+        -- },
+      },
       markdown_oxide = {},
       gopls = {},
       nixd = {},
@@ -43,7 +64,7 @@ return {
         local format = function(bufnr)
           vim.lsp.buf.format({
             filter = function(lsp)
-              return lsp.name == "null-ls"
+              return lsp.name == "null-ls" or lsp.name == "ruff"
             end,
             bufnr = bufnr,
           })

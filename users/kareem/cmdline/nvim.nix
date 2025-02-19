@@ -44,6 +44,7 @@
     gofumpt
     golines
     goimports-reviser
+    ruff
 
     # Linters
     eslint
