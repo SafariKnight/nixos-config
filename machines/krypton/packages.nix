@@ -56,6 +56,7 @@
     inter
     noto-fonts
     jetbrains-mono
+    adwaita-fonts
     roboto
     hack-font
     iosevka

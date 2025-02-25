@@ -9,25 +9,32 @@ return {
     pairs = {},
     icons = {},
     snippets = {},
-    sessions = {},
+    sessions = {
+      autoread = false, -- Enter via snacks dashboard
+      autowrite = true,
+      directory = "~/.vim/sessions",
+      file = "",
+    },
     surround = {
       mappings = {
         add = "gza",
-        delete = "gzd",
-        find = "gzf",
-        find_let = "gzF",
-        highlight = "gzh",
-        replace = "gzr",
-        update_n_lines = "gzn",
-
-        suffix_last = "l",
-        suffix_next = "n",
       },
     },
   },
   config = function(_, opts)
     for module, options in pairs(opts) do
       require("mini." .. module).setup(options)
+      if module == "sessions" then
+        vim.api.nvim_create_user_command("Mksession", function()
+          local dir, _ = string.gsub(vim.fn.getcwd(), "/", "%%")
+          MiniSessions.write(dir, { verbose = false })
+        end, {})
+
+        vim.api.nvim_create_user_command("Delsession", function()
+          local dir, _ = string.gsub(vim.fn.getcwd(), "/", "%%")
+          MiniSessions.delete(dir, { force = true, verbose = false })
+        end, {})
+      end
     end
   end,
 }

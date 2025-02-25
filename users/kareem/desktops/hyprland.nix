@@ -40,9 +40,9 @@ in
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage =
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    # plugins = [
-    #   inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
-    # ];
+    plugins = [
+      inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
+    ];
     xwayland.enable = true;
     systemd.enable = !cfg.uwsm;
     settings = {
@@ -84,6 +84,14 @@ in
           range = 2;
           render_power = 10;
           color = "rgba(1a1a1aee)";
+        };
+      };
+
+      plugin = {
+        hyprtasking = {
+          bg_color = "0x1e1e2e";
+          gap_size = "8.f";
+          exit_behavior = "hovered";
         };
       };
       animations = {
@@ -187,7 +195,7 @@ in
         ",F10,pass, vesktop"
 
         ### Windows ###
-        "$mod, Q, killactive, " # Close windows
+        "$mod, Q, hyprtasking:killhovered, " # Close windows
         "$mod, Z, fullscreenstate, 1" # Zoom
         "$mod, F, fullscreen"
 

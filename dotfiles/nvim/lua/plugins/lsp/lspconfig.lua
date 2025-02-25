@@ -41,22 +41,22 @@ return {
       svelte = {},
     },
   },
+  init = function()
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = require("config.icons").diagnostics.BoldError,
+          [vim.diagnostic.severity.WARN] = require("config.icons").diagnostics.BoldWarning,
+          [vim.diagnostic.severity.HINT] = require("config.icons").diagnostics.BoldHint,
+          [vim.diagnostic.severity.INFO] = require("config.icons").diagnostics.BoldInformation,
+        },
+      },
+    })
+  end,
   config = function(_, opts)
-    local signs = {
-      Error = require("config.icons").BoldError,
-      Warn = require("config.icons").BoldWarning,
-      Hint = require("config.icons").BoldHint,
-      Info = require("config.icons").BoldInformation,
-    }
-
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
-
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "LSP actions",
-      callback = function(client, buffer)
+      callback = function(_, buffer)
         local map = function(mode, lhs, rhs, options)
           options = vim.tbl_deep_extend("force", options, { buffer = buffer })
           vim.keymap.set(mode, lhs, rhs, options)

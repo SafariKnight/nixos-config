@@ -15,15 +15,12 @@
     shell-integration-features = "no-cursor, sudo, title";
 
     # Font
-    # font-family = "Berkeley Mono";
-    font-family = "Iosevka";
-
-    # font-family = "JetBrains Mono";
-    # font-style = "SemiBold";
-    # font-style-bold = "Bold";
-    # font-style-italic = "SemiBold Italic";
-    # font-style-bold-italic = "Bold Italic";
-    font-size = 15;
+    font-family = "JetBrains Mono";
+    font-style = "SemiBold";
+    font-style-bold = "Bold";
+    font-style-italic = "SemiBold Italic";
+    font-style-bold-italic = "Bold Italic";
+    font-size = 13;
 
     keybind = [
       "ctrl+j=goto_split:bottom"
