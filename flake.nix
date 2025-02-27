@@ -37,11 +37,6 @@
 
     nur.url = "github:nix-community/NUR";
 
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -176,10 +176,6 @@ in
         # Remove Wallpaper animations
         "noanim, swww-daemon"
         "noanim, wallpaper"
-
-        # Ags Animations
-        "animation slide top, audio-flyout"
-        "animation slide right, notifications"
       ];
 
       "$mod" = "SUPER";
