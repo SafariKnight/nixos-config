@@ -5,6 +5,7 @@
   programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs; [
+    ungoogled-chromium
     vscode
     gpu-screen-recorder
     anydesk

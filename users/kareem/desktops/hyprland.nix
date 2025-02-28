@@ -167,6 +167,9 @@ in
 
         "float,class:(org.pulseaudio.pavucontrol)"
         "size 1280 720,class:(org.pulseaudio.pavucontrol)"
+
+        "noblur, class:^(Chromium)$"
+        "noshadow, class:^(Chromium)$"
       ];
       layerrule = [
         # Remove Grimblast animation
@@ -181,7 +184,7 @@ in
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
       "$fileManager" = "dolphin";
-      "$browser" = "flatpak run app.zen_browser.zen";
+      "$browser" = "chromium";
       "$menu" =
         "rofi -show drun | xargs " + (if kp == "uwsm app --" then "uwsm app" else "hyprctl dispatch exec");
       "$kp" = kp;

@@ -10,7 +10,7 @@ return {
       "lazy.nvim",
     },
     integrations = {
-      lspconfig = true;
-    }
+      lspconfig = true,
+    },
   },
 }

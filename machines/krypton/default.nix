@@ -40,6 +40,11 @@ in
     style = "kvantum";
   };
 
+  # services.xserver = {
+  #   enable = true;
+  #   videoDrivers = [ "amdgpu" ];
+  # };
+
   users.users.${mainUser} = {
     isNormalUser = true;
     extraGroups = [
