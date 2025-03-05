@@ -182,7 +182,7 @@ in
       ];
 
       "$mod" = "SUPER";
-      "$terminal" = "ghostty";
+      "$terminal" = "footclient";
       "$fileManager" = "dolphin";
       "$browser" = "chromium";
       "$menu" =
@@ -277,8 +277,8 @@ in
 
         # Terminal Apps #
         "$mod, T, exec, $kp $terminal" # Terminal
-        "$mod SHIFT, E, exec, $kp $terminal --class=term.app -e 'yazi' " # Yazi (File Manager)
-        "$mod SHIFT, V, exec, $kp $terminal --class=term.applet -e 'clipse' " # Clipse (Clipboard Manager)
+        "$mod SHIFT, E, exec, $kp $terminal -a term.app 'yazi' " # Yazi (File Manager)
+        "$mod SHIFT, V, exec, $kp $terminal -a term.applet 'clipse' " # Clipse (Clipboard Manager)
       ];
       bindm = [
         "$mod, mouse:272, movewindow"

@@ -40,7 +40,9 @@ let
             networking.hostName = hostname;
             nixpkgs = {
               hostPlatform = system;
-              flake.source = nixpkgs.outPath;
+              flake = {
+                source = nixpkgs.outPath;
+              };
             };
           })
           modules

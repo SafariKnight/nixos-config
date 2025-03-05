@@ -4,6 +4,7 @@
     ./tmux.nix
     ./lazygit.nix
     ./fish.nix
+    ./foot.nix
     # ./zellij.nix
     ./direnv.nix
     # ./kitty.nix

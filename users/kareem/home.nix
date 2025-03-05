@@ -5,6 +5,7 @@
     ./fuzzel.nix
     ./rofi.nix
     ./firefox.nix
+    ./index.nix
     # ./dunst.nix
 
     ./desktops
@@ -30,9 +31,7 @@
       miru
       stremio
       qbittorrent-enhanced
-      fastfetch # NEED TO FLEX
-      # adwaita-qt
-      # adwaita-qt6
+      fastfetch
       gparted
       xorg.xhost
       thunderbird

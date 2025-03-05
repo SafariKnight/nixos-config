@@ -1,11 +1,13 @@
 { pkgs, ... }:
 {
-  home.packages = [ pkgs.gandhi-sans ];
+  home.packages = [
+    pkgs.gandhi-sans
+  ];
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
       uosc
-      # thumbfast
+      thumbfast
     ];
     config = {
       profile = "gpu-hq";

@@ -3,12 +3,13 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    systemd.enable = true;
     package = pkgs.swayfx;
 
     checkConfig = false;
     config = {
       menu = "rofi -show drun | xargs swaymsg exec --";
-      terminal = "ghostty";
+      terminal = "footclient";
       modifier = "Mod4"; # Super key
       input = {
         "*" = {

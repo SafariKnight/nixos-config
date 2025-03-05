@@ -18,7 +18,7 @@
       ];
     };
     interfaces.wlp9s0f4u1 = {
-      mtu = 1478;
+      # mtu = 1478;
       name = "wlan0";
     };
   };

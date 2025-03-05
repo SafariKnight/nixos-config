@@ -5,13 +5,13 @@
   programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs; [
+    vivaldi
     ungoogled-chromium
     vscode
     gpu-screen-recorder
     anydesk
     rustdesk
     gpu-screen-recorder-gtk
-    # usb-modeswitch
     wget
     git
     wl-clipboard
@@ -25,7 +25,6 @@
     btop
     btrfs-progs
     feh
-    kdenlive
     trash-cli
     bat
     nixfmt-rfc-style
@@ -35,19 +34,15 @@
     libnotify
     kdePackages.ark
     qalculate-qt
-    onlyoffice-desktopeditors
-    libreoffice
+    # libreoffice
     libqalculate
-    # inputs.ghostty.packages.${pkgs.system}.default
     ghostty
     usbutils
     dwarfs
     bubblewrap
     fuse-overlayfs
     fuse
-    gopeed
     python313
-    input-remapper
     obsidian
     pkgs.devenv
   ];

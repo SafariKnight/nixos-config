@@ -40,11 +40,6 @@ in
     style = "kvantum";
   };
 
-  # services.xserver = {
-  #   enable = true;
-  #   videoDrivers = [ "amdgpu" ];
-  # };
-
   users.users.${mainUser} = {
     isNormalUser = true;
     extraGroups = [
@@ -56,5 +51,12 @@ in
       "libvirt"
     ];
     shell = pkgs.bash;
+  };
+  programs.command-not-found.enable = false;
+
+  programs.sway = {
+    enable = true;
+    xwayland.enable = true;
+    package = pkgs.swayfx;
   };
 }

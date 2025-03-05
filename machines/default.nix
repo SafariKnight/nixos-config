@@ -56,6 +56,12 @@
         hm
         homes
       ];
+
+      index-db = [
+        inputs.nix-index-database.darwinModules.nix-index
+        # { programs.nix-index-database.comma.enable = true; }
+      ];
+
       modules = ../modules;
       coreModules = modules + /core;
       options = modules + /options;
@@ -95,6 +101,7 @@
           modules = [ graphical ];
           extraModules = [
             home
+            index-db
           ];
         };
       };
